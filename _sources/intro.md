@@ -13,5 +13,10 @@ The workshops can be found via the index on the left under the 'Content' heading
    - Using git and GitHub for version control and collaborative working
    - Making your analyses reproducible using Docker and Dockerhub
 
+If you have any questions, please feel free to email at drandrewjstewart@gmail.com or send me a DM on [Twitter](https://twitter.com/ajstewart_lang).
+
+
+This website was written using Jupyter Book and was very much inspired (by the UBC Jupyter Days Book)https://ubc-dsci.github.io/jupyterdays/index.html
+
 ![](by.png)
 
