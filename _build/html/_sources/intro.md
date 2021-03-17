@@ -12,3 +12,6 @@ Each of the workshops can be found via the index on the left. We'll be covering 
    - Data analysis using the Numpy and pandas libraries
    - Using git and GitHub for version control and collaborative working
    - Making your analyses reproducible using Docker and Dockerhub
+
+![](by.png){ width=50% }
+
