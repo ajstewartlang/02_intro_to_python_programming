@@ -9,4 +9,4 @@ In this first workshop we will cover how to install Python (plus Jupyter noteboo
 
 </center>
 
-You can download the slides in .pdf format from [here](http://localhost:8888/doc/tree/adopting_open_practices.pdf) and in open document format from [here].
+You can view and download the slides in a variety of formats from [here](https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing).

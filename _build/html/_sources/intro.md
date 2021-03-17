@@ -5,7 +5,7 @@ This website contains the material I teach on the BIOL63162 Scientific Programmi
 
 Each of the sessions is intended to run as a ~2 hour workshop. Each contains a mix of recorded material, written material, and some challenges for you to work on.
 
-Each of the workshops can be found via the index on the left. We'll be covering the following topics:
+The workshops can be found via the index on the left under the 'Content' heading. We'll be covering the following topics:
 
    - Using Conda to create reproducible Python environments
    - Programming in Python using Jupyter Notebooks
@@ -13,5 +13,10 @@ Each of the workshops can be found via the index on the left. We'll be covering 
    - Using git and GitHub for version control and collaborative working
    - Making your analyses reproducible using Docker and Dockerhub
 
-![](by.png){ width=50% }
+If you have any questions, please feel free to email at drandrewjstewart@gmail.com or send me a DM on [Twitter](https://twitter.com/ajstewart_lang).
+
+
+This website was built using [Jupyter Book](https://jupyterbook.org/intro.html) and was very much inspired by the [UBC Jupyter Days Book](https://ubc-dsci.github.io/jupyterdays/index.html) course material.
+
+![](by.png)
 
