@@ -7,8 +7,8 @@ Each of the sessions is intended to run as a ~2 hour workshop. Each contains a m
 
 Each of the workshops can be found via the index on the left. We'll be covering the following topics:
 
-    • Using Conda to create reproducible Python environments
-    • Programming in Python using Jupyter Notebooks
-    • Data analysis using the Numpy and pandas Python libraries
-    • How to use git and GitHub for version control and collaborative working
-    • Making your analyses reproducible using Docker and Dockerhub
+   - Using Conda to create reproducible Python environments
+   - Programming in Python using Jupyter Notebooks
+   - Data analysis using the Numpy and pandas libraries
+   - Using git and GitHub for version control and collaborative working
+   - Making your analyses reproducible using Docker and Dockerhub
