@@ -42,6 +42,7 @@ On Windows machines, you can access the command line interface (CLI) using the A
 To check your Conda installation has worked, open a Terminal window and at the prompt type:
 
 \$ conda activate
+
 \$ python --version
 
 This will print the version of Python you are running. In the terminal, you can start a Jupyter Notebook running in your default Conda environment by typing:
