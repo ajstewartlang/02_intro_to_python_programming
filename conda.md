@@ -118,11 +118,11 @@ We’re now ready to fire up a Jupyter Notebook. To do that, type:
 
     (data_science)$ jupyter notebook
 
-In the video, you'll be able to see what happens when the Jupyter Notebook opens in our browser. Follow the steps in the video and save your Python script as a `.py` file.
+In the video, you'll be able to see what happens when the Jupyter Notebook opens in our browser. Follow the steps in the video and save your Python script as `hello_world.py`. The `.py` extension indicates that it is a Python script.
 
 ## Running the .py script from the CLI
 
-We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` like below.
+We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` at the prompt:
 
     (data_science)$ python hello_world.py
     hello world!
@@ -133,11 +133,14 @@ Obviously this is a trivial example, but it’s useful to remember that you can 
 
 Hopefully I’ve convinced you that Python is a language worth learning - it’s a general purpose programming language and is used widely in data science.
 
-You should understand why it’s important to ensure you write your Python code in Conda environments where Python library versions are managed to ensure your Python script is reproducible.
+You should understand why it’s important to ensure you write your Python scipts in Conda environments where Python library versions are managed. This will ensure that your Python scripts are reproducible.
 
 You should now have a working Python installation on a machine you can access and be ready to start writing some Python code in a Jupyter Notebook!
 
+<center>
 
+[![link_to_slides](images/awesome.gif)]
 
+</center>
     
 
