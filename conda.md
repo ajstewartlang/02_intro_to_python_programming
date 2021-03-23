@@ -108,7 +108,7 @@ If we need to export all the information about our environment (perhaps to share
 
 ## Creating a new Python shell and Jupyter Kernel
 
-Make sure you are not in the default environment (type conda deactivate if (base) is displayed in front of your prompt). In the following, I activate my new environment, install the ipykernel package (if it’s not already present) and create the kernel for use in Jupyter.
+In order to run a Jupyter Notebook in our new environment we need to connect them together. In the following, I activate my new environment which I've previously called `data_science`, install the `ipykernel` package (if it’s not already present) and create the kernel for use in Jupyter where it will appear with the name `Python (data_science)`.
  
     (base)$ conda activate data_science
     (data_science)$ conda install ipykernel
