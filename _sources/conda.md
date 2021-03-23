@@ -76,6 +76,47 @@ Typing conda list will list the packages and version numbers in the currently ac
     asn1crypto                1.4.0                      py_0   
     ...
 
+If we need to export all the information about our environment (perhaps to share with others or to build a Docker image), we can do that using the following to produce output in YAML format:
+
+    $ conda env export
+    name: data_science
+    channels:
+      - defaults
+    dependencies:
+      - _libgcc_mutex=0.1=main
+      - alabaster=0.7.12=py_0
+      - anaconda=2020.11=py38_0
+      - anaconda-client=1.7.2=py38_0
+      - anaconda-project=0.8.4=py_0
+      - argh=0.26.2=py38_0
+      - argon2-cffi=20.1.0=py38h7b6447c_1
+      - asn1crypto=1.4.0=py_0
+    ...
+
+## Creating a new Python shell and Jupyter Kernel
+
+Make sure you are not in the default environment (type conda deactivate if (base) is displayed in front of your prompt). In the following, I activate my new environment, install the ipykernel package (if it’s not already present) and create the kernel for use in Jupyter.
+ 
+    (base)$ conda activate data_science
+    (data_science)$ conda install ipykernel
+    (data_science)$ python -m ipykernel install --user --name data_science --display-name "Python (data_science)"
+
+We’re now ready to fire up a Jupyter Notebook. To do that, type: 
+
+    (data_science)$ jupyter notebook
+
+In the video, you'll be able to see what happens when the Jupyter Notebook opens in our browser. Follow the steps in the video and save your Python script as a `.py` file.
+
+## Running the .py script from the CLI
+
+We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type python `hello_world.py` like below.
+
+    (data_science)$ python hello_world.py
+    hello world!
+    Our two variables added together equals 3
+
+Obviously this is a trivial example, but it’s useful to remember that you can run Python scripts like this rather than having to manually run things in Jupyter Notebooks or another interactive environment.
+
 
     
 

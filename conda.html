@@ -224,6 +224,16 @@
    Creating a new Python environment
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-new-python-shell-and-jupyter-kernel">
+   Creating a new Python shell and Jupyter Kernel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-py-script-from-the-cli">
+   Running the .py script from the CLI
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -296,6 +306,47 @@ asn1crypto                1.4.0                      py_0
 ...
 </pre></div>
 </div>
+<p>If we need to export all the information about our environment (perhaps to share with others or to build a Docker image), we can do that using the following to produce output in YAML format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda env export
+name: data_science
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - alabaster=0.7.12=py_0
+  - anaconda=2020.11=py38_0
+  - anaconda-client=1.7.2=py38_0
+  - anaconda-project=0.8.4=py_0
+  - argh=0.26.2=py38_0
+  - argon2-cffi=20.1.0=py38h7b6447c_1
+  - asn1crypto=1.4.0=py_0
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-new-python-shell-and-jupyter-kernel">
+<h2>Creating a new Python shell and Jupyter Kernel<a class="headerlink" href="#creating-a-new-python-shell-and-jupyter-kernel" title="Permalink to this headline">¶</a></h2>
+<p>Make sure you are not in the default environment (type conda deactivate if (base) is displayed in front of your prompt). In the following, I activate my new environment, install the ipykernel package (if it’s not already present) and create the kernel for use in Jupyter.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)$ conda activate data_science
+(data_science)$ conda install ipykernel
+(data_science)$ python -m ipykernel install --user --name data_science --display-name &quot;Python (data_science)&quot;
+</pre></div>
+</div>
+<p>We’re now ready to fire up a Jupyter Notebook. To do that, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(data_science)$ jupyter notebook
+</pre></div>
+</div>
+<p>In the video, you’ll be able to see what happens when the Jupyter Notebook opens in our browser. Follow the steps in the video and save your Python script as a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file.</p>
+</div>
+<div class="section" id="running-the-py-script-from-the-cli">
+<h2>Running the .py script from the CLI<a class="headerlink" href="#running-the-py-script-from-the-cli" title="Permalink to this headline">¶</a></h2>
+<p>We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment by the fact that <code class="docutils literal notranslate"><span class="pre">(data_science)</span></code> is presented at the start of the prompt. From the folder where you’ve saved the <code class="docutils literal notranslate"><span class="pre">hello_world.py</span></code> script, you can type python <code class="docutils literal notranslate"><span class="pre">hello_world.py</span></code> like below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(data_science)$ python hello_world.py
+hello world!
+Our two variables added together equals 3
+</pre></div>
+</div>
+<p>Obviously this is a trivial example, but it’s useful to remember that you can run Python scripts like this rather than having to manually run things in Jupyter Notebooks or another interactive environment.</p>
 </div>
 </div>
 
