@@ -126,9 +126,17 @@ We can run Python scripts from the command line - just make sure you’re runnin
 
     (data_science)$ python hello_world.py
     hello world!
-    Our two variables added together equals 3
 
 Obviously this is a trivial example, but it’s useful to remember that you can run Python scripts like this rather than having to manually run things in Jupyter Notebooks or another interactive environment.
+
+## Summary 
+
+Hopefully I’ve convinced you that Python is a language worth learning - it’s a general purpose programming language and is used widely in data science.
+
+You should understand why it’s important to ensure you write your Python code in Conda environments where Python library versions are managed to ensure your Python script is reproducible.
+
+You should now have a working Python installation on a machine you can access and be ready to start writing some Python code in a Jupyter Notebook!
+
 
 
     
