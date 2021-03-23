@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# remember to conda activate jupbooks
+
 # build using Jupyter Books
 jb build ./
 
