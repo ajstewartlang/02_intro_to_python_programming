@@ -55,8 +55,27 @@ This should automatically open via your web browser. If it doesn't open automati
 
 Rather than just use the default environment, it’s better practice from a reproducibility point of view to create a separate environment for each type of project. That way, you can have different packages - and different versions of each package - in different environments. Updating a package in one environment won’t affect the package in other environments - all this is managed via `conda`.
 
-Below I use the conda create command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2`).
+Below I use the conda create command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2` and `pandas=1.1.3`). I could even specify the version of Python I want my adding `Python=3.7.1`.
 
     $ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
+    
+Typing conda list will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.
+
+    $ conda activate data_science
+    $ conda list
+    # packages in environment at /home/andrew/anaconda3/envs/data_science:
+    #
+    # Name                    Version                   Build  Channel
+    _libgcc_mutex             0.1                        main  
+     alabaster                 0.7.12                     py_0  
+    anaconda                  2020.11                  py38_0  
+    anaconda-client           1.7.2                    py38_0  
+    anaconda-project          0.8.4                      py_0  
+    argh                      0.26.2                   py38_0  
+    argon2-cffi               20.1.0           py38h7b6447c_1  
+    asn1crypto                1.4.0                      py_0   
+    ...
+
+
     
 
