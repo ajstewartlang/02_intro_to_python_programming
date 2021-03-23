@@ -245,7 +245,7 @@
 <p> </p>
 <p>You can view and download the slides in a variety of formats by clicking on the image below.</p>
 <center>
-<p><a class="reference external" href="https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing"><img alt="link_to_slides| 50" src="_images/conda_slides.png" /></a></p>
+<p><a class="reference external" href="https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing"><img alt="link_to_slides" src="_images/conda_slides.png" /></a></p>
 </center>
 <div class="section" id="why-python">
 <h2>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">¶</a></h2>
@@ -274,7 +274,11 @@ Python 3.8.8
 </div>
 <div class="section" id="creating-a-new-python-environment">
 <h2>Creating a new Python environment<a class="headerlink" href="#creating-a-new-python-environment" title="Permalink to this headline">¶</a></h2>
-<p>kk</p>
+<p>Rather than just use the default environment, it’s better practice from a reproducibility point of view to create a separate environment for each type of project. That way, you can have different packages - and different versions of each package - in different environments. Updating a package in one environment won’t affect the package in other environments - all this is managed via <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<p>Below I use the conda create command to create a new virtual environment that I’m calling <code class="docutils literal notranslate"><span class="pre">data_science</span></code>. If I want just a few specific packages, I’d add the package names after <code class="docutils literal notranslate"><span class="pre">data_science</span></code> (I can also add the package versions too here if I want, e.g., <code class="docutils literal notranslate"><span class="pre">numpy=1.19.2</span></code>).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
+</pre></div>
+</div>
 </div>
 </div>
 
