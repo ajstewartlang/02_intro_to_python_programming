@@ -139,7 +139,7 @@ You should now have a working Python installation on a machine you can access an
 
 <center>
 
-[![link_to_slides](images/awesome.gif)]
+![link_to_slides](images/awesome.gif)
 
 </center>
     
