@@ -15,7 +15,7 @@ You can view and download the slides in a variety of formats by clicking on the 
 
 <center>
 
-[![link_to_slides](images/conda_slides.png | width=25x)](https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing)
+[![link_to_slides](images/conda_slides.png){:height="50%" width="50%"}](https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing)
     
 </center>
 
