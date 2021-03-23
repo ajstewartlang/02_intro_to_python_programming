@@ -43,12 +43,13 @@ To check your Conda installation has worked, open a Terminal window and at the p
 
     $ conda activate
     $ python --version
+    Python 3.8.8
 
-This will print the version of Python you are running. In the terminal, you can start a Jupyter Notebook running in your default Conda environment by typing:
+This will print the version of Python you are running - which in my case ia Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your default Conda environment by typing:
 
     $ jupyter notebook
 
-Of course, we just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
+This should automatically open via your web browser. If it doesn't open automatically, just copy and paste the link in the Terminal to your web browser manually. Of course, we just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
 
 ## Creating a new Python environment
 
