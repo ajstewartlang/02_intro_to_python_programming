@@ -42,12 +42,12 @@ On Windows machines, you can access the command line interface (CLI) using the A
 To check your Conda installation has worked, open a Terminal window and at the prompt type:
 
     $ conda activate
-    $ python --version
+    (base)$ python --version
     Python 3.8.8
 
 This will print the version of Python you are running - which in my case ia Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your default Conda environment by typing:
 
-    $ jupyter notebook
+    (base)$ jupyter notebook
 
 This should automatically open via your web browser. If it doesn't open automatically, just copy and paste the link in the Terminal to your web browser manually. Of course, we just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
 
@@ -57,12 +57,12 @@ Rather than just use the default environment, it’s better practice from a repr
 
 Below I use the conda create command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2` and `pandas=1.1.3`). I could even specify the version of Python I want my adding `Python=3.7.1`.
 
-    $ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
+    (base)$ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
     
 Typing conda list will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.
 
-    $ conda activate data_science
-    $ conda list
+    (base)$ conda activate data_science
+    (data_science)$ conda list
     # packages in environment at /home/andrew/anaconda3/envs/data_science:
     #
     # Name                    Version                   Build  Channel
@@ -78,7 +78,7 @@ Typing conda list will list the packages and version numbers in the currently ac
 
 If we need to export all the information about our environment (perhaps to share with others or to build a Docker image), we can do that using the following to produce output in YAML format:
 
-    $ conda env export
+    (data_science)$ conda env export
     name: data_science
     channels:
       - defaults
@@ -109,7 +109,7 @@ In the video, you'll be able to see what happens when the Jupyter Notebook opens
 
 ## Running the .py script from the CLI
 
-We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type python `hello_world.py` like below.
+We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` like below.
 
     (data_science)$ python hello_world.py
     hello world!
