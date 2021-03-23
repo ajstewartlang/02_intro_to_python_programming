@@ -45,7 +45,7 @@ To check your Conda installation has worked, open a Terminal window and at the p
     (base)$ python --version
     Python 3.8.8
 
-This will print the version of Python you are running - which in my case ia Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your default Conda environment by typing:
+The first command activates the base (or default) conda environment. The second command will print the version of Python you are running - which in my case is Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your base Conda environment by typing:
 
     (base)$ jupyter notebook
 
@@ -53,13 +53,13 @@ This should automatically open via your web browser. If it doesn't open automati
 
 ## Creating a new Python environment
 
-Rather than just use the default environment, it’s better practice from a reproducibility point of view to create a separate environment for each type of project. That way, you can have different packages - and different versions of each package - in different environments. Updating a package in one environment won’t affect the package in other environments - all this is managed via `conda`.
+Rather than just use the default base environment, it’s better practice from a reproducibility point of view to create a separate environment for each project you are working on. That way, you can have different packages - and different versions of each package (and even different versions of Python) - in different environments. Updating a package or the version of Python in one environment won’t affect the package in other environments - all this is managed via `conda`.
 
-Below I use the conda create command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2` and `pandas=1.1.3`). I could even specify the version of Python I want my adding `Python=3.7.1`.
+Below I use the `conda create` command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2` and `pandas=1.1.3`). I could even specify the version of Python I want my adding `Python=3.7.1`.
 
     (base)$ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
     
-Typing conda list will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.
+Typing `conda list` will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.
 
     (base)$ conda activate data_science
     (data_science)$ conda list
