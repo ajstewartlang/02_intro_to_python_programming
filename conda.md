@@ -15,7 +15,7 @@ You can view and download the slides in a variety of formats by clicking on the 
 
 <center>
 
-[![link_to_slides| 50](images/conda_slides.png)](https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing)
+[![link_to_slides](images/conda_slides.png)](https://docs.google.com/presentation/d/18H_H-qQLbtFSF-jjUIQqHGEN7WxBpOuIfxcHF7f7cnA/edit?usp=sharing)
     
 </center>
 
@@ -53,4 +53,10 @@ This should automatically open via your web browser. If it doesn't open automati
 
 ## Creating a new Python environment
 
-kk
+Rather than just use the default environment, it’s better practice from a reproducibility point of view to create a separate environment for each type of project. That way, you can have different packages - and different versions of each package - in different environments. Updating a package in one environment won’t affect the package in other environments - all this is managed via `conda`.
+
+Below I use the conda create command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2`).
+
+    $ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
+    
+
