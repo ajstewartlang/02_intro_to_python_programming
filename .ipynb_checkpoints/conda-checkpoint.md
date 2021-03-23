@@ -58,7 +58,20 @@ Rather than just use the default base environment, it’s better practice from a
 Below I use the `conda create` command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2` and `pandas=1.1.3`). I could even specify the version of Python I want my adding `Python=3.7.1`.
 
     (base)$ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
-    
+
+We can check what environments we now have on our machine by typing:
+
+    (base)$ conda info -e 
+
+    # conda environments:
+    #
+    base                  *  /home/andrew/anaconda3
+    data_science          /home/andrew/anaconda3/envs/data_science
+
+The * indicates which environment we are currently in. Note, if we wanted to, we can delete the `data_science` environment using the following. Note, we cannot delete an environment if we are in it. To exit an environment, type `conda deactivate`.
+
+    (base)$ conda remove -n data_science --all
+
 Typing `conda list` will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.
 
     (base)$ conda activate data_science
@@ -67,7 +80,7 @@ Typing `conda list` will list the packages and version numbers in the currently 
     #
     # Name                    Version                   Build  Channel
     _libgcc_mutex             0.1                        main  
-     alabaster                 0.7.12                     py_0  
+    alabaster                 0.7.12                     py_0  
     anaconda                  2020.11                  py38_0  
     anaconda-client           1.7.2                    py38_0  
     anaconda-project          0.8.4                      py_0  
