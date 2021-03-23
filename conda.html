@@ -339,7 +339,7 @@ dependencies:
 </div>
 <div class="section" id="creating-a-new-python-shell-and-jupyter-kernel">
 <h2>Creating a new Python shell and Jupyter Kernel<a class="headerlink" href="#creating-a-new-python-shell-and-jupyter-kernel" title="Permalink to this headline">¶</a></h2>
-<p>Make sure you are not in the default environment (type conda deactivate if (base) is displayed in front of your prompt). In the following, I activate my new environment, install the ipykernel package (if it’s not already present) and create the kernel for use in Jupyter.</p>
+<p>In order to run a Jupyter Notebook in our new environment we need to connect them together. In the following, I activate my new environment which I’ve previously called <code class="docutils literal notranslate"><span class="pre">data_science</span></code>, install the <code class="docutils literal notranslate"><span class="pre">ipykernel</span></code> package (if it’s not already present) and create the kernel for use in Jupyter where it will appear with the name <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">(data_science)</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)$ conda activate data_science
 (data_science)$ conda install ipykernel
 (data_science)$ python -m ipykernel install --user --name data_science --display-name &quot;Python (data_science)&quot;
