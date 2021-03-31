@@ -35,14 +35,14 @@ print(my_favourite_number_text, my_favourite_number)
 
 How might you modify the above code so that it displays the following:
     
-    My favourite number is 25.
+    25 is my favourite number.
     
 Have a think and then click below for one way to do this.
 
 ```{admonition} Click the button to reveal answer
 :class: dropdown 
-    my_favourite_number_text = "is my favourite number."
     my_favourite_number = 25
+    my_favourite_number_text = "is my favourite number."
     print(my_favourite_number, my_favourite_number_text)
 ```
 
