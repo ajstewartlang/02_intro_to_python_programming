@@ -220,6 +220,21 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types-and-variable-assignment">
+   Data Types and Variable Assignment
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -235,6 +250,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/HjF98JryayQ&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -242,8 +258,55 @@
 <div class="cell_output docutils container">
 <div class="output text_html"><div style="text-align: center">
 <iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
+
 </div>
 </div></div>
+</div>
+<div class="section" id="data-types-and-variable-assignment">
+<h2>Data Types and Variable Assignment<a class="headerlink" href="#data-types-and-variable-assignment" title="Permalink to this headline">¶</a></h2>
+<p>This is a Jupyter Notebook. It allows use to write text in Markdown format (as we have in this block), and also run Python code and see the output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> in your terminal if you don’t). Set up a new Notecook by typing <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> in a terminal window. This should launch Jupyter Notebooks running in your browser.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate
+jupyter notebook
+</pre></div>
+</div>
+<p>Start a new Python script in your <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">(data_science)</span></code> environment.</p>
+<p><img alt="" src="_images/new_notebook.png" /></p>
+<p>Some of the most common data types in Python are integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and floating point (<code class="docutils literal notranslate"><span class="pre">float</span></code>) for representing numbers, and strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>) for representing text. We can assign values to variables - the data type is dynamically inferred by Python (in contrast to other languages such as C++ where they have to be explicitly declared). You can check what type a variable by using <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+<p>Try running the following two lines of Python code in your Jupyter Notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;Andrew&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see that the variable <code class="docutils literal notranslate"><span class="pre">my_name</span></code> has been identified as type <code class="docutils literal notranslate"><span class="pre">str</span></code> as it is contains text.</p>
+<p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe to store temporary values). You can print the content of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The print() function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(my_favourite_number_text,</span> <span class="pre">my_favourite_number)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s2">&quot;My favourite number is:&quot;</span>
+<span class="n">my_favourite_number</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_favourite_number_text</span><span class="p">,</span> <span class="n">my_favourite_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My favourite number is: 25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to reveal answer</p>
+<p>Some hidden toggle content!</p>
+<p>print(“this is the answer”)</p>
+</div>
 </div>
 </div>
 
