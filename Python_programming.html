@@ -231,6 +231,11 @@
    Data Types and Variable Assignment
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -271,7 +276,7 @@ jupyter notebook
 </div>
 <p>Start a new Python script in your <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">(data_science)</span></code> environment.</p>
 <p><img alt="" src="_images/new_notebook.png" /></p>
-<p>Some of the most common data types in Python are integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and floating point (<code class="docutils literal notranslate"><span class="pre">float</span></code>) for representing numbers, and strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>) for representing text. We can assign values to variables - the data type is dynamically inferred by Python (in contrast to other languages such as C++ where they have to be explicitly declared). You can check what type a variable by using <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+<p>Some of the most common data types in Python are integer (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and floating point (<code class="docutils literal notranslate"><span class="pre">float</span></code>) for representing numbers, and strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>) for representing text. We can assign values to variables - the data type is dynamically inferred by Python (in contrast to other languages such as C++ where they have to be explicitly declared). You can check what type a variable is by using <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
 <p>Try running the following two lines of Python code in your Jupyter Notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -287,7 +292,7 @@ jupyter notebook
 </div>
 </div>
 <p>In the output, you should see that the variable <code class="docutils literal notranslate"><span class="pre">my_name</span></code> has been identified as type <code class="docutils literal notranslate"><span class="pre">str</span></code> as it is contains text.</p>
-<p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe to store temporary values). You can print the content of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The print() function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(my_favourite_number_text,</span> <span class="pre">my_favourite_number)</span></code>.</p>
+<p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the content of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The <code class="docutils literal notranslate"><span class="pre">print</span></code> function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(first_variable_name,</span> <span class="pre">second_variable_name)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s2">&quot;My favourite number is:&quot;</span>
@@ -306,7 +311,6 @@ jupyter notebook
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>25 is my favourite number.
 </pre></div>
 </div>
-<p>Have a think and then click below for one way to do this.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Click the button to reveal answer</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_favourite_number = 25
@@ -316,6 +320,52 @@ print(my_favourite_number, my_favourite_number_text)
 </div>
 </div>
 <p>You might have come up with a slightly different solution. It’s important to remember there are often several (sometimes many) ways to achieve the same task - even in quite simple cases.</p>
+<p>Let’s now assign a different number to the <code class="docutils literal notranslate"><span class="pre">my_favourite_number</span></code> variable and change the <code class="docutils literal notranslate"><span class="pre">my_favourite_number_text</span></code> back to what it was originally.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s2">&quot;My favourite number is:&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_favourite_number_text</span><span class="p">,</span> <span class="n">my_favourite_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My favourite number is: 16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<p>Lists can be assigned to variables. In Python lists are indicated by square brackets, <code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>, and contain elements - often of the same type - for example, lists of integers, strings etc. Lists can also contain a mix of elements of different types (but you may want to avoid this). The next bit of code creates a list called <code class="docutils literal notranslate"><span class="pre">my_numbers</span></code> that contains 4 integer elements. Remember, in contrast to R, Python uses zero-position indexing. So the first element in the list is at position 0, the second at position 1 etc. We can index an element in the list using square brackets. Let’s index the second element…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">my_numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next list is a list of strings. How would you go about indexing the fourth element?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Andrew&quot;</span><span class="p">,</span> <span class="s2">&quot;Suzanne&quot;</span><span class="p">,</span> <span class="s2">&quot;Eliza&quot;</span><span class="p">,</span> <span class="s2">&quot;Seb&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to reveal answer</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_names[3]
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
