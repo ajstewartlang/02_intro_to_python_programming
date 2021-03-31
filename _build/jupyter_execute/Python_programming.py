@@ -24,7 +24,7 @@ Try running the following two lines of Python code in your Jupyter Notebook.
 my_name = "Andrew"
 print(type(my_name))
 
-You should see that the variable `my_name` has been identified as type `str` as it is contains text.
+In the output, you should see that the variable `my_name` has been identified as type `str` as it is contains text.
 
 Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe to store temporary values). You can print the content of a variable using the `print(variable_name)` function in Python. In the code below, we create two variables. The print() function can take multiple arguments so we can print the values of the two variables with the line `print(my_favourite_number_text, my_favourite_number)`.
 
@@ -33,9 +33,17 @@ my_favourite_number_text = "My favourite number is:"
 my_favourite_number = 25
 print(my_favourite_number_text, my_favourite_number)
 
-```{admonition} Click the button to reveal answer
-:class: dropdown
-Some hidden toggle content!
+How might you modify the above code so that it displays the following:
+    
+    My favourite number is 25.
+    
+Have a think and then click below for one way to do this.
 
-print("this is the answer")
+```{admonition} Click the button to reveal answer
+:class: dropdown 
+    my_favourite_number_text = "is my favourite number."
+    my_favourite_number = 25
+    print(my_favourite_number, my_favourite_number_text)
 ```
+
+You might have come up with a slightly different solution. It's important to remember there are often several (sometimes many) ways to achieve the same task - even in quite simple cases.
