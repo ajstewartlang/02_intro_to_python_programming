@@ -286,7 +286,7 @@ jupyter notebook
 </div>
 </div>
 </div>
-<p>You should see that the variable <code class="docutils literal notranslate"><span class="pre">my_name</span></code> has been identified as type <code class="docutils literal notranslate"><span class="pre">str</span></code> as it is contains text.</p>
+<p>In the output, you should see that the variable <code class="docutils literal notranslate"><span class="pre">my_name</span></code> has been identified as type <code class="docutils literal notranslate"><span class="pre">str</span></code> as it is contains text.</p>
 <p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe to store temporary values). You can print the content of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The print() function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(my_favourite_number_text,</span> <span class="pre">my_favourite_number)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -302,11 +302,20 @@ jupyter notebook
 </div>
 </div>
 </div>
+<p>How might you modify the above code so that it displays the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>My favourite number is 25.
+</pre></div>
+</div>
+<p>Have a think and then click below for one way to do this.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Click the button to reveal answer</p>
-<p>Some hidden toggle content!</p>
-<p>print(“this is the answer”)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_favourite_number_text = &quot;is my favourite number.&quot;
+my_favourite_number = 25
+print(my_favourite_number, my_favourite_number_text)
+</pre></div>
 </div>
+</div>
+<p>You might have come up with a slightly different solution. It’s important to remember there are often several (sometimes many) ways to achieve the same task - even in quite simple cases.</p>
 </div>
 </div>
 
