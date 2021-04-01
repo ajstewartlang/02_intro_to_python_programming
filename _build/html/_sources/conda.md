@@ -27,7 +27,7 @@ Python and R are both interpreted languages - and code can be used together (you
 
 ## Installing Conda and Python
 
-Conda is a package and environment management system that will allow us to install Python (as well as other data science tools), assorted libraries and importantly allow us to manage which versions of the software we're using for different projects we might be working on. This managment of packages and environments is important and sometimes you'll find that different projects you are involved with require *different* versions of Python and/or Python libraries. By creating separate environments (with particular configurations of software versions), your data science life will become so much easier.
+Conda is a package and environment management system. It is part of the Anaconda distribution that will allow us to install Python (as well as other data science tools), assorted libraries and importantly allow us to manage which versions of the software we're using for different projects we might be working on. The managment of packages and environments is important and sometimes you'll find that different projects you are involved with require *different* versions of Python and/or Python libraries. By creating separate environments (with particular configurations of software versions), your data science life will become so much easier.
 
 To install Conda (which comes with Python and common libraries), just follow the instructions here:
 
@@ -45,11 +45,11 @@ To check your Conda installation has worked, open a Terminal window and at the p
     (base)$ python --version
     Python 3.8.8
 
-The first command activates the base (or default) conda environment. The second command will print the version of Python you are running - which in my case is Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your base Conda environment by typing:
+The first command activates the base (or default) Conda environment. The second command will print the version of Python you are running - which in my case is Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your base Conda environment by typing:
 
     (base)$ jupyter notebook
 
-This should automatically open via your web browser. If it doesn't open automatically, just copy and paste the link in the Terminal to your web browser manually. Of course, we just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
+This should automatically open via your web browser. If it doesn't open automatically, just copy and paste the link in the Terminal to your web browser manually. You may want to create a new folder called something like "jupyter_notebooks" to save your Jupyter Notebooks in. If you don't, they'll just be saved in whatever directory you were in when you typed `jupyter notebook` at the prompt. Having a sensible folder structure to save your various notebooks and scripts to will make things much easier in the long run. Of course, we also just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
 
 ## Creating a new Python environment
 
@@ -122,7 +122,7 @@ In the video, you'll be able to see what happens when the Jupyter Notebook opens
 
 ## Running the .py script from the CLI
 
-We can run Python scripts from the command line - just make sure you’re running it in the right conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` at the prompt:
+We can run Python scripts from the command line - just make sure you’re running it in the right Conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` at the prompt:
 
     (data_science)$ python hello_world.py
     hello world!
@@ -135,7 +135,7 @@ Hopefully I’ve convinced you that Python is a language worth learning - it’s
 
 You should understand why it’s important to ensure you write your Python scipts in Conda environments where Python library versions are managed. This will ensure that your Python scripts are reproducible.
 
-You should now have a working Python installation on a machine you can access and be ready to start writing some Python code in a Jupyter Notebook!
+You should now have a working Python installation on a machine you can access and are ready to start writing some Python code in a Jupyter Notebook!
 
 <center>
 
