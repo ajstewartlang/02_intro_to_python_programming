@@ -221,12 +221,12 @@ What we really want to do is iterate over column.  Luckily there is a Transpose 
 for index in vital_stats.T:
     print(index)
 
-We can cycle through the rows of this transposed array (with each row now corresponding to the weight and height of an individual), and pass these values to the `bmi` function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. This loop cycles through our array person by person and calls the `bmi` function for each person in the array before printing out the result (rounded to zero decimal places using the `round` function). Note that the elements in the array we have created are all of type `str` as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type `str` to a number with `float`. 
+We can cycle through the rows of this transposed array (with the rows now corresponding to the weight, height and name of each individual), and pass these values to the `bmi` function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. Their name is in column 2. The following loop cycles through our NumPy array person by person and calls the `bmi` function for each person in the array before printing out the result (rounded to zero decimal places using the `round` function). Note that the elements in the array we have created are all of type `str` as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type `str` to a number with `float` so that we can pass it to the `bmi` function. 
 
 for person in vital_stats.T:
     weight = float(person[0])
     height = float(person[1])
-    print(person[2], "has a BMI of", round(bmi(weight, height)))
+    print(person[2], 'has a BMI of', round(bmi(weight, height)))
 
-help(round)
+
 
