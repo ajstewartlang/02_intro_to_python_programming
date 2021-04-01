@@ -11,7 +11,7 @@ In this first workshop we will cover how to install Python (plus Jupyter noteboo
 
 &nbsp;
 
-### Slides
+## Slides
 
 You can view and download the slides in a variety of formats by clicking on the image below.
 

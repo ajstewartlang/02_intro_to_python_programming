@@ -251,6 +251,38 @@
    Arrays
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help">
+   Getting Help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-assignments-are-references-not-copies">
+   Variable Assignments are References (not Copies)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#user-defined-functions">
+   User-Defined Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control-flow-statements-for-loops">
+   Control Flow Statements - For Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterating-over-an-array">
+     Iterating Over an Array
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -516,7 +548,7 @@ print(my_favourite_number, my_favourite_number_text)
 <p>An array is a data structure consisting of a collection of elements, each identified by at least one array index (or key). Arrays are core data structures in data science and machine learning. For example, you can store images as 2-dimensional arrays representing pixel brightness across the area of the image.</p>
 <p>Data frames and tibbles in R are types of 2-dimensional arrays - data stored in rectangular format with rows and columns. Arrays don’t have to just be in two dimensions but it can be tricky imagining more dimensions…</p>
 <p>NumPy Arrays are better than inbuilt Python Arrays in that they are more efficient as the arrays grow larger in size. We’ll spend more time on NumPy arrays in the next workshop but let’s just take a brief look.</p>
-<p>In the code below we’re importing the numpy package as np (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can’t generate true random numbers so do it algorithmically. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the Numpy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
+<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the Numpy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -545,6 +577,270 @@ print(my_favourite_number, my_favourite_number_text)
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4)
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<p>In your Jupyter Notebook you can type <code class="docutils literal notranslate"><span class="pre">help()</span></code> and put in the brackets the name of the module and function you want help with. Most help files are incredibly useful and will clearly describe what a function does, what it takes as its input parameters, and what it returns in its output. Below is what I get when I ask for help with the <code class="docutils literal notranslate"><span class="pre">shape</span></code> operation in <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function shape in module numpy:
+
+shape(a)
+    Return the shape of an array.
+    
+    Parameters
+    ----------
+    a : array_like
+        Input array.
+    
+    Returns
+    -------
+    shape : tuple of ints
+        The elements of the shape tuple give the lengths of the
+        corresponding array dimensions.
+    
+    See Also
+    --------
+    alen
+    ndarray.shape : Equivalent array method.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; np.shape(np.eye(3))
+    (3, 3)
+    &gt;&gt;&gt; np.shape([[1, 2]])
+    (1, 2)
+    &gt;&gt;&gt; np.shape([0])
+    (1,)
+    &gt;&gt;&gt; np.shape(0)
+    ()
+    
+    &gt;&gt;&gt; a = np.array([(1, 2), (3, 4)], dtype=[(&#39;x&#39;, &#39;i4&#39;), (&#39;y&#39;, &#39;i4&#39;)])
+    &gt;&gt;&gt; np.shape(a)
+    (2,)
+    &gt;&gt;&gt; a.shape
+    (2,)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-assignments-are-references-not-copies">
+<h2>Variable Assignments are References (not Copies)<a class="headerlink" href="#variable-assignments-are-references-not-copies" title="Permalink to this headline">¶</a></h2>
+<p>Assignment in Python involves creating bindings between a target and an object in computer memory - not just simple copying - this can easily trip you up if you assume that assignment creates a new <strong>copy</strong> of of the original object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_old_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
+<span class="n">my_new_names</span> <span class="o">=</span> <span class="n">my_old_names</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_new_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Andrew&#39;, &#39;Suzanne&#39;, &#39;Eliza&#39;, &#39;Seb&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_old_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;this is surprising&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_new_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;this is surprising&#39;, &#39;Suzanne&#39;, &#39;Eliza&#39;, &#39;Seb&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Python has a number of built-in functions such as print(), abs(), bin() etc. You can see the full list <a class="reference external" href="https://docs.python.org/3/library/functions.html">here</a>. Generally, functions take an input, do something with the input, and then output the result. You can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function to get help on other functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="user-defined-functions">
+<h2>User-Defined Functions<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline">¶</a></h2>
+<p>If you find yourself writing the same chunk of code again and again, you might want to turn it into a function. For example, imagine I want to display someone’s BMI on the basis of knowing their height (in metres) and mass (in kg). The formula for BMI is: BMI = kg/m2. Let’s write a function that takes as its input someone’s weight and height, and then returns their BMI. We use <code class="docutils literal notranslate"><span class="pre">def</span></code> to define our function that we’re calling <code class="docutils literal notranslate"><span class="pre">bmi</span></code>. It takes two parameters, <code class="docutils literal notranslate"><span class="pre">weight</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>. Inside the body of the function it creates a new variable called <code class="docutils literal notranslate"><span class="pre">bmi_value</span></code> which is <code class="docutils literal notranslate"><span class="pre">weight</span></code> divided by <code class="docutils literal notranslate"><span class="pre">height</span></code> squared. The function then returns this value.</p>
+<p>We can then call the function to work out the bmi of someone with a weight of 87 kgs, and a height of 1.8 metres with with <code class="docutils literal notranslate"><span class="pre">bmi(87,</span> <span class="pre">1.8)</span></code>.</p>
+<p>Note that in the code below we are using indentation for the body of the function. Indentation in Python is important and is meaningful (i.e., it’s not an aesthetic decision). Indentation is used to indicate a block of code. The convention is to indent each line of a block by 4 spaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">bmi_value</span> <span class="o">=</span> <span class="n">weight</span><span class="o">/</span><span class="p">(</span><span class="n">height</span><span class="o">*</span><span class="n">height</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bmi_value</span>
+
+<span class="n">bmi</span><span class="p">(</span><span class="mi">87</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.85185185185185
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="control-flow-statements-for-loops">
+<h2>Control Flow Statements - For Loops<a class="headerlink" href="#control-flow-statements-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>We can run the same command or chunk of code any number of times by placing it within a for loop. In the following, we print the phrase <code class="docutils literal notranslate"><span class="pre">“Hello</span> <span class="pre">world!”</span></code> five times. In Python, the code block within the loop that is to be repeated needs to indented.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
+Hello world!
+Hello world!
+Hello world!
+Hello world!
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also iterate over elements in an array using a for loop. In the following example, we iterate through the elements in our list and print that element.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">my_names</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Andrew
+Suzanne
+Eliza
+Seb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="iterating-over-an-array">
+<h3>Iterating Over an Array<a class="headerlink" href="#iterating-over-an-array" title="Permalink to this headline">¶</a></h3>
+<p>In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called <code class="docutils literal notranslate"><span class="pre">vital_stats</span></code> with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">])</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Iggy&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Lou&#39;</span><span class="p">])</span>
+<span class="n">vital_stats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">weights</span><span class="p">,</span> <span class="n">heights</span><span class="p">,</span> <span class="n">names</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">vital_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;80&#39; &#39;60&#39; &#39;90&#39;]
+ [&#39;1.8&#39; &#39;1.65&#39; &#39;1.75&#39;]
+ [&#39;Iggy&#39; &#39;David&#39; &#39;Lou&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that in a for loop we can iterate over the rows in our array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">vital_stats</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;80&#39; &#39;60&#39; &#39;90&#39;]
+[&#39;1.8&#39; &#39;1.65&#39; &#39;1.75&#39;]
+[&#39;Iggy&#39; &#39;David&#39; &#39;Lou&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>What we really want to do is iterate over column.  Luckily there is a Transpose attribute built into NumPy arrays that produces the transposed array (i.e., columns and rows swapped).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">vital_stats</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;80&#39; &#39;1.8&#39; &#39;Iggy&#39;]
+[&#39;60&#39; &#39;1.65&#39; &#39;David&#39;]
+[&#39;90&#39; &#39;1.75&#39; &#39;Lou&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can cycle through the rows of this transposed array (with each row now corresponding to the weight and height of an individual), and pass these values to the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. This loop cycles through our array person by person and calls the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function for each person in the array before printing out the result (rounded to zero decimal places using the <code class="docutils literal notranslate"><span class="pre">round</span></code> function). Note that the elements in the array we have created are all of type <code class="docutils literal notranslate"><span class="pre">str</span></code> as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type <code class="docutils literal notranslate"><span class="pre">str</span></code> to a number with <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">vital_stats</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;has a BMI of&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iggy has a BMI of 25
+David has a BMI of 22
+Lou has a BMI of 29
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">round</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function round in module builtins:
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+    
+    The return value is an integer if ndigits is omitted or None.  Otherwise
+    the return value has the same type as the number.  ndigits may be negative.
+</pre></div>
+</div>
 </div>
 </div>
 </div>

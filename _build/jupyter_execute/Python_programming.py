@@ -133,7 +133,7 @@ Data frames and tibbles in R are types of 2-dimensional arrays - data stored in 
 
 NumPy Arrays are better than inbuilt Python Arrays in that they are more efficient as the arrays grow larger in size. We'll spend more time on NumPy arrays in the next workshop but let's just take a brief look.
 
-In the code below we’re importing the numpy package as np (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can't generate true random numbers so do it algorithmically. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the Numpy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
+In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the Numpy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
 
 import numpy as np
 
@@ -145,4 +145,88 @@ my_array
 We can then check the shape of the array using `.shape` 
 
 my_array.shape
+
+## Getting Help
+
+In your Jupyter Notebook you can type `help()` and put in the brackets the name of the module and function you want help with. Most help files are incredibly useful and will clearly describe what a function does, what it takes as its input parameters, and what it returns in its output. Below is what I get when I ask for help with the `shape` operation in `numpy`.
+
+help(np.shape)
+
+## Variable Assignments are References (not Copies)
+
+Assignment in Python involves creating bindings between a target and an object in computer memory - not just simple copying - this can easily trip you up if you assume that assignment creates a new **copy** of of the original object.
+
+my_old_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
+my_new_names = my_old_names
+
+print(my_new_names)
+
+my_old_names[0] = 'this is surprising'
+
+print(my_new_names)
+
+## Functions
+
+Python has a number of built-in functions such as print(), abs(), bin() etc. You can see the full list [here](https://docs.python.org/3/library/functions.html). Generally, functions take an input, do something with the input, and then output the result. You can use the `help()` function to get help on other functions. 
+
+
+help(print)
+
+## User-Defined Functions
+
+If you find yourself writing the same chunk of code again and again, you might want to turn it into a function. For example, imagine I want to display someone’s BMI on the basis of knowing their height (in metres) and mass (in kg). The formula for BMI is: BMI = kg/m2. Let’s write a function that takes as its input someone’s weight and height, and then returns their BMI. We use `def` to define our function that we're calling `bmi`. It takes two parameters, `weight` and `height`. Inside the body of the function it creates a new variable called `bmi_value` which is `weight` divided by `height` squared. The function then returns this value.
+
+We can then call the function to work out the bmi of someone with a weight of 87 kgs, and a height of 1.8 metres with with `bmi(87, 1.8)`.
+
+Note that in the code below we are using indentation for the body of the function. Indentation in Python is important and is meaningful (i.e., it's not an aesthetic decision). Indentation is used to indicate a block of code. The convention is to indent each line of a block by 4 spaces. 
+
+def bmi(weight, height):
+    bmi_value = weight/(height*height)
+    return bmi_value
+
+bmi(87, 1.8)
+
+## Control Flow Statements - For Loops
+
+We can run the same command or chunk of code any number of times by placing it within a for loop. In the following, we print the phrase `“Hello world!”` five times. In Python, the code block within the loop that is to be repeated needs to indented.
+
+for i in range(0, 5):
+    print("Hello world!")
+
+We can also iterate over elements in an array using a for loop. In the following example, we iterate through the elements in our list and print that element.
+
+my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
+
+for element in my_names:
+    print(element)
+
+### Iterating Over an Array
+
+In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called `vital_stats` with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.
+
+weights = np.array([80, 60, 90])
+heights = np.array([1.8, 1.65, 1.75])
+names = np.array(['Iggy', 'David', 'Lou'])
+vital_stats = np.array((weights, heights, names))
+
+print(vital_stats)
+
+We see that in a for loop we can iterate over the rows in our array. 
+
+for index in vital_stats:
+    print(index)
+
+What we really want to do is iterate over column.  Luckily there is a Transpose attribute built into NumPy arrays that produces the transposed array (i.e., columns and rows swapped).
+
+for index in vital_stats.T:
+    print(index)
+
+We can cycle through the rows of this transposed array (with each row now corresponding to the weight and height of an individual), and pass these values to the `bmi` function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. This loop cycles through our array person by person and calls the `bmi` function for each person in the array before printing out the result (rounded to zero decimal places using the `round` function). Note that the elements in the array we have created are all of type `str` as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type `str` to a number with `float`. 
+
+for person in vital_stats.T:
+    weight = float(person[0])
+    height = float(person[1])
+    print(person[2], "has a BMI of", round(bmi(weight, height)))
+
+help(round)
 
