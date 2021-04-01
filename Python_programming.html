@@ -807,13 +807,13 @@ Seb
 </div>
 </div>
 </div>
-<p>We can cycle through the rows of this transposed array (with each row now corresponding to the weight and height of an individual), and pass these values to the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. This loop cycles through our array person by person and calls the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function for each person in the array before printing out the result (rounded to zero decimal places using the <code class="docutils literal notranslate"><span class="pre">round</span></code> function). Note that the elements in the array we have created are all of type <code class="docutils literal notranslate"><span class="pre">str</span></code> as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type <code class="docutils literal notranslate"><span class="pre">str</span></code> to a number with <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<p>We can cycle through the rows of this transposed array (with the rows now corresponding to the weight, height and name of each individual), and pass these values to the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. Their name is in column 2. The following loop cycles through our NumPy array person by person and calls the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function for each person in the array before printing out the result (rounded to zero decimal places using the <code class="docutils literal notranslate"><span class="pre">round</span></code> function). Note that the elements in the array we have created are all of type <code class="docutils literal notranslate"><span class="pre">str</span></code> as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type <code class="docutils literal notranslate"><span class="pre">str</span></code> to a number with <code class="docutils literal notranslate"><span class="pre">float</span></code> so that we can pass it to the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">vital_stats</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
     <span class="n">weight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;has a BMI of&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;has a BMI of&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -821,24 +821,6 @@ Seb
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iggy has a BMI of 25
 David has a BMI of 22
 Lou has a BMI of 29
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">round</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function round in module builtins:
-
-round(number, ndigits=None)
-    Round a number to a given precision in decimal digits.
-    
-    The return value is an integer if ndigits is omitted or None.  Otherwise
-    the return value has the same type as the number.  ndigits may be negative.
 </pre></div>
 </div>
 </div>
