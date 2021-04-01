@@ -8,7 +8,7 @@ In this second workshop we'll take our first look at programming in Python. We'l
 
 </div>
 
-### Slides
+## Slides
 
 You can view and download the slides in a variety of formats by clicking on the image below.
 
