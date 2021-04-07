@@ -115,10 +115,10 @@ my_tuple[:3]
 
 How would you slice `my_tuple` so that it contains only the second and third elements?
 
-```{admonition} Click the button to reveal answer
+:::{admonition} Click the button to reveal answer
 :class: dropdown 
     my_tuple[1:3]
-```
+:::
 
 If you wanted to, you could map the above output onto a new variable called `my_slided_tuple` and use the logical operator `==` (more on this later) to check that they are the same.
 
@@ -140,7 +140,6 @@ import numpy as np
 np.random.seed(1234)
 my_array = np.random.randint(low = 0, high = 10, size = (3, 4))
 my_array
-
 
 We can then check the shape of the array using `.shape` 
 
@@ -165,6 +164,8 @@ my_old_names[0] = 'this is surprising'
 
 print(my_new_names)
 
+Note that in the above code we're changing the first element in the list `my_old_names` but keeping the variable `my_new_names` the same as it was (or so we think). But if we now print `my_new_names` we see that this list reflects the change we made to `my_old_names`. This will catch you out unless you realise that both variable names are pointing to the same contents in the computer's memory.
+
 ## Functions
 
 Python has a number of built-in functions such as print(), abs(), bin() etc. You can see the full list [here](https://docs.python.org/3/library/functions.html). Generally, functions take an input, do something with the input, and then output the result. You can use the `help()` function to get help on other functions. 
@@ -185,6 +186,23 @@ def bmi(weight, height):
     return bmi_value
 
 bmi(87, 1.8)
+
+Your challenge to write a function that calculates Cohen's d, a common measure of effect size, for an experiment given two means of 1020 and 1000, and a pooled standard deviation (SD) of 50. The equation for Cohen's d is:
+    
+$$
+  Cohen's D = \frac{mean1 - mean2}{pooled\: SD}
+$$
+
+Your function will need to take three arguments (the two means plus the pooled SD) and return the Cohen's d value. Try that now.
+
+:::{admonition} One possible solution is below.
+:class: dropdown 
+    def cohen_d(mean1, mean2, sd):  
+        effect_size = (mean1 - mean2) / sd  
+        return effect_size  
+  
+    cohen_d(1020, 1000, 50)  
+:::
 
 ## Control Flow Statements - For Loops
 
@@ -228,5 +246,103 @@ for person in vital_stats.T:
     height = float(person[1])
     print(person[2], 'has a BMI of', round(bmi(weight, height)))
 
+Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. The Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respecively. The pooled SD for all groups is 10. Write the code that will produce Cohen's d from a `numpy` array that contains the means and the pooled SD for each of the three experiments.
+
+:::{admonition} One possible solution is below.
+:class: dropdown 
+    experiment1 = np.array([500, 485, 10])
+    experiment2 = np.array([500, 490, 10])
+    experiment3 = np.array([500, 495, 10])
+
+    all_experiments = np.array((experiment1, experiment2, experiment3))
+
+    all_experiments
+
+    def cohen_d(mean1, mean2, sd):  
+            effect_size = (mean1 - mean2) / sd  
+            return effect_size  
+ 
+    all_experiments[0]
+
+    for experiment in all_experiments:
+        mean1 = experiment[0]
+        mean2 = experiment[1]
+        sd = experiment[2]
+        print(cohen_d(mean1, mean2, sd))
+:::
+
+## Operators
+
+The kinds of logical operators that you’ve come across in `R`, are also used in `Python`. They result in `True` or `False`. For example, for variables `a` and `b`:
+
+Equals: a == b  
+Not Equals: a != b  
+Less than: a < b  
+Less than or equal to: a <= b  
+Greater than: a > b  
+Greater than or equal to: a >= b  
+
+These expressions can be used in lots of contexts including in control flow statements where evaluation of an expression determines how the control flow statement is interpreted.
+
+a = 5
+b = 6
+
+a == b
+
+a != b
+
+a < b
+
+a <= b
+
+a > b
+
+a >= b
+
+You can also compare numpy arrays element by element using logical operators as follows.
+
+a = np.array([1, 2, 3])
+b = np.array([3, 2, 1])
+
+a == b
+
+a < b
+
+You can also apply arithmetic operations to arrays on an element by element basis. 
+
+a + b
+
+## Control Flow Statements - While Loops
+
+Code inside a while loop as long as the while loop evaluates to `True`. For example, we set a counter, `i`, to equal zero. The code in the while loop will return as long as the counter, `i`, does not equal 2. Each time we run the code in the while loop, we increment `i` by 1. This means that this loop will run exactly twice, each time printing the `i`th element in the list.
+
+my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
+
+i = 0
+
+while i != 2:
+    print(my_names[i])
+    i += 1
 
 
+## Control Flow Statements - Conditionals
+
+`If` statements (and the related `elif` and `else`) are conditional statements such that if they evaluate as `True` the associated code chunk is run, else some other code chunk is run. In the following example, the `else` statement catches any cases where neither the `if` nor `elif` statements evaluate as `True`.
+
+my_first_number = 5
+my_second_number = 6
+
+if my_first_number < my_second_number:
+    print(my_first_number, "is less than", my_second_number)
+elif my_first_number > my_second_number:
+    print(my_first_number, "is greater than", my_second_number)
+else:
+    print(my_first_number, "is equal to", my_second_number)
+
+
+What do you think will happen if you set the values of both numbers to be the same - and delete the last two lines of code (i.e., the line beginning `else:` and the following one)?
+
+```{admonition} Click the button to reveal answer
+:class: dropdown 
+    Nothing happens. The `if` statement evaluates to False, not True, as does the `elif` statement. As nothing evaluates to True (and we didn't write any code that deals with other outcomes) nothing happens.
+```

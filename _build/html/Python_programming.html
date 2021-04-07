@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Markdown Files" href="markdown.html" />
@@ -282,6 +284,21 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operators">
+   Operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control-flow-statements-while-loops">
+   Control Flow Statements - While Loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control-flow-statements-conditionals">
+   Control Flow Statements - Conditionals
+  </a>
  </li>
 </ul>
 
@@ -516,7 +533,7 @@ print(my_favourite_number, my_favourite_number_text)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20, 30)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 20, 30)
 </pre></div>
 </div>
 </div>
@@ -665,6 +682,7 @@ shape(a)
 </div>
 </div>
 </div>
+<p>Note that in the above code we’re changing the first element in the list <code class="docutils literal notranslate"><span class="pre">my_old_names</span></code> but keeping the variable <code class="docutils literal notranslate"><span class="pre">my_new_names</span></code> the same as it was (or so we think). But if we now print <code class="docutils literal notranslate"><span class="pre">my_new_names</span></code> we see that this list reflects the change we made to <code class="docutils literal notranslate"><span class="pre">my_old_names</span></code>. This will catch you out unless you realise that both variable names are pointing to the same contents in the computer’s memory.</p>
 </div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
@@ -711,6 +729,22 @@ print(...)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.85185185185185
 </pre></div>
 </div>
+</div>
+</div>
+<p>Your challenge to write a function that calculates Cohen’s d, a common measure of effect size, for an experiment given two means of 1020 and 1000, and a pooled standard deviation (SD) of 50. The equation for Cohen’s d is:</p>
+<div class="math notranslate nohighlight">
+\[
+  Cohen's D = \frac{mean1 - mean2}{pooled\: SD}
+\]</div>
+<p>Your function will need to take three arguments (the two means plus the pooled SD) and return the Cohen’s d value. Try that now.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">One possible solution is below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def cohen_d(mean1, mean2, sd):  
+    effect_size = (mean1 - mean2) / sd  
+    return effect_size  
+
+cohen_d(1020, 1000, 50)  
+</pre></div>
 </div>
 </div>
 </div>
@@ -824,6 +858,222 @@ Lou has a BMI of 29
 </pre></div>
 </div>
 </div>
+</div>
+<p>Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. The Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respecively. The pooled SD for all groups is 10. Write the code that will produce Cohen’s d from a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array that contains the means and the pooled SD for each of the three experiments.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">One possible solution is below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>experiment1 = np.array([500, 485, 10])
+experiment2 = np.array([500, 490, 10])
+experiment3 = np.array([500, 495, 10])
+
+all_experiments = np.array((experiment1, experiment2, experiment3))
+
+all_experiments
+
+def cohen_d(mean1, mean2, sd):  
+        effect_size = (mean1 - mean2) / sd  
+        return effect_size  
+
+all_experiments[0]
+
+for experiment in all_experiments:
+    mean1 = experiment[0]
+    mean2 = experiment[1]
+    sd = experiment[2]
+    print(cohen_d(mean1, mean2, sd))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>The kinds of logical operators that you’ve come across in <code class="docutils literal notranslate"><span class="pre">R</span></code>, are also used in <code class="docutils literal notranslate"><span class="pre">Python</span></code>. They result in <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. For example, for variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
+<p>Equals: a == b<br />
+Not Equals: a != b<br />
+Less than: a &lt; b<br />
+Less than or equal to: a &lt;= b<br />
+Greater than: a &gt; b<br />
+Greater than or equal to: a &gt;= b</p>
+<p>These expressions can be used in lots of contexts including in control flow statements where evaluation of an expression determines how the control flow statement is interpreted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also compare numpy arrays element by element using logical operators as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also apply arithmetic operations to arrays on an element by element basis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 4, 4])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="control-flow-statements-while-loops">
+<h2>Control Flow Statements - While Loops<a class="headerlink" href="#control-flow-statements-while-loops" title="Permalink to this headline">¶</a></h2>
+<p>Code inside a while loop as long as the while loop evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, we set a counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to equal zero. The code in the while loop will return as long as the counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, does not equal 2. Each time we run the code in the while loop, we increment <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1. This means that this loop will run exactly twice, each time printing the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Andrew
+Suzanne
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="control-flow-statements-conditionals">
+<h2>Control Flow Statements - Conditionals<a class="headerlink" href="#control-flow-statements-conditionals" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">If</span></code> statements (and the related <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code>) are conditional statements such that if they evaluate as <code class="docutils literal notranslate"><span class="pre">True</span></code> the associated code chunk is run, else some other code chunk is run. In the following example, the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement catches any cases where neither the <code class="docutils literal notranslate"><span class="pre">if</span></code> nor <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements evaluate as <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_first_number</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">my_second_number</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="k">if</span> <span class="n">my_first_number</span> <span class="o">&lt;</span> <span class="n">my_second_number</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is less than&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">my_first_number</span> <span class="o">&gt;</span> <span class="n">my_second_number</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is greater than&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is equal to&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 is less than 6
+</pre></div>
+</div>
+</div>
+</div>
+<p>What do you think will happen if you set the values of both numbers to be the same - and delete the last two lines of code (i.e., the line beginning <code class="docutils literal notranslate"><span class="pre">else:</span></code> and the following one)?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to reveal answer</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Nothing happens. The `if` statement evaluates to False, not True, as does the `elif` statement. As nothing evaluates to True (and we didn&#39;t write any code that deals with other outcomes) nothing happens.
+</pre></div>
 </div>
 </div>
 </div>
