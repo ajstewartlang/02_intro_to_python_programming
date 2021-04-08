@@ -1,6 +1,6 @@
 # Introduction to Python Programming
 
-In this second workshop we'll take our first look at programming in Python. We'll cover the key data types, as well as functions, and control flow statements. 
+In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. 
 
 %%HTML
 <div style="text-align: center">
@@ -133,7 +133,7 @@ Data frames and tibbles in R are types of 2-dimensional arrays - data stored in 
 
 NumPy Arrays are better than inbuilt Python Arrays in that they are more efficient as the arrays grow larger in size. We'll spend more time on NumPy arrays in the next workshop but let's just take a brief look.
 
-In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the Numpy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
+In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
 
 import numpy as np
 
@@ -299,7 +299,7 @@ a > b
 
 a >= b
 
-You can also compare numpy arrays element by element using logical operators as follows.
+You can also compare NumPy arrays element by element using logical operators as follows.
 
 a = np.array([1, 2, 3])
 b = np.array([3, 2, 1])

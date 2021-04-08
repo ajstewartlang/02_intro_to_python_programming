@@ -319,7 +319,7 @@
                 
   <div class="section" id="introduction-to-python-programming">
 <h1>Introduction to Python Programming<a class="headerlink" href="#introduction-to-python-programming" title="Permalink to this headline">¶</a></h1>
-<p>In this second workshop we’ll take our first look at programming in Python. We’ll cover the key data types, as well as functions, and control flow statements.</p>
+<p>In this second workshop we’ll take our first look at programming in Python. We’ll cover the key data types (including NumPy arrays), as well as functions, and control flow statements.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
@@ -570,7 +570,7 @@ print(my_favourite_number, my_favourite_number_text)
 <p>An array is a data structure consisting of a collection of elements, each identified by at least one array index (or key). Arrays are core data structures in data science and machine learning. For example, you can store images as 2-dimensional arrays representing pixel brightness across the area of the image.</p>
 <p>Data frames and tibbles in R are types of 2-dimensional arrays - data stored in rectangular format with rows and columns. Arrays don’t have to just be in two dimensions but it can be tricky imagining more dimensions…</p>
 <p>NumPy Arrays are better than inbuilt Python Arrays in that they are more efficient as the arrays grow larger in size. We’ll spend more time on NumPy arrays in the next workshop but let’s just take a brief look.</p>
-<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the Numpy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
+<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -981,7 +981,7 @@ Greater than or equal to: a &gt;= b</p>
 </div>
 </div>
 </div>
-<p>You can also compare numpy arrays element by element using logical operators as follows.</p>
+<p>You can also compare NumPy arrays element by element using logical operators as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
