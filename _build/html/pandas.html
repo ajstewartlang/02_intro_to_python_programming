@@ -1235,9 +1235,9 @@ Name: RT, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aovrm2way</span> <span class="o">=</span> <span class="n">AnovaRM</span><span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">,</span> <span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial_model</span> <span class="o">=</span> <span class="n">AnovaRM</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">factorial_anova_data</span><span class="p">,</span> <span class="n">depvar</span><span class="o">=</span><span class="s1">&#39;RT&#39;</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">subject</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">aovrm2way</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial_model</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1255,6 +1255,7 @@ Prime:Target 169.1912 1.0000 23.0000 0.0000
 </div>
 </div>
 <p>We see from the above that both main effects, plus the interaction are significant at p &lt; .001. In order to interpret the interaction, we need to conduct pairwise comparisions.</p>
+<p>We can also use t</p>
 </div>
 </div>
 

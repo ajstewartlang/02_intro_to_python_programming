@@ -156,8 +156,10 @@ To build the factorial ANOVA model, we use the `AnovaRM` function from the `stat
 
 from statsmodels.stats.anova import AnovaRM
 
-aovrm2way = AnovaRM(factorial_anova_data, 'RT', 'Subject', within=['Prime', 'Target']).fit()
+factorial_model = AnovaRM(data=factorial_anova_data, depvar='RT', within=['Prime', 'Target'], subject='Subject').fit()
 
-print(aovrm2way)
+print(factorial_model)
 
 We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions.
+
+We can also use t
