@@ -160,6 +160,18 @@ factorial_model = AnovaRM(data=factorial_anova_data, depvar='RT', within=['Prime
 
 print(factorial_model)
 
-We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions.
+We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter `betweeen` much in the same way we have done above with `within`. We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as t-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running two tests.
 
-We can also use t
+One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map that filtered data frame onto a new variable I am calling PP. 
+
+index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Positive')
+PP = factorial_anova_data[index]['RT']
+
+index = (factorial_anova_data['Prime']=='Negative') &(factorial_anova_data['Target']=='Positive')
+NP = factorial_anova_data[index]['RT']
+
+stats.ttest_rel(PP, NP)
+
+PP.mean()
+
+NP.mean()
