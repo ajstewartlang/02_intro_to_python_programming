@@ -1272,7 +1272,7 @@ Prime:Target 284.8948 1.0000 23.0000 0.0000
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>index = (factorial_anova_data[&#39;Prime&#39;]==&#39;Positive&#39;) &amp; (factorial_anova_data[&#39;Target&#39;]==&#39;Negative&#39;)
 PN = factorial_anova_data[index][&#39;RT&#39;] 
 
-index = (factorial_anova_data[&#39;Prime&#39;]==&#39;Ne gative&#39;) &amp;(factorial_anova_data[&#39;Target&#39;]==&#39;Negative&#39;)
+index = (factorial_anova_data[&#39;Prime&#39;]==&#39;Negative&#39;) &amp; (factorial_anova_data[&#39;Target&#39;]==&#39;Negative&#39;)
 NN = factorial_anova_data[index][&#39;RT&#39;]
 
 stats.ttest_rel(PN, NN) 
