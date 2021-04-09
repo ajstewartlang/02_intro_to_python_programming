@@ -893,107 +893,6 @@ Name: RT, dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>anova_data = pd.read_csv(&quot;https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv&quot;)
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">four_levels_anova_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Condition&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">four_levels_anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">anova_table</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sum_sq</th>
-      <th>df</th>
-      <th>F</th>
-      <th>PR(&gt;F)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Intercept</th>
-      <td>1.062765e+07</td>
-      <td>1.0</td>
-      <td>1478.246451</td>
-      <td>1.679285e-35</td>
-    </tr>
-    <tr>
-      <th>Condition</th>
-      <td>1.882100e+06</td>
-      <td>3.0</td>
-      <td>87.263135</td>
-      <td>1.497847e-18</td>
-    </tr>
-    <tr>
-      <th>Residual</th>
-      <td>3.163321e+05</td>
-      <td>44.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group1</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;very high&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
-<span class="n">group2</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
-<span class="n">group3</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;low&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
-<span class="n">group4</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;very low&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group3</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group2</span><span class="p">,</span> <span class="n">group3</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group2</span><span class="p">,</span> <span class="n">group4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group3</span><span class="p">,</span> <span class="n">group4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=-6.284420428089963, pvalue=2.5225834069197786e-06)
-Ttest_indResult(statistic=-12.77599506232069, pvalue=1.1824144616089344e-11)
-Ttest_indResult(statistic=-12.717414053137453, pvalue=1.2931817154320666e-11)
-Ttest_indResult(statistic=-7.527873199737206, pvalue=1.5960939963418784e-07)
-Ttest_indResult(statistic=-7.4732867703514385, pvalue=1.794062356660264e-07)
-Ttest_indResult(statistic=0.019342552497876735, pvalue=0.9847421948083739)
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="factorial-anova">
 <h2>Factorial ANOVA<a class="headerlink" href="#factorial-anova" title="Permalink to this headline">¶</a></h2>
@@ -1149,7 +1048,7 @@ Name: RT, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Prime,Target&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_51_1.png" src="_images/pandas_51_1.png" />
+<img alt="_images/pandas_46_1.png" src="_images/pandas_46_1.png" />
 </div>
 </div>
 <p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaciton. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function for plotting the kind of interaction we are interested in looking at.</p>
@@ -1306,7 +1205,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_59_0.png" src="_images/pandas_59_0.png" />
+<img alt="_images/pandas_54_0.png" src="_images/pandas_54_0.png" />
 </div>
 </div>
 <p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects.</p>
