@@ -59,7 +59,7 @@ Rather than just use the default base environment, it’s better practice from a
 
 Below I use the `conda create` command to create a new virtual environment that I’m calling `data_science`. If I want just a few specific packages, I’d add the package names after `data_science` (I can also add the package versions too here if I want, e.g., `numpy=1.19.2` and `pandas=1.1.3`). I could even specify the version of Python I want my adding `Python=3.7.1`.
 
-    (base)$ conda create --name data_science conda numpy=1.19.2 pandas=1.1.3
+    (base)$ conda create --name data_science conda numpy pandas scipy matplotlib
 
 We can check what environments we now have on our machine by typing:
 
