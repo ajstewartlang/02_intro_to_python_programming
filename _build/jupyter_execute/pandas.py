@@ -109,28 +109,6 @@ model = ols('RT ~ Condition', data=anova_data).fit()
 anova_table = sm.stats.anova_lm(model, typ=3)
 anova_table
 
-
-
-    anova_data = pd.read_csv("https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv")
-
-four_levels_anova_data = pd.read_csv("https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv")
-
-model = ols('RT ~ Condition', data=four_levels_anova_data).fit()
-anova_table = sm.stats.anova_lm(model, typ=3)
-anova_table
-
-group1 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'very high']['RT']
-group2 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'high']['RT']
-group3 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'low']['RT']
-group4 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'very low']['RT']
-
-print(stats.ttest_ind(group1, group2))
-print(stats.ttest_ind(group1, group3))
-print(stats.ttest_ind(group1, group4))
-print(stats.ttest_ind(group2, group3))
-print(stats.ttest_ind(group2, group4))
-print(stats.ttest_ind(group3, group4))
-
 ## Factorial ANOVA
 
 In many types of experiments we are interested in how two (or more) experimental factors interact with each other. For example, in a typical priming paradigm experiment we might be interested in whether people's response times to a positively or negatively valenced target stimulus are influenced by whether it was preceded by a positively or negatively valenced prime. 
