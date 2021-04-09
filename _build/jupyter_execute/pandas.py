@@ -179,10 +179,11 @@ We can see that this comparison is significant. Your challenge now is to write t
 ```{admonition} Click the button to reveal answer
 :class: dropdown 
     index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Negative')
-PN = factorial_anova_data[index]['RT'] 
+    PN = factorial_anova_data[index]['RT'] 
 
     index = (factorial_anova_data['Prime']=='Ne gative') &(factorial_anova_data['Target']=='Negative')
-NN = factorial_anova_data[index]['RT']
+    NN = factorial_anova_data[index]['RT']
 
     stats.ttest_rel(PN, NN) 
 ```
+
