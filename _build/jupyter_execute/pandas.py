@@ -90,7 +90,7 @@ stats.f_oneway(high_group, low_group)
 
 Remember, the p-value is the probability of obtaining test results at least as extreme as the results observed, under the assumption that the null hypothesis is true. Note, the output above gives us the F-value and the p-value but not the degrees of freedom. As we just have two groups, we could also run an independent sample t-test using the `ttest_ind` function from `stats`.
 
-stats.ttest_ind(group1, group2)
+stats.ttest_ind(high_group, low_group)
 
 Note that the p-value is the same as we found with our ANOVA - and if we square the t-value we get the F-value.
 
@@ -134,8 +134,9 @@ pd.DataFrame(group_means)
 
 to_plot = pd.DataFrame(group_means).reset_index()
 
-my_interaction_plot = interaction_plot(x=to_plot['Target'], trace=to_plot['Prime'], response=to_plot['RT'],
-                       colors=['red', 'blue'], markers=['D', '^'])
+my_interaction_plot = interaction_plot(x=to_plot['Target'], trace=to_plot['Prime'], 
+                                       response=to_plot['RT'], colors=['red', 'blue'], 
+                                       markers=['D', '^'])
 plt.xlabel('Target')
 plt.ylabel('RT (ms.)')
 plt.title('Reaction Times to Target Type as a Function of Prime Type')
