@@ -1054,6 +1054,7 @@ Name: RT, dtype: float64
 <img alt="_images/pandas_47_1.png" src="_images/pandas_47_1.png" />
 </div>
 </div>
+<p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaciton. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function for plotting the kind of interaction we are interested in looking at.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.factorplots</span> <span class="kn">import</span> <span class="n">interaction_plot</span>
@@ -1061,6 +1062,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 </div>
+<p>We need to create a pandas data frame that contains the means for our four conditions, and captures the 2 x 2 nature of our design. We can use <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> to turn our object of means by condition into a data frame that we can then use in our interaction plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1125,9 +1127,83 @@ Name: RT, dtype: float64
 </table>
 </div></div></div>
 </div>
+<p>We need to reset the grouping in the data frame above so that we can use it in our plot. We do that using the <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">group_means</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">to_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Prime</th>
+      <th>Target</th>
+      <th>Subject</th>
+      <th>RT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Negative</td>
+      <td>Negative</td>
+      <td>12.5</td>
+      <td>1420.166667</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Negative</td>
+      <td>Positive</td>
+      <td>12.5</td>
+      <td>1457.416667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Positive</td>
+      <td>Negative</td>
+      <td>12.5</td>
+      <td>1228.041667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Positive</td>
+      <td>Positive</td>
+      <td>12.5</td>
+      <td>593.333333</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">above</span> <span class="n">now</span> <span class="n">looks</span> <span class="n">much</span> <span class="n">more</span> <span class="n">like</span> <span class="n">a</span> <span class="n">standard</span> <span class="n">data</span> <span class="n">frame</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-29-1f397b30de4a&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">The</span> <span class="n">above</span> <span class="n">now</span> <span class="n">looks</span> <span class="n">much</span> <span class="n">more</span> <span class="n">like</span> <span class="n">a</span> <span class="n">standard</span> <span class="n">data</span> <span class="n">frame</span><span class="o">.</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -1146,8 +1222,81 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_51_0.png" src="_images/pandas_51_0.png" />
+<img alt="_images/pandas_55_0.png" src="_images/pandas_55_0.png" />
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial_model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Prime * Target&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">factorial_anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">factorial_model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">anova_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum_sq</th>
+      <th>df</th>
+      <th>F</th>
+      <th>PR(&gt;F)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>4.840496e+07</td>
+      <td>1.0</td>
+      <td>3968.144883</td>
+      <td>1.841050e-77</td>
+    </tr>
+    <tr>
+      <th>Prime</th>
+      <td>4.429442e+05</td>
+      <td>1.0</td>
+      <td>36.311706</td>
+      <td>3.435161e-08</td>
+    </tr>
+    <tr>
+      <th>Target</th>
+      <td>1.665075e+04</td>
+      <td>1.0</td>
+      <td>1.364996</td>
+      <td>2.456921e-01</td>
+    </tr>
+    <tr>
+      <th>Prime:Target</th>
+      <td>2.709168e+06</td>
+      <td>1.0</td>
+      <td>222.092344</td>
+      <td>2.896250e-26</td>
+    </tr>
+    <tr>
+      <th>Residual</th>
+      <td>1.122251e+06</td>
+      <td>92.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
