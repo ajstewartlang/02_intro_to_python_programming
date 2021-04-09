@@ -127,12 +127,21 @@ group_means
 
 group_means.plot(kind="bar")
 
+While the above plot looks *ok*, it's a little tricky seeing the nature of the interaciton. Luckily the `statsmodels` library has a function for plotting the kind of interaction we are interested in looking at.
+
 from statsmodels.graphics.factorplots import interaction_plot
+
+We need to create a pandas data frame that contains the means for our four conditions, and captures the 2 x 2 nature of our design. We can use `pd.DataFrame` to turn our object of means by condition into a data frame that we can then use in our interaction plot.
 
 group_means = grouped.mean()
 pd.DataFrame(group_means)
 
+We need to reset the grouping in the data frame above so that we can use it in our plot. We do that using the `reset_index()` method.
+
 to_plot = pd.DataFrame(group_means).reset_index()
+to_plot
+
+The above now looks much more like a standard data frame.
 
 my_interaction_plot = interaction_plot(x=to_plot['Target'], trace=to_plot['Prime'], 
                                        response=to_plot['RT'], colors=['red', 'blue'], 
@@ -142,4 +151,8 @@ plt.ylabel('RT (ms.)')
 plt.title('Reaction Times to Target Type as a Function of Prime Type')
 plt.ylim(0)
 plt.margins(.5, 1)
+
+factorial_model = ols('RT ~ Prime * Target', data=factorial_anova_data).fit()
+anova_table = sm.stats.anova_lm(factorial_model, typ=3)
+anova_table
 

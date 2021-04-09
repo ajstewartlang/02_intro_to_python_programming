@@ -17,14 +17,13 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-stats.ttest_ind(group1, group2)
+The above now looks much more like a standard data frame.
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-18-f356bd70a71a>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mstats[0m[0;34m.[0m[0mttest_ind[0m[0;34m([0m[0mgroup1[0m[0;34m,[0m [0mgroup2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'group1' is not defined
-NameError: name 'group1' is not defined
+[0;36m  File [0;32m"<ipython-input-29-1f397b30de4a>"[0;36m, line [0;32m1[0m
+[0;31m    The above now looks much more like a standard data frame.[0m
+[0m        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (<ipython-input-29-1f397b30de4a>, line 1)
 
