@@ -293,7 +293,7 @@
 </div>
 </div>
 </div>
-<p>We’ll start by reading in some data using the pandas function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>. The data are available via the http address below. This is the same data file that we looked at in the R workshop on ANOVA.</p>
+<p>We’ll start by reading in some data using the pandas function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>. The data are available via the http address below. This is the same data file that we looked at in the first R workshop on ANOVA.</p>
 <p>24 participants responded to a word that was either common (i.e., high lexical frequency) or rare (i.e., low lexical frequency). This is our IV and is coded as ‘high’ vs. low’. Our DV is reaction time and is coded as ‘RT’. Subject number is coded as ‘Subject’. We want to know whether there is a difference between conditions (and if so, where that difference lies).</p>
 <p>We need to visualise the data, generate descriptives, and run the appropriate ANOVA to determine whether our independent variable (Condition) has an influence on our dependent variable (RT).</p>
 <div class="cell docutils container">
@@ -493,7 +493,7 @@
 </div>
 </div>
 </div>
-<p>In the code below we used the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>. We build our final plot layer be layer (similar to how we do things in <code class="docutils literal notranslate"><span class="pre">R</span></code> with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>. We define our plot initially in terms of what’s on the x-axis, what’s on the y-axis, and then what marker we want to use - which in this case is blue circles.</p>
+<p>In the code below we used the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>. We build our final plot layer be layer (similar to how we do things in <code class="docutils literal notranslate"><span class="pre">R</span></code> with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>). We define our plot initially in terms of what’s on the x-axis, what’s on the y-axis, and then what marker we want to use - which in this case is blue circles.</p>
 <p>After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,7 +775,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>By builing on the above we can create two new variables, one corresponding to the data for the <code class="docutils literal notranslate"><span class="pre">high</span></code> condition group and the other for the <code class="docutils literal notranslate"><span class="pre">low</span></code> condition group.</p>
+<p>By building on the above we can create two new variables, one corresponding to the data for the <code class="docutils literal notranslate"><span class="pre">high</span></code> condition group and the other for the <code class="docutils literal notranslate"><span class="pre">low</span></code> condition group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_group</span> <span class="o">=</span> <span class="n">anova_data</span><span class="p">[</span><span class="n">anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;high&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
@@ -823,8 +823,8 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that it significant run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we’re familiar with we are going to use the statsmodels package. This isn’t a package we yet have in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment so we need to install it using the Terminal shell.</p>
-<p>Go into your shell and activate the <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">data_science</span></code>. You then need to install the library using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">statsmodels</span></code>. Once that library is installed, go back to your Jupyer Notebook and you should be able to import the statsmodels library and the ols modules (for ordinary least squares models) as follows.</p>
+<p>If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that it significant run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we’re familiar with we are going to use the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package. This isn’t a package we yet have in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment so we need to install it using the Terminal shell.</p>
+<p>Go into your shell and activate the <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">data_science</span></code>. You then need to install the package using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">statsmodels</span></code>. Once it is installed, go back to your Jupyer Notebook and you should be able to import <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> and the <code class="docutils literal notranslate"><span class="pre">ols</span></code> module (for ordinary least squares models) as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
@@ -833,7 +833,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>We define our model below using syntact not too disimilar from how we did the same in R. We are going to fit an OLS model to our data where our outcome variable <code class="docutils literal notranslate"><span class="pre">RT</span></code> is predicted by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.</p>
+<p>We define our model below using syntax not too disimilar from how we did the same in R. We are going to fit an OLS model to our data where our outcome variable <code class="docutils literal notranslate"><span class="pre">RT</span></code> is predicted by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Condition&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -893,9 +893,106 @@ Name: RT, dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>Add challenge here using 1 factor with 3 levels:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>anova_data = pd.read_csv(&quot;https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv&quot;)
 </pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">four_levels_anova_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Condition&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">four_levels_anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">anova_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum_sq</th>
+      <th>df</th>
+      <th>F</th>
+      <th>PR(&gt;F)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>1.031380e+07</td>
+      <td>1.0</td>
+      <td>1300.904140</td>
+      <td>2.566848e-34</td>
+    </tr>
+    <tr>
+      <th>Condition</th>
+      <td>4.833219e+06</td>
+      <td>3.0</td>
+      <td>203.208433</td>
+      <td>8.614496e-26</td>
+    </tr>
+    <tr>
+      <th>Residual</th>
+      <td>3.488399e+05</td>
+      <td>44.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group1</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;very high&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<span class="n">group2</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<span class="n">group3</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;low&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<span class="n">group4</span> <span class="o">=</span> <span class="n">four_levels_anova_data</span><span class="p">[</span><span class="n">four_levels_anova_data</span><span class="p">[</span><span class="s1">&#39;Condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;very low&#39;</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group2</span><span class="p">,</span> <span class="n">group3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group2</span><span class="p">,</span> <span class="n">group4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group3</span><span class="p">,</span> <span class="n">group4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=-7.9471422710203425, pvalue=6.588839271013657e-08)
+Ttest_indResult(statistic=-14.179033699480147, pvalue=1.5160619459027267e-12)
+Ttest_indResult(statistic=-21.22706126922631, pvalue=3.824775020794922e-16)
+Ttest_indResult(statistic=-7.5883362496075755, pvalue=1.4028612167283343e-07)
+Ttest_indResult(statistic=-16.41463060047988, pvalue=7.906416052595626e-14)
+Ttest_indResult(statistic=-9.55075176522744, pvalue=2.7673993199893625e-09)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="factorial-anova">
@@ -1052,7 +1149,7 @@ Name: RT, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Prime,Target&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_47_1.png" src="_images/pandas_47_1.png" />
+<img alt="_images/pandas_51_1.png" src="_images/pandas_51_1.png" />
 </div>
 </div>
 <p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaciton. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function for plotting the kind of interaction we are interested in looking at.</p>
@@ -1209,7 +1306,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_55_0.png" src="_images/pandas_55_0.png" />
+<img alt="_images/pandas_59_0.png" src="_images/pandas_59_0.png" />
 </div>
 </div>
 <p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects.</p>

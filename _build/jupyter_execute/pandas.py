@@ -14,7 +14,7 @@ Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the f
 
 import pandas as pd
 
-We'll start by reading in some data using the pandas function `pd.read_csv`. The data are available via the http address below. This is the same data file that we looked at in the R workshop on ANOVA. 
+We'll start by reading in some data using the pandas function `pd.read_csv`. The data are available via the http address below. This is the same data file that we looked at in the first R workshop on ANOVA. 
 
 24 participants responded to a word that was either common (i.e., high lexical frequency) or rare (i.e., low lexical frequency). This is our IV and is coded as ‘high’ vs. low’. Our DV is reaction time and is coded as ‘RT’. Subject number is coded as ‘Subject’. We want to know whether there is a difference between conditions (and if so, where that difference lies). 
 
@@ -30,7 +30,7 @@ In order to visualise the data we need to use the `matplotlib` library. This lib
 
 import matplotlib.pyplot as plt
 
-In the code below we used the `plot` function from `pyplot`. We build our final plot layer be layer (similar to how we do things in `R` with `ggplot2`. We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles.
+In the code below we used the `plot` function from `pyplot`. We build our final plot layer be layer (similar to how we do things in `R` with `ggplot2`). We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles.
 
 After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.
 
@@ -79,7 +79,7 @@ But what we really want is to just select the `RT` column.
 
 anova_data[anova_data['Condition']=='high']['RT']
 
-By builing on the above we can create two new variables, one corresponding to the data for the `high` condition group and the other for the `low` condition group.
+By building on the above we can create two new variables, one corresponding to the data for the `high` condition group and the other for the `low` condition group.
 
 high_group = anova_data[anova_data['Condition']=='high']['RT']
 low_group = anova_data[anova_data['Condition']=='low']['RT']
@@ -96,22 +96,40 @@ Note that the p-value is the same as we found with our ANOVA - and if we square 
 
 9.550751765227444 * 9.550751765227444
 
-If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that it significant run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the `stats` module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we're familiar with we are going to use the statsmodels package. This isn't a package we yet have in our `data_science` environment so we need to install it using the Terminal shell.  
+If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that it significant run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the `stats` module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we're familiar with we are going to use the `statsmodels` package. This isn't a package we yet have in our `data_science` environment so we need to install it using the Terminal shell.  
 
-Go into your shell and activate the `data_science` environment using `conda activate data_science`. You then need to install the library using `conda install statsmodels`. Once that library is installed, go back to your Jupyer Notebook and you should be able to import the statsmodels library and the ols modules (for ordinary least squares models) as follows.
+Go into your shell and activate the `data_science` environment using `conda activate data_science`. You then need to install the package using `conda install statsmodels`. Once it is installed, go back to your Jupyer Notebook and you should be able to import `statsmodels` and the `ols` module (for ordinary least squares models) as follows.
 
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
-We define our model below using syntact not too disimilar from how we did the same in R. We are going to fit an OLS model to our data where our outcome variable `RT` is predicted by `Condition`. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.
+We define our model below using syntax not too disimilar from how we did the same in R. We are going to fit an OLS model to our data where our outcome variable `RT` is predicted by `Condition`. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.
 
 model = ols('RT ~ Condition', data=anova_data).fit()
 anova_table = sm.stats.anova_lm(model, typ=3)
 anova_table
 
-Add challenge here using 1 factor with 3 levels:
-    
+
+
     anova_data = pd.read_csv("https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv")
+
+four_levels_anova_data = pd.read_csv("https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data2.csv")
+
+model = ols('RT ~ Condition', data=four_levels_anova_data).fit()
+anova_table = sm.stats.anova_lm(model, typ=3)
+anova_table
+
+group1 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'very high']['RT']
+group2 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'high']['RT']
+group3 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'low']['RT']
+group4 = four_levels_anova_data[four_levels_anova_data['Condition'] == 'very low']['RT']
+
+print(stats.ttest_ind(group1, group2))
+print(stats.ttest_ind(group1, group3))
+print(stats.ttest_ind(group1, group4))
+print(stats.ttest_ind(group2, group3))
+print(stats.ttest_ind(group2, group4))
+print(stats.ttest_ind(group3, group4))
 
 ## Factorial ANOVA
 
