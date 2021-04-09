@@ -152,9 +152,12 @@ plt.title('Reaction Times to Target Type as a Function of Prime Type')
 plt.ylim(0)
 plt.margins(.5, 1)
 
-To build the factorial ANOVA model, we use the `ols` function in a similar way to how we used it for a 1-way ANOVA. We need to change the model specification slighly to ensure we are building a model that looks at two main effecs, plus the interaction effect. As in R, we use the `*` notation to catpure this.
+To build the factorial ANOVA model, we use the `AnovaRM` function from the `statsmodels` library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects. 
 
-factorial_model = ols('RT ~ Prime * Target', data=factorial_anova_data).fit()
-anova_table = sm.stats.anova_lm(factorial_model, typ=3)
-anova_table
+from statsmodels.stats.anova import AnovaRM
 
+aovrm2way = AnovaRM(factorial_anova_data, 'RT', 'Subject', within=['Prime', 'Target']).fit()
+
+print(aovrm2way)
+
+We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions.
