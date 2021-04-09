@@ -117,6 +117,8 @@ Add challenge here using 1 factor with 3 levels:
 
 In many types of experiments we are interested in how two (or more) experimental factors interact with each other. For example, in a typical priming paradigm experiment we might be interested in whether people's response times to a positively or negatively valenced target stimulus are influenced by whether it was preceded by a positively or negatively valenced prime. 
 
+The data in the file below are from a 2 x 2 repeated measures reaction time experiment. We were interested in how quickly participants could respond to Targets that were Positive vs. Negative when they followed Positive vs. Negative Primes. We expected that Positive Targets would be responded to more quickly after Positive vs. Negative Primes, and that Negative Targets would be responded to more quickly after Negative vs. Positive Primes. We measured the response times of 24 participants responding each of these four conditions. We want to determine if there is a difference between our conditions (and if so, where that difference lies).
+
 factorial_anova_data = pd.read_csv("https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_data3.csv")
 
 factorial_anova_data
