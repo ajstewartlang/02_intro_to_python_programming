@@ -162,16 +162,37 @@ print(factorial_model)
 
 We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter `betweeen` much in the same way we have done above with `within`. We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as t-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running two tests.
 
-One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map that filtered data frame onto a new variable I am calling PP. 
+One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map the RT column of that filtered data frame onto a new variable I am calling PP. 
 
 index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Positive')
 PP = factorial_anova_data[index]['RT']
+
+I then do the same for cases where the Prime is Negative and the Target is Positive. I can now run a t-test using the `stats.ttest_rel` function for paired samples t-tests.
 
 index = (factorial_anova_data['Prime']=='Negative') &(factorial_anova_data['Target']=='Positive')
 NP = factorial_anova_data[index]['RT']
 
 stats.ttest_rel(PP, NP)
 
+We can see that this comparison is significant. Your challenge now is to write the code for the other comparison - in other words, comparing RTs to Negative Targets following Positive vs. Negative Primes.
+
+```{admonition} Click the button to reveal answer
+:class: dropdown 
+    my_favourite_number = 25
+    my_favourite_number_text = "is my favourite number."
+    print(my_favourite_number, my_favourite_number_text)
+```
+
+index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Negative')
+PN = factorial_anova_data[index]['RT']
+
+index = (factorial_anova_data['Prime']=='Negative') &(factorial_anova_data['Target']=='Negative')
+NN = factorial_anova_data[index]['RT']
+
+stats.ttest_rel(PN, NN)
+
 PP.mean()
+
+
 
 NP.mean()
