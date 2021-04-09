@@ -10,8 +10,6 @@
     - file: pandas
     - file: docker
     - file: git
-    - file: markdown
-    - file: notebooks
-    
+   
     
     
