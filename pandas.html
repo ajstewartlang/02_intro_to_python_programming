@@ -1034,7 +1034,7 @@ Name: RT, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prime     Target  
 Negative  Negative    1420.166667
           Positive    1457.416667
-Positive  Negative    1228.041667
+Positive  Negative    1428.041667
           Positive     593.333333
 Name: RT, dtype: float64
 </pre></div>
@@ -1116,7 +1116,7 @@ Name: RT, dtype: float64
       <th rowspan="2" valign="top">Positive</th>
       <th>Negative</th>
       <td>12.5</td>
-      <td>1228.041667</td>
+      <td>1428.041667</td>
     </tr>
     <tr>
       <th>Positive</th>
@@ -1180,7 +1180,7 @@ Name: RT, dtype: float64
       <td>Positive</td>
       <td>Negative</td>
       <td>12.5</td>
-      <td>1228.041667</td>
+      <td>1428.041667</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1255,7 +1255,7 @@ Prime:Target 169.1912 1.0000 23.0000 0.0000
 </div>
 </div>
 <p>We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter <code class="docutils literal notranslate"><span class="pre">betweeen</span></code> much in the same way we have done above with <code class="docutils literal notranslate"><span class="pre">within</span></code>. We see from the above that both main effects, plus the interaction are significant at p &lt; .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as t-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running two tests.</p>
-<p>One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map that filtered data frame onto a new variable I am calling PP.</p>
+<p>One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map the RT column of that filtered data frame onto a new variable I am calling PP.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>
@@ -1264,6 +1264,7 @@ Prime:Target 169.1912 1.0000 23.0000 0.0000
 </div>
 </div>
 </div>
+<p>I then do the same for cases where the Prime is Negative and the Target is Positive. I can now run a t-test using the <code class="docutils literal notranslate"><span class="pre">stats.ttest_rel</span></code> function for paired samples t-tests.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>
@@ -1275,6 +1276,33 @@ Prime:Target 169.1912 1.0000 23.0000 0.0000
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=-32.00158210315536, pvalue=1.41511213896552e-20)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that this comparison is significant. Your challenge now is to write the code for the other comparison - in other words, comparing RTs to Negative Targets following Positive vs. Negative Primes.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to reveal answer</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_favourite_number = 25
+my_favourite_number_text = &quot;is my favourite number.&quot;
+print(my_favourite_number, my_favourite_number_text)
+</pre></div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span>
+<span class="n">PN</span> <span class="o">=</span> <span class="n">factorial_anova_data</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">factorial_anova_data</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">PN</span><span class="p">,</span> <span class="n">NN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=-5.166703934868111, pvalue=3.087845035122734e-05)
 </pre></div>
 </div>
 </div>
