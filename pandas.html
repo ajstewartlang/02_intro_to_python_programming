@@ -1225,80 +1225,36 @@ Name: RT, dtype: float64
 <img alt="_images/pandas_55_0.png" src="_images/pandas_55_0.png" />
 </div>
 </div>
-<p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">ols</span></code> function in a similar way to how we used it for a 1-way ANOVA. We need to change the model specification slighly to ensure we are building a model that looks at two main effecs, plus the interaction effect. As in R, we use the <code class="docutils literal notranslate"><span class="pre">*</span></code> notation to catpure this.</p>
+<p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial_model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Prime * Target&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">factorial_anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">factorial_model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">anova_table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.anova</span> <span class="kn">import</span> <span class="n">AnovaRM</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aovrm2way</span> <span class="o">=</span> <span class="n">AnovaRM</span><span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">,</span> <span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">aovrm2way</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sum_sq</th>
-      <th>df</th>
-      <th>F</th>
-      <th>PR(&gt;F)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Intercept</th>
-      <td>4.840496e+07</td>
-      <td>1.0</td>
-      <td>3968.144883</td>
-      <td>1.841050e-77</td>
-    </tr>
-    <tr>
-      <th>Prime</th>
-      <td>4.429442e+05</td>
-      <td>1.0</td>
-      <td>36.311706</td>
-      <td>3.435161e-08</td>
-    </tr>
-    <tr>
-      <th>Target</th>
-      <td>1.665075e+04</td>
-      <td>1.0</td>
-      <td>1.364996</td>
-      <td>2.456921e-01</td>
-    </tr>
-    <tr>
-      <th>Prime:Target</th>
-      <td>2.709168e+06</td>
-      <td>1.0</td>
-      <td>222.092344</td>
-      <td>2.896250e-26</td>
-    </tr>
-    <tr>
-      <th>Residual</th>
-      <td>1.122251e+06</td>
-      <td>92.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Anova
+===========================================
+             F Value  Num DF  Den DF Pr &gt; F
+-------------------------------------------
+Prime        717.4708 1.0000 23.0000 0.0000
+Target       155.3796 1.0000 23.0000 0.0000
+Prime:Target 169.1912 1.0000 23.0000 0.0000
+===========================================
+</pre></div>
 </div>
+</div>
+</div>
+<p>We see from the above that both main effects, plus the interaction are significant at p &lt; .001. In order to interpret the interaction, we need to conduct pairwise comparisions.</p>
 </div>
 </div>
 
