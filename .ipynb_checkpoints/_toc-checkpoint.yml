@@ -8,6 +8,8 @@
     - file: conda
     - file: Python_programming
     - file: pandas
+    - file: docker
+    - file: git
     - file: markdown
     - file: notebooks
     
