@@ -178,9 +178,13 @@ We can see that this comparison is significant. Your challenge now is to write t
 
 ```{admonition} Click the button to reveal answer
 :class: dropdown 
-    my_favourite_number = 25
-    my_favourite_number_text = "is my favourite number."
-    print(my_favourite_number, my_favourite_number_text)
+    index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Negative')
+PN = factorial_anova_data[index]['RT']
+
+index = (factorial_anova_data['Prime']=='Negative') &(factorial_anova_data['Target']=='Negative')
+NN = factorial_anova_data[index]['RT']
+
+stats.ttest_rel(PN, NN)
 ```
 
 index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Negative')

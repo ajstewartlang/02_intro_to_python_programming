@@ -1193,21 +1193,7 @@ Name: RT, dtype: float64
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">above</span> <span class="n">now</span> <span class="n">looks</span> <span class="n">much</span> <span class="n">more</span> <span class="n">like</span> <span class="n">a</span> <span class="n">standard</span> <span class="n">data</span> <span class="n">frame</span><span class="o">.</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-29-1f397b30de4a&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="n">The</span> <span class="n">above</span> <span class="n">now</span> <span class="n">looks</span> <span class="n">much</span> <span class="n">more</span> <span class="n">like</span> <span class="n">a</span> <span class="n">standard</span> <span class="n">data</span> <span class="n">frame</span><span class="o">.</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<p>The above now looks much more like a standard data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_interaction_plot</span> <span class="o">=</span> <span class="n">interaction_plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">to_plot</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">trace</span><span class="o">=</span><span class="n">to_plot</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">],</span> 
@@ -1246,9 +1232,9 @@ Name: RT, dtype: float64
 ===========================================
              F Value  Num DF  Den DF Pr &gt; F
 -------------------------------------------
-Prime        717.4708 1.0000 23.0000 0.0000
-Target       155.3796 1.0000 23.0000 0.0000
-Prime:Target 169.1912 1.0000 23.0000 0.0000
+Prime        471.4807 1.0000 23.0000 0.0000
+Target       276.8183 1.0000 23.0000 0.0000
+Prime:Target 284.8948 1.0000 23.0000 0.0000
 ===========================================
 </pre></div>
 </div>
@@ -1283,11 +1269,13 @@ Prime:Target 169.1912 1.0000 23.0000 0.0000
 <p>We can see that this comparison is significant. Your challenge now is to write the code for the other comparison - in other words, comparing RTs to Negative Targets following Positive vs. Negative Primes.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Click the button to reveal answer</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_favourite_number = 25
-my_favourite_number_text = &quot;is my favourite number.&quot;
-print(my_favourite_number, my_favourite_number_text)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>index = (factorial_anova_data[&#39;Prime&#39;]==&#39;Positive&#39;) &amp; (factorial_anova_data[&#39;Target&#39;]==&#39;Negative&#39;)
 </pre></div>
 </div>
+<p>PN = factorial_anova_data[index][‘RT’]</p>
+<p>index = (factorial_anova_data[‘Prime’]==’Negative’) &amp;(factorial_anova_data[‘Target’]==’Negative’)
+NN = factorial_anova_data[index][‘RT’]</p>
+<p>stats.ttest_rel(PN, NN)</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1302,7 +1290,7 @@ print(my_favourite_number, my_favourite_number_text)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=-5.166703934868111, pvalue=3.087845035122734e-05)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=0.2117777149620631, pvalue=0.8341458874790836)
 </pre></div>
 </div>
 </div>
