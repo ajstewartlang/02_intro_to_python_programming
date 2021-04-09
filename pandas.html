@@ -1225,6 +1225,7 @@ Name: RT, dtype: float64
 <img alt="_images/pandas_55_0.png" src="_images/pandas_55_0.png" />
 </div>
 </div>
+<p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">ols</span></code> function in a similar way to how we used it for a 1-way ANOVA. We need to change the model specification slighly to ensure we are building a model that looks at two main effecs, plus the interaction effect. As in R, we use the <code class="docutils literal notranslate"><span class="pre">*</span></code> notation to catpure this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial_model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Prime * Target&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">factorial_anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
