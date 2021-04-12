@@ -160,7 +160,7 @@ Imaagine we have a large project directory on our computer and we want to be abl
 
 The script below traverses the contents using the path name on my computer `online_teaching/online_r_units/01_open_research_and_reproducibility`. This will print out everything in the directory `01_open_research_and_reproducibility` apart from the files within the hidden directories `.git` and `.Rproj.user`. This can be a useful way to visualise how you've organised the contents on your computer.
 
-# written by Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python
+# adapted from Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python
 
 from pathlib import Path
 
@@ -187,6 +187,25 @@ def tree(dir_path: Path, prefix: str=''):
             # i.e. space because last, └── , above so no more |
             yield from tree(path, prefix=prefix+extension)
 
+# adapted from Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python
+
+from pathlib import Path
+
+space =  '    '
+branch = '│   '
+tee =    '├── '
+last =   '└── '
+directories_to_ignore = ['.git', '.Rproj.user']
+
+def tree(dir_path: Path, prefix: str=''):  
+    contents = list(dir_path.iterdir())
+    pointers = [tee] * (len(contents) - 1) + [last]
+    for pointer, path in zip(pointers, contents):
+        yield prefix + pointer + path.name
+        if path.is_dir() and path.name not in directories_to_ignore: 
+            extension = branch if pointer == tee else space 
+            yield from tree(path, prefix=prefix+extension)
+
 The above script is written as a function called `tree`. To call it we use the code below - note, the function needs an argument corresponding to the path at which it is to start traversing the file structure. 
 
 for line in tree(Path.home() / 'online_teaching/online_r_units/01_open_research_and_reproducibility'):
@@ -194,11 +213,27 @@ for line in tree(Path.home() / 'online_teaching/online_r_units/01_open_research_
 
 We see from the above that our directory contains the subdiretories `script`, `Dockerfile`, `images`, `.gitattributes`, `slides` etc. And that within the `images` subdirectory, we have 6 `.png` image files.
 
+***IGNORE BELOW***
+
+Path.home() / 'online_teaching/online_r_units/01_open_research_and_reproducibility'
+
+Path
+
+my_path = Path.home() / 'online_teaching/online_r_units/01_open_research_and_reproducibility'
+
+list(my_path.iterdir())
+
 import os
 
-for folderName, subfolders, filenames in os.walk(Path.home() / 'online_teaching/online_r_units/01_open_research_and_reproducibility'):
-    print(folderName + ' contains:')
+def find_all(name, path):
+    result = []
+    for root, dirs, files in os.walk(path):
+        if name in files:
+            result.append(os.path.join(root, name))
+    return result
 
-    for subfolder in subfolders:
-        print('    ' + subfolder)
+my_path = input("Path to search: ")
+to_find = input("Name of file to find: ")
+
+print(find_all(to_find, my_path))
 
