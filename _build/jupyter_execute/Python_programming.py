@@ -340,6 +340,8 @@ else:
     print(my_first_number, "is equal to", my_second_number)
 
 
+ 
+
 What do you think will happen if you set the values of both numbers to be the same - and delete the last two lines of code (i.e., the line beginning `else:` and the following one)?
 
 ```{admonition} Click the button to reveal answer
