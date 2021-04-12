@@ -556,7 +556,7 @@ afeltham@clapton.hackney.sch.uk
 <p>The script below traverses the contents using the path name on my computer <code class="docutils literal notranslate"><span class="pre">online_teaching/online_r_units/01_open_research_and_reproducibility</span></code>. This will print out everything in the directory <code class="docutils literal notranslate"><span class="pre">01_open_research_and_reproducibility</span></code> apart from the files within the hidden directories <code class="docutils literal notranslate"><span class="pre">.git</span></code> and <code class="docutils literal notranslate"><span class="pre">.Rproj.user</span></code>. This can be a useful way to visualise how you’ve organised the contents on your computer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># written by Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adapted from Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python</span>
 
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
@@ -581,6 +581,30 @@ afeltham@clapton.hackney.sch.uk
         <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="ow">and</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;.git&quot;</span> <span class="ow">and</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;.Rproj.user&quot;</span><span class="p">:</span> <span class="c1"># extend the prefix and recurse:</span>
             <span class="n">extension</span> <span class="o">=</span> <span class="n">branch</span> <span class="k">if</span> <span class="n">pointer</span> <span class="o">==</span> <span class="n">tee</span> <span class="k">else</span> <span class="n">space</span> 
             <span class="c1"># i.e. space because last, └── , above so no more |</span>
+            <span class="k">yield from</span> <span class="n">tree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="n">extension</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adapted from Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python</span>
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">space</span> <span class="o">=</span>  <span class="s1">&#39;    &#39;</span>
+<span class="n">branch</span> <span class="o">=</span> <span class="s1">&#39;│   &#39;</span>
+<span class="n">tee</span> <span class="o">=</span>    <span class="s1">&#39;├── &#39;</span>
+<span class="n">last</span> <span class="o">=</span>   <span class="s1">&#39;└── &#39;</span>
+<span class="n">directories_to_ignore</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.git&#39;</span><span class="p">,</span> <span class="s1">&#39;.Rproj.user&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">tree</span><span class="p">(</span><span class="n">dir_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>  
+    <span class="n">contents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dir_path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
+    <span class="n">pointers</span> <span class="o">=</span> <span class="p">[</span><span class="n">tee</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">last</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">pointer</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pointers</span><span class="p">,</span> <span class="n">contents</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">pointer</span> <span class="o">+</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="ow">and</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">directories_to_ignore</span><span class="p">:</span> 
+            <span class="n">extension</span> <span class="o">=</span> <span class="n">branch</span> <span class="k">if</span> <span class="n">pointer</span> <span class="o">==</span> <span class="n">tee</span> <span class="k">else</span> <span class="n">space</span> 
             <span class="k">yield from</span> <span class="n">tree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="n">extension</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -623,180 +647,96 @@ afeltham@clapton.hackney.sch.uk
 </div>
 </div>
 <p>We see from the above that our directory contains the subdiretories <code class="docutils literal notranslate"><span class="pre">script</span></code>, <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, <code class="docutils literal notranslate"><span class="pre">images</span></code>, <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code>, <code class="docutils literal notranslate"><span class="pre">slides</span></code> etc. And that within the <code class="docutils literal notranslate"><span class="pre">images</span></code> subdirectory, we have 6 <code class="docutils literal notranslate"><span class="pre">.png</span></code> image files.</p>
+<p><em><strong>IGNORE BELOW</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">for</span> <span class="n">folderName</span><span class="p">,</span> <span class="n">subfolders</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;online_teaching/online_r_units/01_open_research_and_reproducibility&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">folderName</span> <span class="o">+</span> <span class="s1">&#39; contains:&#39;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">subfolder</span> <span class="ow">in</span> <span class="n">subfolders</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &#39;</span> <span class="o">+</span> <span class="n">subfolder</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;online_teaching/online_r_units/01_open_research_and_reproducibility&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility contains:
-    script
-    images
-    slides
-    .Rproj.user
-    .git
-    knitted_workshop
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/script contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/images contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/slides contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user contains:
-    shared
-    7778981D
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared contains:
-    notebooks
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks contains:
-    B86998CA-01_open_research_and_reproducibility
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility contains:
-    1
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility/1 contains:
-    7778981D0C5CD5C8
-    7778981D52190892
-    7778981DDD96D514
-    s
-    7778981D6D2AE6E4
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility/1/7778981D0C5CD5C8 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility/1/7778981D52190892 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility/1/7778981DDD96D514 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility/1/s contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/shared/notebooks/B86998CA-01_open_research_and_reproducibility/1/7778981D6D2AE6E4 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D contains:
-    viewer-cache
-    ctx
-    presentation
-    profiles-cache
-    pcs
-    tutorial
-    sources
-    explorer-cache
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/viewer-cache contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/ctx contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/presentation contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/profiles-cache contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/pcs contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/tutorial contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/sources contains:
-    prop
-    per
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/sources/prop contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/sources/per contains:
-    t
-    u
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/sources/per/t contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/sources/per/u contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user/7778981D/explorer-cache contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git contains:
-    hooks
-    refs
-    logs
-    info
-    objects
-    branches
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/hooks contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/refs contains:
-    tags
-    heads
-    remotes
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/refs/tags contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/refs/heads contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/refs/remotes contains:
-    origin
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/refs/remotes/origin contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/logs contains:
-    refs
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/logs/refs contains:
-    heads
-    remotes
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/logs/refs/heads contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/logs/refs/remotes contains:
-    origin
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/logs/refs/remotes/origin contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/info contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects contains:
-    5f
-    39
-    b9
-    ef
-    e3
-    cc
-    84
-    80
-    0f
-    da
-    ff
-    2a
-    fb
-    e8
-    info
-    7b
-    36
-    a2
-    fe
-    5c
-    a5
-    c6
-    35
-    47
-    db
-    a7
-    32
-    fc
-    ca
-    pack
-    14
-    08
-    dc
-    e1
-    1b
-    bd
-    99
-    be
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/5f contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/39 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/b9 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/ef contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/e3 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/cc contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/84 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/80 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/0f contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/da contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/ff contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/2a contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/fb contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/e8 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/info contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/7b contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/36 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/a2 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/fe contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/5c contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/a5 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/c6 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/35 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/47 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/db contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/a7 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/32 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/fc contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/ca contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/pack contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/14 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/08 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/dc contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/e1 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/1b contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/bd contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/99 contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/objects/be contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git/branches contains:
-/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/knitted_workshop contains:
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pathlib.Path
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;online_teaching/online_r_units/01_open_research_and_reproducibility&#39;</span>
+
+<span class="nb">list</span><span class="p">(</span><span class="n">my_path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/script&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/Dockerfile&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/images&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.gitattributes&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/slides&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/LICENSE&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/README.md&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/knitted_workshop&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/01_open_research_and_reproducibility.Rproj&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.gitignore&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">find_all</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Path to search: &quot;</span><span class="p">)</span>
+<span class="n">to_find</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Name of file to find: &quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">find_all</span><span class="p">(</span><span class="n">to_find</span><span class="p">,</span> <span class="n">my_path</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">9</span><span class="n">c86906a22c9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Path to search: &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">to_find</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Name of file to find: &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">find_all</span><span class="p">(</span><span class="n">to_find</span><span class="p">,</span> <span class="n">my_path</span><span class="p">))</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">--&gt; </span><span class="mi">857</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
