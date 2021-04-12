@@ -158,34 +158,7 @@ with open('./data/school_data.csv', mode='r') as csv_file:
 
 Imaagine we have a large project directory on our computer and we want to be able to easily see what files and directories it contains, and what files and directories are contained within those directories etc. 
 
-The script below traverses the contents using the path name on my computer `online_teaching/online_r_units/01_open_research_and_reproducibility`. This will print out everything in the directory `01_open_research_and_reproducibility` apart from the files within the hidden directories `.git` and `.Rproj.user`. This can be a useful way to visualise how you've organised the contents on your computer.
-
-# adapted from Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python
-
-from pathlib import Path
-
-# prefix components:
-space =  '    '
-branch = '│   '
-# pointers:
-tee =    '├── '
-last =   '└── '
-
-
-def tree(dir_path: Path, prefix: str=''):
-    """A recursive generator, given a directory Path object
-    will yield a visual tree structure line by line
-    with each line prefixed by the same characters
-    """    
-    contents = list(dir_path.iterdir())
-    # contents each get pointers that are ├── with a final └── :
-    pointers = [tee] * (len(contents) - 1) + [last]
-    for pointer, path in zip(pointers, contents):
-        yield prefix + pointer + path.name
-        if path.is_dir() and path.name != ".git" and path.name != ".Rproj.user": # extend the prefix and recurse:
-            extension = branch if pointer == tee else space 
-            # i.e. space because last, └── , above so no more |
-            yield from tree(path, prefix=prefix+extension)
+The script below traverses the contents using the path name on my computer `online_teaching/online_r_units/01_open_research_and_reproducibility`. This will print out everything in the directory `01_open_research_and_reproducibility` apart from the files within the hidden directories `.git` and `.Rproj.user` - which we define in our variable `directories_to_ignore`. This can be a useful way to visualise how you've organised the contents on your computer.
 
 # adapted from Aaron Hall on https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python
 
