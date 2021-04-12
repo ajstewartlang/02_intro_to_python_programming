@@ -1,7 +1,7 @@
 Installing Python with Conda 
 ============================
 
-In this first workshop we will cover how to install Python (plus Jupyter notebooks) via the package manager Conda.
+In this first workshop we will cover how to install Python (plus Jupyter notebooks) via the package manager Conda. 
 
 <center>
 
