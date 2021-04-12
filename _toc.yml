@@ -8,6 +8,7 @@
     - file: conda
     - file: Python_programming
     - file: pandas
+    - file: boring
     - file: docker
     - file: git
    
