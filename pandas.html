@@ -1195,7 +1195,7 @@ Name: RT, dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>The above now looks much more like a standard data frame.</p>
+<p>The above now looks much more like a standard data frame. Below we created an interaction plot using the <code class="docutils literal notranslate"><span class="pre">interaction_plot</span></code> function. We specify the various aesthetics of teh plot, add labels, and then save it as <code class="docutils literal notranslate"><span class="pre">my_plot.jpg</span></code> in the <code class="docutils literal notranslate"><span class="pre">images</span></code> folder on our computer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_interaction_plot</span> <span class="o">=</span> <span class="n">interaction_plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">to_plot</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">trace</span><span class="o">=</span><span class="n">to_plot</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">],</span> 
@@ -1206,6 +1206,7 @@ Name: RT, dtype: float64
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reaction Times to Target Type as a Function of Prime Type&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;images/my_plot.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
