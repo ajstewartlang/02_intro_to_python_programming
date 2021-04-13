@@ -139,7 +139,7 @@ We need to reset the grouping in the data frame above so that we can use it in o
 to_plot = pd.DataFrame(group_means).reset_index()
 to_plot
 
-The above now looks much more like a standard data frame.
+The above now looks much more like a standard data frame. Below we created an interaction plot using the `interaction_plot` function. We specify the various aesthetics of teh plot, add labels, and then save it as `my_plot.jpg` in the `images` folder on our computer. 
 
 my_interaction_plot = interaction_plot(x=to_plot['Target'], trace=to_plot['Prime'], 
                                        response=to_plot['RT'], colors=['red', 'blue'], 
@@ -149,6 +149,7 @@ plt.ylabel('RT (ms.)')
 plt.title('Reaction Times to Target Type as a Function of Prime Type')
 plt.ylim(0)
 plt.margins(.5, 1)
+plt.savefig('images/my_plot.jpg')
 
 To build the factorial ANOVA model, we use the `AnovaRM` function from the `statsmodels` library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects. 
 
