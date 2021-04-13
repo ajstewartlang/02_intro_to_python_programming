@@ -299,7 +299,7 @@
 </div>
 </div>
 <p>We’ll start by reading in some data using the pandas function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>. The data are available via the http address below. This is the same data file that we looked at in the first R workshop on ANOVA.</p>
-<p>24 participants responded to a word that was either common (i.e., high lexical frequency) or rare (i.e., low lexical frequency). This is our IV and is coded as ‘high’ vs. low’. Our DV is reaction time and is coded as ‘RT’. Subject number is coded as ‘Subject’. We want to know whether there is a difference between conditions (and if so, where that difference lies).</p>
+<p>24 participants responded to a word that was either common (i.e., high lexical frequency) or rare (i.e., low lexical frequency). This is our independent variable and is coded as <code class="docutils literal notranslate"><span class="pre">high</span></code> vs. <code class="docutils literal notranslate"><span class="pre">low</span></code>. Our dependent variable is reaction time and is coded as <code class="docutils literal notranslate"><span class="pre">RT</span></code>. Subject number is coded as <code class="docutils literal notranslate"><span class="pre">Subject</span></code>. We want to know whether there is a difference between conditions (and if so, where that difference lies).</p>
 <p>We need to visualise the data, generate descriptives, and run the appropriate ANOVA to determine whether our independent variable (Condition) has an influence on our dependent variable (RT).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -498,7 +498,7 @@
 </div>
 </div>
 </div>
-<p>In the code below we used the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>. We build our final plot layer be layer (similar to how we do things in <code class="docutils literal notranslate"><span class="pre">R</span></code> with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>). We define our plot initially in terms of what’s on the x-axis, what’s on the y-axis, and then what marker we want to use - which in this case is blue circles.</p>
+<p>In the code below we used the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> (which we have imported under the alias <code class="docutils literal notranslate"><span class="pre">plt</span></code>. We build our plot layer be layer (similar to how we do things in <code class="docutils literal notranslate"><span class="pre">R</span></code> with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>). We define our plot initially in terms of what’s on the x-axis, what’s on the y-axis, and then what marker we want to use - which in this case is blue circles (<code class="docutils literal notranslate"><span class="pre">bo</span></code>).</p>
 <p>After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,7 +514,7 @@
 <img alt="_images/pandas_12_0.png" src="_images/pandas_12_0.png" />
 </div>
 </div>
-<p>Let’s now work out some descriptive statistics using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>  functions. We’ll use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function to group our RT data by condiiton, and we’ll map this onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">grouped</span></code>.</p>
+<p>Let’s now work out some descriptive statistics using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>  functions. We’ll use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function to group <code class="docutils literal notranslate"><span class="pre">anova_data</span></code> by <code class="docutils literal notranslate"><span class="pre">Condiiton</span></code>, and we’ll map this onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">grouped</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">anova_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Condition&#39;</span><span class="p">])</span>
@@ -619,6 +619,22 @@ Name: RT, dtype: float64
 </div>
 </div>
 </div>
+<p>Sometimes it can be useful to think of the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation in Python as meaning ‘and then’. We could combine some of the commands above into one using <code class="docutils literal notranslate"><span class="pre">.</span></code> which would allow us to do away with creating the temporary variable <code class="docutils literal notranslate"><span class="pre">grouped</span></code>. For example, the following will take our original data frame, then group it by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>, then generate the means, displaying only the RT <code class="docutils literal notranslate"><span class="pre">column</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anova_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Condition&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition
+high     864.666667
+low     1178.166667
+Name: RT, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can map our means onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">my_means</span></code> and then we can plot these means as a bar graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -633,7 +649,7 @@ Name: RT, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Reaction Time by Condition&#39;)
 </pre></div>
 </div>
-<img alt="_images/pandas_23_1.png" src="_images/pandas_23_1.png" />
+<img alt="_images/pandas_25_1.png" src="_images/pandas_25_1.png" />
 </div>
 </div>
 </div>
@@ -789,7 +805,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>We are now in a position to run a 1-way ANOVA. We use the<code class="docutils literal notranslate"><span class="pre">f_oneway</span></code> function in the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module to do this. The two parameters that it needs are the two groups that we are wanting to compare to test the null hypothesis that the two groups have the same population mean. If we had three groups, we would just pass the three groups to the function.</p>
+<p>We are now in a position to run a 1-way ANOVA. We use the<code class="docutils literal notranslate"><span class="pre">f_oneway</span></code> function in the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module to do this. The two parameters that it needs are the two groups that we are wanting to compare to test the null hypothesis that the two groups have the same population mean. If we had three groups, we would pass the three groups to the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">high_group</span><span class="p">,</span> <span class="n">low_group</span><span class="p">)</span>
@@ -802,7 +818,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>Remember, the p-value is the probability of obtaining test results at least as extreme as the results observed, under the assumption that the null hypothesis is true. Note, the output above gives us the F-value and the p-value but not the degrees of freedom. As we just have two groups, we could also run an independent sample t-test using the <code class="docutils literal notranslate"><span class="pre">ttest_ind</span></code> function from <code class="docutils literal notranslate"><span class="pre">stats</span></code>.</p>
+<p>Remember, the p-value is the probability of obtaining test results at least as extreme as the results observed, under the assumption that the null hypothesis is true. Note, the output above gives us the F-value and the <em>p</em>-value but not the degrees of freedom. As we just have two groups, we could also run an independent sample t-test using the <code class="docutils literal notranslate"><span class="pre">ttest_ind</span></code> function from <code class="docutils literal notranslate"><span class="pre">stats</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">high_group</span><span class="p">,</span> <span class="n">low_group</span><span class="p">)</span>
@@ -815,7 +831,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>Note that the p-value is the same as we found with our ANOVA - and if we square the t-value we get the F-value.</p>
+<p>Note that the p-value is the same as we found with our ANOVA.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">9.550751765227444</span> <span class="o">*</span> <span class="mf">9.550751765227444</span>
@@ -828,7 +844,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that it significant run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we’re familiar with we are going to use the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package. This isn’t a package we yet have in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment so we need to install it using the Terminal shell.</p>
+<p>If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that is significant, we would run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we’re familiar with we are going to use the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package. This isn’t a package we yet have in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment so we need to install it using the Terminal shell.</p>
 <p>Go into your shell and activate the <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">data_science</span></code>. You then need to install the package using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">statsmodels</span></code>. Once it is installed, go back to your Jupyer Notebook and you should be able to import <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> and the <code class="docutils literal notranslate"><span class="pre">ols</span></code> module (for ordinary least squares models) as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,7 +854,7 @@ Name: RT, dtype: int64
 </div>
 </div>
 </div>
-<p>We define our model below using syntax not too disimilar from how we did the same in R. We are going to fit an OLS model to our data where our outcome variable <code class="docutils literal notranslate"><span class="pre">RT</span></code> is predicted by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.</p>
+<p>We define our model below using syntax not too disimilar from how we did the same in R. We are going to fit an OLS (Ordinary Least Squares) model to our data where our outcome variable <code class="docutils literal notranslate"><span class="pre">RT</span></code> is predicted by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;RT ~ Condition&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">anova_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -1053,10 +1069,10 @@ Name: RT, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Prime,Target&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_46_1.png" src="_images/pandas_46_1.png" />
+<img alt="_images/pandas_48_1.png" src="_images/pandas_48_1.png" />
 </div>
 </div>
-<p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaciton. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function for plotting the kind of interaction we are interested in looking at.</p>
+<p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaction. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function called <code class="docutils literal notranslate"><span class="pre">interaction_plot</span></code> for plotting the kind of interaction we are interested in looking at.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.factorplots</span> <span class="kn">import</span> <span class="n">interaction_plot</span>
@@ -1064,7 +1080,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 </div>
-<p>We need to create a pandas data frame that contains the means for our four conditions, and captures the 2 x 2 nature of our design. We can use <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> to turn our object of means by condition into a data frame that we can then use in our interaction plot.</p>
+<p>We need to create a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frame that contains the means for each of our four conditions, and thus captures the 2 x 2 nature of our design. We can use <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> to turn our object of means by condition into a data frame that we can then use in our interaction plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1195,7 +1211,7 @@ Name: RT, dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>The above now looks much more like a standard data frame. Below we created an interaction plot using the <code class="docutils literal notranslate"><span class="pre">interaction_plot</span></code> function. We specify the various aesthetics of teh plot, add labels, and then save it as <code class="docutils literal notranslate"><span class="pre">my_plot.jpg</span></code> in the <code class="docutils literal notranslate"><span class="pre">images</span></code> folder on our computer.</p>
+<p>The above now looks much more like a standard data frame. Below we created an interaction plot using the <code class="docutils literal notranslate"><span class="pre">interaction_plot</span></code> function. We specify the various aesthetics of the plot, add labels, and then display the plot. If we wanted to save it we would use the <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code> function. This will save the plot using the file path we provide as an argument to the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_interaction_plot</span> <span class="o">=</span> <span class="n">interaction_plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">to_plot</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">trace</span><span class="o">=</span><span class="n">to_plot</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">],</span> 
@@ -1206,15 +1222,14 @@ Name: RT, dtype: float64
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reaction Times to Target Type as a Function of Prime Type&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;images/my_plot.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_54_0.png" src="_images/pandas_54_0.png" />
+<img alt="_images/pandas_56_0.png" src="_images/pandas_56_0.png" />
 </div>
 </div>
-<p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects.</p>
+<p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (<code class="docutils literal notranslate"><span class="pre">RT</span></code>), our grouping variable (this is our random effect) plus our within participant effects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.anova</span> <span class="kn">import</span> <span class="n">AnovaRM</span>
@@ -1243,8 +1258,8 @@ Prime:Target 284.8948 1.0000 23.0000 0.0000
 </div>
 </div>
 </div>
-<p>We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter <code class="docutils literal notranslate"><span class="pre">betweeen</span></code> much in the same way we have done above with <code class="docutils literal notranslate"><span class="pre">within</span></code>. We see from the above that both main effects, plus the interaction are significant at p &lt; .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as t-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running two tests.</p>
-<p>One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map the RT column of that filtered data frame onto a new variable I am calling PP.</p>
+<p>We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter <code class="docutils literal notranslate"><span class="pre">betweeen</span></code> much in the same way we have done above with <code class="docutils literal notranslate"><span class="pre">within</span></code>. We see from the above that both main effects, plus the interaction are significant at p &lt; .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as <em>t</em>-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running the two key tests.</p>
+<p>One way to run the <em>t</em>-tests is to filter our data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map the <code class="docutils literal notranslate"><span class="pre">RT</span></code> column of that filtered data frame onto a new variable I am calling <code class="docutils literal notranslate"><span class="pre">PP</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>
@@ -1253,7 +1268,7 @@ Prime:Target 284.8948 1.0000 23.0000 0.0000
 </div>
 </div>
 </div>
-<p>I then do the same for cases where the Prime is Negative and the Target is Positive. I can now run a t-test using the <code class="docutils literal notranslate"><span class="pre">stats.ttest_rel</span></code> function for paired samples t-tests.</p>
+<p>I then do the same for cases where the Prime is Negative and the Target is Positive. I can now run a <em>t</em>-test using the <code class="docutils literal notranslate"><span class="pre">stats.ttest_rel</span></code> function for paired samples <em>t</em>-tests.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>
@@ -1282,6 +1297,9 @@ stats.ttest_rel(PN, NN)
 </pre></div>
 </div>
 </div>
+<p>The following will be a group-based activity which you will do in class.</p>
+<p>You need to build a new factorial ANOVA for the following experiment. The data in the file <a class="reference external" href="https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_challenge.csv">https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_challenge.csv</a> are from a 2 x 2 repeated measures design. 148 participants responded to a target image that was either positive or negative in valence. The target was preceded by a prime that was either also positive or negative in valence. We want to determine whether people responded faster to positive images following a positive prime (relative to following a negative prime),
+and faster to negative images following a negative prime (relative to following a positive prime). Visualise the data and report the key descriptives before then running the appropriate ANOVA.</p>
 </div>
 </div>
 
