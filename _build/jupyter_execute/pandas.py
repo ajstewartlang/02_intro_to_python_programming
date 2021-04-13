@@ -16,7 +16,7 @@ import pandas as pd
 
 We'll start by reading in some data using the pandas function `pd.read_csv`. The data are available via the http address below. This is the same data file that we looked at in the first R workshop on ANOVA. 
 
-24 participants responded to a word that was either common (i.e., high lexical frequency) or rare (i.e., low lexical frequency). This is our IV and is coded as ‘high’ vs. low’. Our DV is reaction time and is coded as ‘RT’. Subject number is coded as ‘Subject’. We want to know whether there is a difference between conditions (and if so, where that difference lies). 
+24 participants responded to a word that was either common (i.e., high lexical frequency) or rare (i.e., low lexical frequency). This is our independent variable and is coded as `high` vs. `low`. Our dependent variable is reaction time and is coded as `RT`. Subject number is coded as `Subject`. We want to know whether there is a difference between conditions (and if so, where that difference lies). 
 
 We need to visualise the data, generate descriptives, and run the appropriate ANOVA to determine whether our independent variable (Condition) has an influence on our dependent variable (RT).
 
@@ -30,7 +30,7 @@ In order to visualise the data we need to use the `matplotlib` library. This lib
 
 import matplotlib.pyplot as plt
 
-In the code below we used the `plot` function from `pyplot`. We build our final plot layer be layer (similar to how we do things in `R` with `ggplot2`). We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles.
+In the code below we used the `plot` function from `pyplot` (which we have imported under the alias `plt`. We build our plot layer be layer (similar to how we do things in `R` with `ggplot2`). We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles (`bo`).
 
 After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.
 
@@ -40,7 +40,7 @@ plt.ylabel('RT (ms.)')
 plt.title('Reaction Time by Condition')
 plt.margins(.5, .5)
 
-Let's now work out some descriptive statistics using `pandas`  functions. We'll use the `groupby` function to group our RT data by condiiton, and we'll map this onto a new variable I'm calling `grouped`.
+Let's now work out some descriptive statistics using `pandas`  functions. We'll use the `groupby` function to group `anova_data` by `Condiiton`, and we'll map this onto a new variable I'm calling `grouped`.
 
 grouped = anova_data.groupby(['Condition'])
 
@@ -57,6 +57,10 @@ From the above we can see we have 12 observations in each condition, and our var
 grouped.mean()['RT']
 
 grouped.std()['RT']
+
+Sometimes it can be useful to think of the `.` notation in Python as meaning 'and then'. We could combine some of the commands above into one using `.` which would allow us to do away with creating the temporary variable `grouped`. For example, the following will take our original data frame, then group it by `Condition`, then generate the means, displaying only the RT `column`.
+
+anova_data.groupby(['Condition']).mean()['RT']
 
 We can map our means onto a new variable I'm calling `my_means` and then we can plot these means as a bar graph.
 
@@ -84,26 +88,26 @@ By building on the above we can create two new variables, one corresponding to t
 high_group = anova_data[anova_data['Condition']=='high']['RT']
 low_group = anova_data[anova_data['Condition']=='low']['RT']
 
-We are now in a position to run a 1-way ANOVA. We use the`f_oneway` function in the `stats` module to do this. The two parameters that it needs are the two groups that we are wanting to compare to test the null hypothesis that the two groups have the same population mean. If we had three groups, we would just pass the three groups to the function.  
+We are now in a position to run a 1-way ANOVA. We use the`f_oneway` function in the `stats` module to do this. The two parameters that it needs are the two groups that we are wanting to compare to test the null hypothesis that the two groups have the same population mean. If we had three groups, we would pass the three groups to the function.  
 
 stats.f_oneway(high_group, low_group)
 
-Remember, the p-value is the probability of obtaining test results at least as extreme as the results observed, under the assumption that the null hypothesis is true. Note, the output above gives us the F-value and the p-value but not the degrees of freedom. As we just have two groups, we could also run an independent sample t-test using the `ttest_ind` function from `stats`.
+Remember, the p-value is the probability of obtaining test results at least as extreme as the results observed, under the assumption that the null hypothesis is true. Note, the output above gives us the F-value and the *p*-value but not the degrees of freedom. As we just have two groups, we could also run an independent sample t-test using the `ttest_ind` function from `stats`.
 
 stats.ttest_ind(high_group, low_group)
 
-Note that the p-value is the same as we found with our ANOVA - and if we square the t-value we get the F-value.
+Note that the p-value is the same as we found with our ANOVA.
 
 9.550751765227444 * 9.550751765227444
 
-If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that it significant run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the `stats` module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we're familiar with we are going to use the `statsmodels` package. This isn't a package we yet have in our `data_science` environment so we need to install it using the Terminal shell.  
+If we had three groups in our study, we could run the 1-way ANOVA as we did above and then if that is significant, we would run multiple t-tests with a manually adjusted alpha level (e.g., using the Bonferroni correction). One of the limitations with using the `stats` module is that degrees of freedom are not reported, nor is information about the residuals. In order to generate an ANOVA table more like the type we're familiar with we are going to use the `statsmodels` package. This isn't a package we yet have in our `data_science` environment so we need to install it using the Terminal shell.  
 
 Go into your shell and activate the `data_science` environment using `conda activate data_science`. You then need to install the package using `conda install statsmodels`. Once it is installed, go back to your Jupyer Notebook and you should be able to import `statsmodels` and the `ols` module (for ordinary least squares models) as follows.
 
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
-We define our model below using syntax not too disimilar from how we did the same in R. We are going to fit an OLS model to our data where our outcome variable `RT` is predicted by `Condition`. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.
+We define our model below using syntax not too disimilar from how we did the same in R. We are going to fit an OLS (Ordinary Least Squares) model to our data where our outcome variable `RT` is predicted by `Condition`. We then present the results in an ANOVA table using Type 3 Sums of Squares. This is much closer to the level of detail that we need.
 
 model = ols('RT ~ Condition', data=anova_data).fit()
 anova_table = sm.stats.anova_lm(model, typ=3)
@@ -125,11 +129,11 @@ group_means
 
 group_means.plot(kind="bar")
 
-While the above plot looks *ok*, it's a little tricky seeing the nature of the interaciton. Luckily the `statsmodels` library has a function for plotting the kind of interaction we are interested in looking at.
+While the above plot looks *ok*, it's a little tricky seeing the nature of the interaction. Luckily the `statsmodels` library has a function called `interaction_plot` for plotting the kind of interaction we are interested in looking at.
 
 from statsmodels.graphics.factorplots import interaction_plot
 
-We need to create a pandas data frame that contains the means for our four conditions, and captures the 2 x 2 nature of our design. We can use `pd.DataFrame` to turn our object of means by condition into a data frame that we can then use in our interaction plot.
+We need to create a `pandas` data frame that contains the means for each of our four conditions, and thus captures the 2 x 2 nature of our design. We can use `pd.DataFrame` to turn our object of means by condition into a data frame that we can then use in our interaction plot.
 
 group_means = grouped.mean()
 pd.DataFrame(group_means)
@@ -139,7 +143,7 @@ We need to reset the grouping in the data frame above so that we can use it in o
 to_plot = pd.DataFrame(group_means).reset_index()
 to_plot
 
-The above now looks much more like a standard data frame. Below we created an interaction plot using the `interaction_plot` function. We specify the various aesthetics of teh plot, add labels, and then save it as `my_plot.jpg` in the `images` folder on our computer. 
+The above now looks much more like a standard data frame. Below we created an interaction plot using the `interaction_plot` function. We specify the various aesthetics of the plot, add labels, and then display the plot. If we wanted to save it we would use the `plt.savefig` function. This will save the plot using the file path we provide as an argument to the function.
 
 my_interaction_plot = interaction_plot(x=to_plot['Target'], trace=to_plot['Prime'], 
                                        response=to_plot['RT'], colors=['red', 'blue'], 
@@ -149,9 +153,8 @@ plt.ylabel('RT (ms.)')
 plt.title('Reaction Times to Target Type as a Function of Prime Type')
 plt.ylim(0)
 plt.margins(.5, 1)
-plt.savefig('images/my_plot.jpg')
 
-To build the factorial ANOVA model, we use the `AnovaRM` function from the `statsmodels` library. We need to specify our outcome variable (RT), our grouping variable (this is our random effect) plus our within participant effects. 
+To build the factorial ANOVA model, we use the `AnovaRM` function from the `statsmodels` library. We need to specify our outcome variable (`RT`), our grouping variable (this is our random effect) plus our within participant effects. 
 
 from statsmodels.stats.anova import AnovaRM
 
@@ -159,14 +162,14 @@ factorial_model = AnovaRM(data=factorial_anova_data, depvar='RT', within=['Prime
 
 print(factorial_model)
 
-We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter `betweeen` much in the same way we have done above with `within`. We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as t-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running two tests.
+We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter `betweeen` much in the same way we have done above with `within`. We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as *t*-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running the two key tests.
 
-One way to run the t-tests is to filer out data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map the RT column of that filtered data frame onto a new variable I am calling PP. 
+One way to run the *t*-tests is to filter our data frame and create new variables for each of the condition combinations we want to compare. In the code below, I create a boolean index (i.e., True and False values) corresponding to cases where the Prime AND the Target are both Positive. I then apply this logical index to the data frame and map the `RT` column of that filtered data frame onto a new variable I am calling `PP`. 
 
 index = (factorial_anova_data['Prime']=='Positive') & (factorial_anova_data['Target']=='Positive')
 PP = factorial_anova_data[index]['RT']
 
-I then do the same for cases where the Prime is Negative and the Target is Positive. I can now run a t-test using the `stats.ttest_rel` function for paired samples t-tests.
+I then do the same for cases where the Prime is Negative and the Target is Positive. I can now run a *t*-test using the `stats.ttest_rel` function for paired samples *t*-tests.
 
 index = (factorial_anova_data['Prime']=='Negative') &(factorial_anova_data['Target']=='Positive')
 NP = factorial_anova_data[index]['RT']
@@ -186,4 +189,8 @@ We can see that this comparison is significant. Your challenge now is to write t
     stats.ttest_rel(PN, NN) 
 ```
 
- 
+The following will be a group-based activity which you will do in class.
+
+You need to build a new factorial ANOVA for the following experiment. The data in the file https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_challenge.csv are from a 2 x 2 repeated measures design. 148 participants responded to a target image that was either positive or negative in valence. The target was preceded by a prime that was either also positive or negative in valence. We want to determine whether people responded faster to positive images following a positive prime (relative to following a negative prime),
+and faster to negative images following a negative prime (relative to following a positive prime). Visualise the data and report the key descriptives before then running the appropriate ANOVA.
+
