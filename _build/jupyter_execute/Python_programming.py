@@ -20,7 +20,9 @@ You can view and download the slides in a variety of formats by clicking on the 
 
 %%HTML
 <div style="text-align: center">
-<iframe width="200" src="https://giphy.com/embed/xT1XGzXhVgWRLN1Cco" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/producthunt-code-coding-learn-to-xT1XGzXhVgWRLN1Cco">via GIPHY</a></p>
+<iframe width="250" src="https://giphy.com/embed/xT1XGzXhVgWRLN1Cco" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/producthunt-code-coding-learn-to-xT1XGzXhVgWRLN1Cco">via GIPHY</a></p>
+
+</div>
 
 ## Data Types and Variable Assignment
 
