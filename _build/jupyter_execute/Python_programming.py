@@ -20,13 +20,12 @@ You can view and download the slides in a variety of formats by clicking on the 
 
 %%HTML
 <div style="text-align: center">
-<iframe width="250" src="https://giphy.com/embed/xT1XGzXhVgWRLN1Cco" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/producthunt-code-coding-learn-to-xT1XGzXhVgWRLN1Cco">via GIPHY</a></p>
-
+<iframe width="250" height="250" src="https://giphy.com/embed/LmNwrBhejkK9EFP504" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/memecandy-LmNwrBhejkK9EFP504">via GIPHY</a></p>
 </div>
 
 ## Data Types and Variable Assignment
 
-This is a Jupyter Notebook. It allows use to write text in Markdown format (as we have in this block), and also run Python code and see the output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` in your terminal if you don't). Set up a new Notecook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
+We will be writing our code using a Jupyter Notebook. It allows use to write text in Markdown format (as I have written in this block), and also to run Python code and see the output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` in your terminal if you don't). Set up a new Notebook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
 
     conda activate
     jupyter notebook
