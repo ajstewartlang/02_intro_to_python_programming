@@ -620,11 +620,6 @@ print(my_favourite_number, my_favourite_number_text)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 20, 30)
-</pre></div>
-</div>
-</div>
 </div>
 <p>How would you slice <code class="docutils literal notranslate"><span class="pre">my_tuple</span></code> so that it contains only the second and third elements?</p>
 <div class="dropdown admonition">
@@ -638,11 +633,6 @@ print(my_favourite_number, my_favourite_number_text)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_sliced_tuple</span> <span class="o">=</span> <span class="n">my_tuple</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">my_sliced_tuple</span> <span class="o">==</span> <span class="n">my_tuple</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -664,23 +654,11 @@ print(my_favourite_number, my_favourite_number_text)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 6, 5, 4],
-       [8, 9, 1, 7],
-       [9, 6, 8, 0]])
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can then check the shape of the array using <code class="docutils literal notranslate"><span class="pre">.shape</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4)
 </pre></div>
 </div>
 </div>
@@ -692,47 +670,6 @@ print(my_favourite_number, my_favourite_number_text)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function shape in module numpy:
-
-shape(a)
-    Return the shape of an array.
-    
-    Parameters
-    ----------
-    a : array_like
-        Input array.
-    
-    Returns
-    -------
-    shape : tuple of ints
-        The elements of the shape tuple give the lengths of the
-        corresponding array dimensions.
-    
-    See Also
-    --------
-    alen
-    ndarray.shape : Equivalent array method.
-    
-    Examples
-    --------
-    &gt;&gt;&gt; np.shape(np.eye(3))
-    (3, 3)
-    &gt;&gt;&gt; np.shape([[1, 2]])
-    (1, 2)
-    &gt;&gt;&gt; np.shape([0])
-    (1,)
-    &gt;&gt;&gt; np.shape(0)
-    ()
-    
-    &gt;&gt;&gt; a = np.array([(1, 2), (3, 4)], dtype=[(&#39;x&#39;, &#39;i4&#39;), (&#39;y&#39;, &#39;i4&#39;)])
-    &gt;&gt;&gt; np.shape(a)
-    (2,)
-    &gt;&gt;&gt; a.shape
-    (2,)
 </pre></div>
 </div>
 </div>
@@ -750,22 +687,12 @@ shape(a)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Andrew&#39;, &#39;Suzanne&#39;, &#39;Eliza&#39;, &#39;Seb&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_old_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;this is surprising&#39;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_new_names</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;this is surprising&#39;, &#39;Suzanne&#39;, &#39;Eliza&#39;, &#39;Seb&#39;]
 </pre></div>
 </div>
 </div>
@@ -778,21 +705,6 @@ shape(a)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
-
-print(...)
-    print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
-    
-    Prints the values to a stream, or to sys.stdout by default.
-    Optional keyword arguments:
-    file:  a file-like object (stream); defaults to the current sys.stdout.
-    sep:   string inserted between values, default a space.
-    end:   string appended after the last value, default a newline.
-    flush: whether to forcibly flush the stream.
 </pre></div>
 </div>
 </div>
@@ -810,11 +722,6 @@ print(...)
     <span class="k">return</span> <span class="n">bmi_value</span>
 
 <span class="n">bmi</span><span class="p">(</span><span class="mi">87</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.85185185185185
 </pre></div>
 </div>
 </div>
@@ -846,15 +753,6 @@ cohen_d(1020, 1000, 50)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
-Hello world!
-Hello world!
-Hello world!
-Hello world!
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can also iterate over elements in an array using a for loop. In the following example, we iterate through the elements in our list and print that element.</p>
 <div class="cell docutils container">
@@ -863,14 +761,6 @@ Hello world!
 
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">my_names</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Andrew
-Suzanne
-Eliza
-Seb
 </pre></div>
 </div>
 </div>
@@ -889,26 +779,12 @@ Seb
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;80&#39; &#39;60&#39; &#39;90&#39;]
- [&#39;1.8&#39; &#39;1.65&#39; &#39;1.75&#39;]
- [&#39;Iggy&#39; &#39;David&#39; &#39;Lou&#39;]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>We see that in a for loop we can iterate over the rows in our array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">vital_stats</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;80&#39; &#39;60&#39; &#39;90&#39;]
-[&#39;1.8&#39; &#39;1.65&#39; &#39;1.75&#39;]
-[&#39;Iggy&#39; &#39;David&#39; &#39;Lou&#39;]
 </pre></div>
 </div>
 </div>
@@ -921,13 +797,6 @@ Seb
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;80&#39; &#39;1.8&#39; &#39;Iggy&#39;]
-[&#39;60&#39; &#39;1.65&#39; &#39;David&#39;]
-[&#39;90&#39; &#39;1.75&#39; &#39;Lou&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can cycle through the rows of this transposed array (with the rows now corresponding to the weight, height and name of each individual), and pass these values to the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function that we wrote. Each person’s weight is in column 0 of the array, and each person’s height in column 1. Their name is in column 2. The following loop cycles through our NumPy array person by person and calls the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function for each person in the array before printing out the result (rounded to zero decimal places using the <code class="docutils literal notranslate"><span class="pre">round</span></code> function). Note that the elements in the array we have created are all of type <code class="docutils literal notranslate"><span class="pre">str</span></code> as this is the only way to represent the elements as being of the same type (which is a requirement of NumPy arrays). We can convert each number that is currently of type <code class="docutils literal notranslate"><span class="pre">str</span></code> to a number with <code class="docutils literal notranslate"><span class="pre">float</span></code> so that we can pass it to the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> function.</p>
 <div class="cell docutils container">
@@ -936,13 +805,6 @@ Seb
     <span class="n">weight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;has a BMI of&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iggy has a BMI of 25
-David has a BMI of 22
-Lou has a BMI of 29
 </pre></div>
 </div>
 </div>
@@ -998,20 +860,10 @@ Greater than or equal to: a &gt;= b</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1022,20 +874,10 @@ Greater than or equal to: a &gt;= b</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1046,20 +888,10 @@ Greater than or equal to: a &gt;= b</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -1079,20 +911,10 @@ Greater than or equal to: a &gt;= b</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False, False])
 </pre></div>
 </div>
 </div>
@@ -1101,11 +923,6 @@ Greater than or equal to: a &gt;= b</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 4, 4])
 </pre></div>
 </div>
 </div>
@@ -1126,12 +943,6 @@ Greater than or equal to: a &gt;= b</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Andrew
-Suzanne
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="control-flow-statements-conditionals">
@@ -1148,11 +959,6 @@ Suzanne
     <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is greater than&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is equal to&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 is less than 6
 </pre></div>
 </div>
 </div>
