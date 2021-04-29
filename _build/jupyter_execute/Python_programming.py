@@ -1,6 +1,12 @@
 # Introduction to Python Programming
 
-In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. 
+In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. Python is a general purpose programming language and used widely across academia and industry. Quite a few apps that you probably use regularly are at least partly written in Python. These include YouTube, Google (indeed Python is the offical language of Google), Spotify, and Instagram. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we're going to focus on how to use Python and some of its key libraries for data science work. The language has been around since the 1980s and is named in tribute to Monty Python...
+
+<center>
+
+![monty_python_gif](images/tenor.gif)
+
+</center>
 
 %%HTML
 <div style="text-align: center">
