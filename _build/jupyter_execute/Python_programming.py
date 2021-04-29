@@ -12,9 +12,15 @@ There are a couple of really good introductory books on using Python for data sc
 
 <center>
 
-[![wes_mckinney_book](images/python_data_analysis.jpg)](https://www.amazon.co.uk/Python-Data-Analysis-Wes-Mckinney-dp-1491957662/dp/1491957662/ref=dp_ob_title_bk)    [![Jake VanderPlas_book](images/data_science_handbook.jpg)](https://www.amazon.co.uk/Python-Data-Science-Handbook-Techniques/dp/1491912057/ref=sr_1_1?crid=KFHZFNZYHQTL&dchild=1&keywords=python+data+science+handbook&qid=1619688682&s=books&sprefix=python+data+science+%2Cstripbooks%2C157&sr=1-1)
+[![wes_mckinney_book](images/python_data_analysis.jpg)](https://www.amazon.co.uk/Python-Data-Analysis-Wes-Mckinney-dp-1491957662/dp/1491957662/ref=dp_ob_title_bk)  [![Jake VanderPlas_book](images/data_science_handbook.jpg)](https://www.amazon.co.uk/Python-Data-Science-Handbook-Techniques/dp/1491912057/ref=sr_1_1?crid=KFHZFNZYHQTL&dchild=1&keywords=python+data+science+handbook&qid=1619688682&s=books&sprefix=python+data+science+%2Cstripbooks%2C157&sr=1-1)
     
 </center>
+
+%%HTML
+<div style="text-align: center">
+<iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
+
+</div>
 
 ## Similarities Between Python and R
 
@@ -71,12 +77,6 @@ In R:
     my_list[1]
 
 In both these cases the output will be `apple`.
-
-%%HTML
-<div style="text-align: center">
-<iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
-
-</div>
 
 ## Slides
 
