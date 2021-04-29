@@ -78,16 +78,6 @@ In R:
 
 In both these cases the output will be `apple`.
 
-## Slides
-
-You can view and download the slides in a variety of formats by clicking on the image below.
-
-<center>
-
-[![link_to_slides](images/intro_slides.png)](https://docs.google.com/presentation/d/1yWZ8Q_MD4RGkeqDTDukaS7T18oX08BmONcaLwZNAAKk/edit?usp=sharing)
-    
-</center>
-
 %%HTML
 <div style="text-align: center">
 <iframe width="250" height="250" src="https://giphy.com/embed/LmNwrBhejkK9EFP504" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/memecandy-LmNwrBhejkK9EFP504">via GIPHY</a></p>
