@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pandas for Data Analysis" href="pandas.html" />
+    <link rel="next" title="Data Analysis in Python" href="pandas.html" />
     <link rel="prev" title="Installing Python with Conda" href="conda.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -112,7 +112,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pandas.html">
-     Pandas for Data Analysis
+     Data Analysis in Python
     </a>
    </li>
    <li class="toctree-l2">
@@ -652,8 +652,8 @@ print(my_favourite_number, my_favourite_number_text)
 <h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
 <p>An array is a data structure consisting of a collection of elements, each identified by at least one array index (or key). Arrays are core data structures in data science and machine learning. For example, you can store images as 2-dimensional arrays representing pixel brightness across the area of the image.</p>
 <p>Data frames and tibbles in R are types of 2-dimensional arrays - data stored in rectangular format with rows and columns. Arrays don’t have to just be in two dimensions but it can be tricky imagining more dimensions…</p>
-<p>NumPy Arrays are better than inbuilt Python Arrays in that they are more efficient as the arrays grow larger in size. We’ll spend more time on NumPy arrays in the next workshop but let’s just take a brief look.</p>
-<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
+<p>NumPy arrays are better than inbuilt Python arrays in that they are more efficient as the arrays grow larger in size.</p>
+<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1193,7 +1193,7 @@ Suzanne
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="conda.html" title="previous page">Installing Python with Conda</a>
-    <a class='right-next' id="next-link" href="pandas.html" title="next page">Pandas for Data Analysis</a>
+    <a class='right-next' id="next-link" href="pandas.html" title="next page">Data Analysis in Python</a>
 
         </div>
         
