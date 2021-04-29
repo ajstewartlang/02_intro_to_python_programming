@@ -287,8 +287,8 @@ for element in my_names:
 
 In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called `vital_stats` with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.
 
-weights = np.array([80, 60, 90])
-heights = np.array([1.8, 1.65, 1.75])
+weights = np.array([70, 60, 90])
+heights = np.array([1.67, 1.77, 1.78])
 names = np.array(['Iggy', 'David', 'Lou'])
 vital_stats = np.array((weights, heights, names))
 
