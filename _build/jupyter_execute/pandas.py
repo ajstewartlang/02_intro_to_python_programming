@@ -1,4 +1,4 @@
-# Pandas for Data Analysis
+# Data Analysis in Python
 
 In this third workshop we will focus on using the pandas library for data wrangling and analysis.
 
