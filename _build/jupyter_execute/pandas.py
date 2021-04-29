@@ -1,9 +1,9 @@
 # Data Analysis in Python
 
-In this third workshop we will focus on using the pandas library for data wrangling and analysis.
+In this workshop we will focus on using Python libraries for data wrangling, visualisation, and analysis.
 
 %%HTML
-<div style="text-align: center">
+<div style="text-align: center"> 
 <iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
 
 </div>
@@ -30,7 +30,7 @@ In order to visualise the data we need to use the `matplotlib` library. This lib
 
 import matplotlib.pyplot as plt
 
-In the code below we used the `plot` function from `pyplot` (which we have imported under the alias `plt`. We build our plot layer be layer (similar to how we do things in `R` with `ggplot2`). We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles (`bo`).
+In the code below we used the `plot` function from `pyplot` (which we have imported under the alias `plt`. We build our plot layer by layer (similar to how we do things in `R` with `ggplot2`). We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles (`bo`).
 
 After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.
 
@@ -40,7 +40,7 @@ plt.ylabel('RT (ms.)')
 plt.title('Reaction Time by Condition')
 plt.margins(.5, .5)
 
-Let's now work out some descriptive statistics using `pandas`  functions. We'll use the `groupby` function to group `anova_data` by `Condiiton`, and we'll map this onto a new variable I'm calling `grouped`.
+Let's now work out some descriptive statistics using `pandas`  functions. We'll use the `groupby` function to group `anova_data` by `Condition`, and we'll map this onto a new variable I'm calling `grouped`.
 
 grouped = anova_data.groupby(['Condition'])
 

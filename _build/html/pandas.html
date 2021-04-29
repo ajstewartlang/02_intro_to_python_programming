@@ -270,11 +270,11 @@
                 
   <div class="section" id="data-analysis-in-python">
 <h1>Data Analysis in Python<a class="headerlink" href="#data-analysis-in-python" title="Permalink to this headline">¶</a></h1>
-<p>In this third workshop we will focus on using the pandas library for data wrangling and analysis.</p>
+<p>In this workshop we will focus on using Python libraries for data wrangling, visualisation, and analysis.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
 <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/HjF98JryayQ&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -282,7 +282,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div style="text-align: center">
+<div class="output text_html"><div style="text-align: center"> 
 <iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
 
 </div>
@@ -498,7 +498,7 @@
 </div>
 </div>
 </div>
-<p>In the code below we used the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> (which we have imported under the alias <code class="docutils literal notranslate"><span class="pre">plt</span></code>. We build our plot layer be layer (similar to how we do things in <code class="docutils literal notranslate"><span class="pre">R</span></code> with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>). We define our plot initially in terms of what’s on the x-axis, what’s on the y-axis, and then what marker we want to use - which in this case is blue circles (<code class="docutils literal notranslate"><span class="pre">bo</span></code>).</p>
+<p>In the code below we used the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> (which we have imported under the alias <code class="docutils literal notranslate"><span class="pre">plt</span></code>. We build our plot layer by layer (similar to how we do things in <code class="docutils literal notranslate"><span class="pre">R</span></code> with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>). We define our plot initially in terms of what’s on the x-axis, what’s on the y-axis, and then what marker we want to use - which in this case is blue circles (<code class="docutils literal notranslate"><span class="pre">bo</span></code>).</p>
 <p>After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,7 +514,7 @@
 <img alt="_images/pandas_12_0.png" src="_images/pandas_12_0.png" />
 </div>
 </div>
-<p>Let’s now work out some descriptive statistics using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>  functions. We’ll use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function to group <code class="docutils literal notranslate"><span class="pre">anova_data</span></code> by <code class="docutils literal notranslate"><span class="pre">Condiiton</span></code>, and we’ll map this onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">grouped</span></code>.</p>
+<p>Let’s now work out some descriptive statistics using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>  functions. We’ll use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function to group <code class="docutils literal notranslate"><span class="pre">anova_data</span></code> by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>, and we’ll map this onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">grouped</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">anova_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Condition&#39;</span><span class="p">])</span>

@@ -65,6 +65,7 @@ print("The table of differences can be found here:", path)
 Imagine we have a very large (~7 MB) `.csv` file which contains a bunch of email address for all schools in the UK. We want to extract all the email address for schools in Hackney and Camden. They follow the format: 
 
 name@schoolname.hackney.sch.uk
+
 name@schoolname.camden.sch.uk
 
 We could manually search through the spreadsheet using `CTRL-F` or suchlike to find these - or we could automate the task...

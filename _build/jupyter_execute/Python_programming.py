@@ -196,9 +196,9 @@ An array is a data structure consisting of a collection of elements, each identi
 
 Data frames and tibbles in R are types of 2-dimensional arrays - data stored in rectangular format with rows and columns. Arrays don’t have to just be in two dimensions but it can be tricky imagining more dimensions...
 
-NumPy Arrays are better than inbuilt Python Arrays in that they are more efficient as the arrays grow larger in size. We'll spend more time on NumPy arrays in the next workshop but let's just take a brief look.
+NumPy arrays are better than inbuilt Python arrays in that they are more efficient as the arrays grow larger in size. 
 
-In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproduciblity. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
+In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
 
 import numpy as np
 
