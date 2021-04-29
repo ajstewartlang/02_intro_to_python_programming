@@ -239,6 +239,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#similarities-between-python-and-r">
+   Similarities Between Python and R
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differences-between-python-and-r">
+   Differences between Python and R
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indendation-has-meaning-in-python">
+     Indendation Has Meaning In Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-uses-zero-based-indexing">
+     Python Uses Zero-Based Indexing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#slides">
    Slides
   </a>
@@ -329,8 +351,53 @@
 <p><img alt="monty_python_gif" src="_images/tenor.gif" /></p>
 </center>
 <p>There are a couple of really good introductory books on using Python for data science that I recommend.</p>
+<center>
 <p><a class="reference external" href="https://www.amazon.co.uk/Python-Data-Analysis-Wes-Mckinney-dp-1491957662/dp/1491957662/ref=dp_ob_title_bk"><img alt="wes_mckinney_book" src="_images/python_data_analysis.jpg" /></a></p>
 <p><a class="reference external" href="https://www.amazon.co.uk/Python-Data-Science-Handbook-Techniques/dp/1491912057/ref=sr_1_1?crid=KFHZFNZYHQTL&amp;dchild=1&amp;keywords=python+data+science+handbook&amp;qid=1619688682&amp;s=books&amp;sprefix=python+data+science+%2Cstripbooks%2C157&amp;sr=1-1"><img alt="Jake VanderPlas_book" src="_images/data_science_handbook.jpg" /></a></p>
+</center><div class="section" id="similarities-between-python-and-r">
+<h2>Similarities Between Python and R<a class="headerlink" href="#similarities-between-python-and-r" title="Permalink to this headline">¶</a></h2>
+<p>Both Python and R are high-level interpreted languages - this means that Python and R scripts can only be run if you have a Python or R interpreter installed on the machine you’re using.</p>
+<p>Both Python and R are typically used with libraries or packages that can hugely expand the functionality of the basic language.</p>
+<p>When doing data science in R or Python, you’re likely using the base language plus packages such as <code class="docutils literal notranslate"><span class="pre">{dplyr}</span></code> and <code class="docutils literal notranslate"><span class="pre">{tidyr}</span></code> in R and libraries such as <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in Python.</p>
+<p>Reproducibility is important so you need to keep track of the packages/libraries you’re using so that you can recreate your analysis at some future point (or so that someone else can recreate your analysis).</p>
+</div>
+<div class="section" id="differences-between-python-and-r">
+<h2>Differences between Python and R<a class="headerlink" href="#differences-between-python-and-r" title="Permalink to this headline">¶</a></h2>
+<p>Python is a general purpose programming language, while R is a specialised statistical programming language (although it can sometimes be used for more general programming tasks).</p>
+<p>As a language, Python code is more readable than R code and there’s a consistency in the Python language that you don’t get in R (e.g., differences in base R vs. Tidyverse syntax vs. formula syntax). While R has backwards compatibility, Python does not (e.g., differences between Python 2.x and 3.x).</p>
+<p>Python is an object-oriented programming language and this gives you flexibility to use methods to work with new objects.</p>
+<p>You can do a lot more in Python than in R, but Python lacks some of the statistical model libraries that are present in R (although it has lots more machine learning libraries).</p>
+<div class="section" id="indendation-has-meaning-in-python">
+<h3>Indendation Has Meaning In Python<a class="headerlink" href="#indendation-has-meaning-in-python" title="Permalink to this headline">¶</a></h3>
+<p>One of the biggest differences between Python and R, is that <strong>in Python indentation has meaning</strong> - in R indentation can make your scripts looks nice (but has no intrinsic meaning). In Python, indentation is used in place of { } in order to group together statements.</p>
+<p>Consider a for loop to print the numbers 1 to 10.</p>
+<p>In Python:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for i in range(1,11):
+    print(i)
+</pre></div>
+</div>
+<p>In R:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for (i in 1:10) {
+    print(i)
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-uses-zero-based-indexing">
+<h3>Python Uses Zero-Based Indexing<a class="headerlink" href="#python-uses-zero-based-indexing" title="Permalink to this headline">¶</a></h3>
+<p>In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the first element is at position 0 in Python, but position 1 in R.</p>
+<p>So, to refer to the first element <code class="docutils literal notranslate"><span class="pre">(&quot;apple&quot;)</span></code> we need to do the following:</p>
+<p>In Python:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list = [&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;]
+my_list[0]
+</pre></div>
+</div>
+<p>In R:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list &lt;- list(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+my_list[1]
+</pre></div>
+</div>
+<p>In both these cases the output will be <code class="docutils literal notranslate"><span class="pre">apple</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
@@ -347,6 +414,8 @@
 
 </div>
 </div></div>
+</div>
+</div>
 </div>
 <div class="section" id="slides">
 <h2>Slides<a class="headerlink" href="#slides" title="Permalink to this headline">¶</a></h2>

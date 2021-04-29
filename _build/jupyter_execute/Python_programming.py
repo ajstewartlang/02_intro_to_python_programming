@@ -10,9 +10,69 @@ In this second workshop we'll take our first look at programming in Python. We'l
 
 There are a couple of really good introductory books on using Python for data science that I recommend.
 
-[![wes_mckinney_book](images/python_data_analysis.jpg)](https://www.amazon.co.uk/Python-Data-Analysis-Wes-Mckinney-dp-1491957662/dp/1491957662/ref=dp_ob_title_bk) 
+<center>
 
+[![wes_mckinney_book](images/python_data_analysis.jpg)](https://www.amazon.co.uk/Python-Data-Analysis-Wes-Mckinney-dp-1491957662/dp/1491957662/ref=dp_ob_title_bk) 
+    
 [![Jake VanderPlas_book](images/data_science_handbook.jpg)](https://www.amazon.co.uk/Python-Data-Science-Handbook-Techniques/dp/1491912057/ref=sr_1_1?crid=KFHZFNZYHQTL&dchild=1&keywords=python+data+science+handbook&qid=1619688682&s=books&sprefix=python+data+science+%2Cstripbooks%2C157&sr=1-1)
+    
+</center>
+
+## Similarities Between Python and R
+
+Both Python and R are high-level interpreted languages - this means that Python and R scripts can only be run if you have a Python or R interpreter installed on the machine you’re using.
+
+Both Python and R are typically used with libraries or packages that can hugely expand the functionality of the basic language. 
+
+When doing data science in R or Python, you’re likely using the base language plus packages such as `{dplyr}` and `{tidyr}` in R and libraries such as `numpy` and `pandas` in Python.
+
+Reproducibility is important so you need to keep track of the packages/libraries you’re using so that you can recreate your analysis at some future point (or so that someone else can recreate your analysis). 
+
+
+## Differences between Python and R
+
+Python is a general purpose programming language, while R is a specialised statistical programming language (although it can sometimes be used for more general programming tasks).
+
+As a language, Python code is more readable than R code and there’s a consistency in the Python language that you don’t get in R (e.g., differences in base R vs. Tidyverse syntax vs. formula syntax). While R has backwards compatibility, Python does not (e.g., differences between Python 2.x and 3.x). 
+
+Python is an object-oriented programming language and this gives you flexibility to use methods to work with new objects.
+
+You can do a lot more in Python than in R, but Python lacks some of the statistical model libraries that are present in R (although it has lots more machine learning libraries).
+
+### Indendation Has Meaning In Python
+
+One of the biggest differences between Python and R, is that **in Python indentation has meaning** - in R indentation can make your scripts looks nice (but has no intrinsic meaning). In Python, indentation is used in place of { } in order to group together statements.
+
+Consider a for loop to print the numbers 1 to 10.
+
+In Python: 
+
+    for i in range(1,11):
+        print(i)
+
+In R:
+
+    for (i in 1:10) {
+        print(i)
+    }
+
+### Python Uses Zero-Based Indexing
+
+In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the first element is at position 0 in Python, but position 1 in R. 
+
+So, to refer to the first element `("apple")` we need to do the following:
+
+In Python:
+
+    my_list = ["apple", "banana", "pear"]
+    my_list[0]
+
+In R:
+
+    my_list <- list("apple", "banana", "pear")
+    my_list[1]
+
+In both these cases the output will be `apple`.
 
 %%HTML
 <div style="text-align: center">
