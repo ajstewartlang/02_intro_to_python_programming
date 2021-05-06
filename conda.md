@@ -1,7 +1,7 @@
 Installing Python with Conda 
 ============================
 
-In this first workshop we will cover how to install Python (plus Jupyter notebooks) via the package manager Conda. 
+In this first workshop we will cover how to install Python (plus Jupyter Notebooks) via the package manager Conda. Each of the videos in my workshops is best viewed in full screen mode. To go into full screen mode hover your cursor at the bottom right of the video window and click on the full screen icon, or press the "f" key.
 
 <center>
 
