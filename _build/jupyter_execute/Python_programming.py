@@ -1,6 +1,6 @@
 # Introduction to Python Programming
 
-In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. Python is a general purpose programming language and used widely across academia and industry. Quite a few apps that you probably use regularly are at least partly written in Python. These include YouTube, Google (indeed Python is the offical language of Google), Spotify, and Instagram. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we're going to focus on how to use Python and some of its key libraries for data science work. The language has been around since the 1980s and is named in tribute to Monty Python...
+In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. Python is a general purpose programming language and used widely across academia and industry. Quite a few apps that you probably use regularly are at least partly written in Python. These include YouTube, Google (indeed Python is the offical language of Google), Spotify, and Instagram. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we're going to focus on how to use Python and some of its key libraries for data science work. The language has been around since 1991 and is named in tribute to Monty Python...
 
 <center>
 
@@ -62,9 +62,9 @@ In R:
 
 ### Python Uses Zero-Based Indexing
 
-In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the first element is at position 0 in Python, but position 1 in R. 
+In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the initial element is at position 0 in Python, but position 1 in R. 
 
-So, to refer to the first element `("apple")` we need to do the following:
+So, to refer to the initial element `("apple")` we need to do the following:
 
 In Python:
 
@@ -85,7 +85,7 @@ In both these cases the output will be `apple`.
 
 ## Data Types and Variable Assignment
 
-We will be writing our code using a Jupyter Notebook. It allows use to write text in Markdown format (as I have written in this block), and also to run Python code and see the output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` in your terminal if you don't). Set up a new Notebook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
+We will be writing our code using a Jupyter Notebook. It also allows us to write text in Markdown format (as I have written in this block), alongside the Python code and output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` in your terminal if you don't). Set up a new Notebook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
 
     conda activate
     jupyter notebook
@@ -165,7 +165,7 @@ my_names[1:3]
 
 ## Tuples
 
-Tuples are like lists, except they are *immutable* - in other words, their contents cannot be changed later. While lists are created using square brackets, tuples are created using round brackets. But like lists, you use square brackets to reference elements in a tuple.
+Tuples are like lists, except they are *immutable* - in other words, their contents cannot be changed later. While lists are created using *square* brackets, tuples are created using *round* brackets. But like lists, you use *square* brackets to reference elements in a tuple.
 
 my_tuple = (10, 20, 30, 40)
 my_tuple[3]
@@ -413,6 +413,3 @@ What do you think will happen if you set the values of both numbers to be the sa
 :class: dropdown 
     Nothing happens. The `if` statement evaluates to False, not True, as does the `elif` statement. As nothing evaluates to True (and we didn't write any code that deals with other outcomes) nothing happens.
 ```
-
-
-
