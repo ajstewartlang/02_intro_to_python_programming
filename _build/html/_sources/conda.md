@@ -9,8 +9,6 @@ In this first workshop we will cover how to install Python (plus Jupyter Noteboo
 
 </center>
 
-&nbsp;
-
 ## Slides
 
 You can view and download the slides in a variety of formats by clicking on the image below.
@@ -51,8 +49,6 @@ Below are videos on how to install on both Windows 10 and MacOS.
 
 </center>
 
-&nbsp;
-
 ## Installing on MacOS
 
 <center>
@@ -60,8 +56,6 @@ Below are videos on how to install on both Windows 10 and MacOS.
 <iframe width="560" height="315" src="https://youtube.com/embed/BC0fxzvTJF0" frameborder="0" allowfullscreen></iframe>
 
 </center>
-
-&nbsp;
 
 To check your Conda installation has worked, open a Terminal window and at the prompt type:
 
@@ -82,8 +76,6 @@ This should automatically open via your web browser. If it doesn't open automati
 <iframe width="560" height="315" src="https://youtube.com/embed/yhvAWu7Ete8" frameborder="0" allowfullscreen></iframe>
 
 </center>
-
-&nbsp;
 
 Rather than just use the default base environment, it’s better practice from a reproducibility point of view to create a separate environment for each project you are working on. That way, you can have different packages - and different versions of each package (and even different versions of Python) - in different environments. Updating a package or the version of Python in one environment won’t affect the package in other environments - all this is managed via `conda`.
 

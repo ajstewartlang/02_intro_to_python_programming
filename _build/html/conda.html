@@ -282,7 +282,6 @@
 <center>
 <iframe width="560" height="315" src="https://youtube.com/embed/A9RIYyw0FWc" frameborder="0" allowfullscreen></iframe>
 </center>
-<p> </p>
 <div class="section" id="slides">
 <h2>Slides<a class="headerlink" href="#slides" title="Permalink to this headline">¶</a></h2>
 <p>You can view and download the slides in a variety of formats by clicking on the image below.</p>
@@ -310,14 +309,12 @@
 <center>
 <iframe width="560" height="315" src="https://youtube.com/embed/IGKwvtYMPNk" frameborder="0" allowfullscreen></iframe>
 </center>
-<p> </p>
 </div>
 <div class="section" id="installing-on-macos">
 <h2>Installing on MacOS<a class="headerlink" href="#installing-on-macos" title="Permalink to this headline">¶</a></h2>
 <center>
 <iframe width="560" height="315" src="https://youtube.com/embed/BC0fxzvTJF0" frameborder="0" allowfullscreen></iframe>
 </center>
-<p> </p>
 <p>To check your Conda installation has worked, open a Terminal window and at the prompt type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda activate
 (base)$ python --version
@@ -335,7 +332,6 @@ Python 3.8.8
 <center>
 <iframe width="560" height="315" src="https://youtube.com/embed/yhvAWu7Ete8" frameborder="0" allowfullscreen></iframe>
 </center>
-<p> </p>
 <p>Rather than just use the default base environment, it’s better practice from a reproducibility point of view to create a separate environment for each project you are working on. That way, you can have different packages - and different versions of each package (and even different versions of Python) - in different environments. Updating a package or the version of Python in one environment won’t affect the package in other environments - all this is managed via <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 <p>Below I use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command to create a new virtual environment that I’m calling <code class="docutils literal notranslate"><span class="pre">data_science</span></code>. If I want just a few specific packages, I’d add the package names after <code class="docutils literal notranslate"><span class="pre">data_science</span></code> (I can also add the package versions too here if I want, e.g., <code class="docutils literal notranslate"><span class="pre">numpy=1.19.2</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas=1.1.3</span></code>). I could even specify the version of Python I want my adding <code class="docutils literal notranslate"><span class="pre">Python=3.7.1</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)$ conda create --name data_science conda numpy pandas scipy matplotlib
