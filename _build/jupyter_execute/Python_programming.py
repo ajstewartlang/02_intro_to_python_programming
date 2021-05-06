@@ -1,6 +1,6 @@
 # Introduction to Python Programming
 
-In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. Python is a general purpose programming language and used widely across academia and industry. Quite a few apps that you probably use regularly are at least partly written in Python. These include YouTube, Google (indeed Python is the offical language of Google), Spotify, and Instagram. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we're going to focus on how to use Python and some of its key libraries for data science work. The language has been around since 1991 and is named in tribute to Monty Python...
+In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we're going to focus on how to use Python and some of its key libraries for data science work. The language has been around since 1991 and is named in tribute to Monty Python...
 
 <center>
 
@@ -33,7 +33,7 @@ When doing data science in R or Python, you’re likely using the base language 
 Reproducibility is important so you need to keep track of the packages/libraries you’re using so that you can recreate your analysis at some future point (or so that someone else can recreate your analysis). 
 
 
-## Differences between Python and R
+## Differences Between Python and R
 
 Python is a general purpose programming language, while R is a specialised statistical programming language (although it can sometimes be used for more general programming tasks).
 
