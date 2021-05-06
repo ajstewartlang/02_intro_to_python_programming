@@ -5,7 +5,7 @@ In this first workshop we will cover how to install Python (plus Jupyter noteboo
 
 <center>
 
-<iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/A9RIYyw0FWc" frameborder="0" allowfullscreen></iframe>
 
 </center>
 
@@ -41,6 +41,28 @@ https://docs.anaconda.com/anaconda/install/verify-install/
 
 On Windows machines, you can access the command line interface (CLI) using the Anaconda Prompt in the Windows Start menu. On MacOS and Linux, access the CLI via the Terminal. The Terminal on a Mac can be found in the Utilities folder within your Applications folder. You might want to pin it to your Dock as you'll be using it a lot in this course.
 
+Below are videos on how to install on both Windows 10 and MacOS.
+
+## Installing on Windows 10
+
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/IGKwvtYMPNk" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
+## Installing on MacOS
+
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/BC0fxzvTJF0" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 To check your Conda installation has worked, open a Terminal window and at the prompt type:
 
     $ conda activate
@@ -54,6 +76,14 @@ The first command activates the base (or default) Conda environment. The second 
 This should automatically open via your web browser. If it doesn't open automatically, just copy and paste the link in the Terminal to your web browser manually. You may want to create a new folder called something like "jupyter_notebooks" to save your Jupyter Notebooks in. If you don't, they'll just be saved in whatever directory you were in when you typed `jupyter notebook` at the prompt. Having a sensible folder structure to save your various notebooks and scripts to will make things much easier in the long run. Of course, we also just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
 
 ## Creating a new Python environment
+
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/yhvAWu7Ete8" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
 
 Rather than just use the default base environment, it’s better practice from a reproducibility point of view to create a separate environment for each project you are working on. That way, you can have different packages - and different versions of each package (and even different versions of Python) - in different environments. Updating a package or the version of Python in one environment won’t affect the package in other environments - all this is managed via `conda`.
 
@@ -115,6 +145,14 @@ In order to run a Jupyter Notebook in our new environment we need to connect the
     (base)$ conda activate data_science
     (data_science)$ conda install ipykernel
     (data_science)$ python -m ipykernel install --user --name data_science --display-name "Python (data_science)"
+
+The video below goes through the above and involves creating a new Conda environment via the Terminal.
+
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/rHM_bgs--Yw" frameborder="0" allowfullscreen></iframe>
+
+</center>
 
 We’re now ready to fire up a Jupyter Notebook. To do that, type: 
 
