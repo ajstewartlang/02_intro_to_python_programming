@@ -162,7 +162,7 @@ We’re now ready to fire up a Jupyter Notebook. To do that, type:
 
 <center>
 
-<iframe width="560" height="315" src="https://youtube.com/embed/AvI8Qz4s1OY" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/YtgCEKpanWI" frameborder="0" allowfullscreen></iframe>
 
 </center>
 
