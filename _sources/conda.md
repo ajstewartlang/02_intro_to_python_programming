@@ -25,9 +25,9 @@ The main goal of this session is to ensure you have a working Python installatio
 
 Python and R are both interpreted languages - and code can be used together (you can run a Python script from within an R session, and vice versa). You may find some things are easier/quicker to code in one language, and others in the other. So why not use both?
 
-## Installing Conda and Python
+## Conda and Python
 
-Conda is a package and environment management system. It is part of the Anaconda distribution that will allow us to install Python (as well as other data science tools), assorted libraries and importantly allow us to manage which versions of the software we're using for different projects we might be working on. The managment of packages and environments is important and sometimes you'll find that different projects you are involved with require *different* versions of Python and/or Python libraries. By creating separate environments (with particular configurations of software versions), your data science life will become so much easier.
+Conda is a package and environment management system. It is part of the Anaconda distribution that will allow us to install Python (as well as other data science tools), assorted libraries and importantly allow us to manage which versions of the software we're using for different projects we might be working on. The managment of packages and environments is important and sometimes you'll find that different projects you are involved with require *different* versions of Python and/or Python libraries. By creating separate environments (with particular configurations of software versions), your data science life will be so much easier.
 
 To install Conda (which comes with Python and common libraries), just follow the instructions here:
 
@@ -130,7 +130,7 @@ If we need to export all the information about our environment (perhaps to share
       - asn1crypto=1.4.0=py_0
     ...
 
-## Creating a new Python shell and Jupyter Kernel
+## Creating a new Python Shell and Jupyter Kernel
 
 In order to run a Jupyter Notebook in our new environment we need to connect them together. In the following, I activate my new environment which I've previously called `data_science`, install the `ipykernel` package (if it’s not already present) and create the kernel for use in Jupyter where it will appear with the name `Python (data_science)`.
  
