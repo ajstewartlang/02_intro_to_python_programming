@@ -341,7 +341,7 @@
                 
   <div class="section" id="introduction-to-python-programming">
 <h1>Introduction to Python Programming<a class="headerlink" href="#introduction-to-python-programming" title="Permalink to this headline">¶</a></h1>
-<p>In this second workshop we’ll take our first look at programming in Python. We’ll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. Python is a general purpose programming language and used widely across academia and industry. Quite a few apps that you probably use regularly are at least partly written in Python. These include YouTube, Google (indeed Python is the offical language of Google), Spotify, and Instagram. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we’re going to focus on how to use Python and some of its key libraries for data science work. The language has been around since the 1980s and is named in tribute to Monty Python…</p>
+<p>In this second workshop we’ll take our first look at programming in Python. We’ll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. Python is a general purpose programming language and used widely across academia and industry. Quite a few apps that you probably use regularly are at least partly written in Python. These include YouTube, Google (indeed Python is the offical language of Google), Spotify, and Instagram. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we’re going to focus on how to use Python and some of its key libraries for data science work. The language has been around since 1991 and is named in tribute to Monty Python…</p>
 <center>
 <p><img alt="monty_python_gif" src="_images/tenor.gif" /></p>
 </center>
@@ -396,8 +396,8 @@
 </div>
 <div class="section" id="python-uses-zero-based-indexing">
 <h3>Python Uses Zero-Based Indexing<a class="headerlink" href="#python-uses-zero-based-indexing" title="Permalink to this headline">¶</a></h3>
-<p>In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the first element is at position 0 in Python, but position 1 in R.</p>
-<p>So, to refer to the first element <code class="docutils literal notranslate"><span class="pre">(&quot;apple&quot;)</span></code> we need to do the following:</p>
+<p>In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the initial element is at position 0 in Python, but position 1 in R.</p>
+<p>So, to refer to the initial element <code class="docutils literal notranslate"><span class="pre">(&quot;apple&quot;)</span></code> we need to do the following:</p>
 <p>In Python:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list = [&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;]
 my_list[0]
@@ -428,7 +428,7 @@ my_list[1]
 </div>
 <div class="section" id="data-types-and-variable-assignment">
 <h2>Data Types and Variable Assignment<a class="headerlink" href="#data-types-and-variable-assignment" title="Permalink to this headline">¶</a></h2>
-<p>We will be writing our code using a Jupyter Notebook. It allows use to write text in Markdown format (as I have written in this block), and also to run Python code and see the output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> in your terminal if you don’t). Set up a new Notebook by typing <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> in a terminal window. This should launch Jupyter Notebooks running in your browser.</p>
+<p>We will be writing our code using a Jupyter Notebook. It also allows us to write text in Markdown format (as I have written in this block), alongside the Python code and output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> in your terminal if you don’t). Set up a new Notebook by typing <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> in a terminal window. This should launch Jupyter Notebooks running in your browser.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate
 jupyter notebook
 </pre></div>
@@ -581,7 +581,7 @@ print(my_favourite_number, my_favourite_number_text)
 </div>
 <div class="section" id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
-<p>Tuples are like lists, except they are <em>immutable</em> - in other words, their contents cannot be changed later. While lists are created using square brackets, tuples are created using round brackets. But like lists, you use square brackets to reference elements in a tuple.</p>
+<p>Tuples are like lists, except they are <em>immutable</em> - in other words, their contents cannot be changed later. While lists are created using <em>square</em> brackets, tuples are created using <em>round</em> brackets. But like lists, you use <em>square</em> brackets to reference elements in a tuple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
