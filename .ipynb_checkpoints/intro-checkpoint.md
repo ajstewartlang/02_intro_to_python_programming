@@ -3,6 +3,14 @@ Andrew's BIOL63162 Workshops
 
 This website contains the material I teach on the BIOL63162 Scientific Programming, Computational Tools, and Machine Learning unit.
 
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/gA-8CGjRqoY" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 Each of the sessions is intended to run as a ~2 hour workshop. Each contains a mix of recorded videos, written material, and some challenges for you to work on.
 
 The workshops can be found via the index on the left under the 'Content' heading. We'll be covering the following topics across 5 workshops:

@@ -75,7 +75,7 @@ The first command activates the base (or default) Conda environment. The second 
 
 This should automatically open via your web browser. If it doesn't open automatically, just copy and paste the link in the Terminal to your web browser manually. You may want to create a new folder called something like "jupyter_notebooks" to save your Jupyter Notebooks in. If you don't, they'll just be saved in whatever directory you were in when you typed `jupyter notebook` at the prompt. Having a sensible folder structure to save your various notebooks and scripts to will make things much easier in the long run. Of course, we also just said that we may need to use different environments for different Python projects we are working on so now let's look at how we create those.
 
-## Creating a new Python environment
+## Creating a New Conda Environment
 
 <center>
 
