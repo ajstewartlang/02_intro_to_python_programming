@@ -158,14 +158,20 @@ We’re now ready to fire up a Jupyter Notebook. To do that, type:
 
     (data_science)$ jupyter notebook
 
-In the video, you'll be able to see what happens when the Jupyter Notebook opens in our browser. Follow the steps in the video and save your Python script as `hello_world.py`. The `.py` extension indicates that it is a Python script.
+## Running a Python Script from the Command Line
 
-## Running the .py script from the CLI
+<center>
 
-We can run Python scripts from the command line - just make sure you’re running it in the right Conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` at the prompt:
+<iframe width="560" height="315" src="https://youtube.com/embed/AvI8Qz4s1OY" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+Follow the steps in the video and save your Python script as `hello_world.py`. The `.py` extension indicates that it is a Python script.
+
+We can run Python scripts from the command line (i.e., the Terminal if you are on MacOS or the Anaconda Prompt if you are on Windows) - just make sure you’re running it in the right Conda environment - we can tell that we’re in the `data_science` environment by the fact that `(data_science)` is presented at the start of the prompt. From the folder where you’ve saved the `hello_world.py` script, you can type `python hello_world.py` at the prompt:
 
     (data_science)$ python hello_world.py
-    hello world!
+    Hello world!
 
 Obviously this is a trivial example, but it’s useful to remember that you can run Python scripts like this rather than having to manually run things in Jupyter Notebooks or another interactive environment.
 
