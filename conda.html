@@ -110,7 +110,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pandas.html">
-     Pandas for Data Analysis
+     Data Analysis in Python
     </a>
    </li>
    <li class="toctree-l2">
@@ -235,6 +235,16 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-on-windows-10">
+   Installing on Windows 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-on-macos">
+   Installing on MacOS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-a-new-python-environment">
    Creating a new Python environment
   </a>
@@ -270,7 +280,7 @@
 <h1>Installing Python with Conda<a class="headerlink" href="#installing-python-with-conda" title="Permalink to this headline">¶</a></h1>
 <p>In this first workshop we will cover how to install Python (plus Jupyter notebooks) via the package manager Conda.</p>
 <center>
-<iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/A9RIYyw0FWc" frameborder="0" allowfullscreen></iframe>
 </center>
 <p> </p>
 <div class="section" id="slides">
@@ -293,6 +303,21 @@
 <p>Once it’s installed, check to make sure things are working ok by following the guide here:</p>
 <p><a class="reference external" href="https://docs.anaconda.com/anaconda/install/verify-install/">https://docs.anaconda.com/anaconda/install/verify-install/</a></p>
 <p>On Windows machines, you can access the command line interface (CLI) using the Anaconda Prompt in the Windows Start menu. On MacOS and Linux, access the CLI via the Terminal. The Terminal on a Mac can be found in the Utilities folder within your Applications folder. You might want to pin it to your Dock as you’ll be using it a lot in this course.</p>
+<p>Below are videos on how to install on both Windows 10 and MacOS.</p>
+</div>
+<div class="section" id="installing-on-windows-10">
+<h2>Installing on Windows 10<a class="headerlink" href="#installing-on-windows-10" title="Permalink to this headline">¶</a></h2>
+<center>
+<iframe width="560" height="315" src="https://youtube.com/embed/IGKwvtYMPNk" frameborder="0" allowfullscreen></iframe>
+</center>
+<p> </p>
+</div>
+<div class="section" id="installing-on-macos">
+<h2>Installing on MacOS<a class="headerlink" href="#installing-on-macos" title="Permalink to this headline">¶</a></h2>
+<center>
+<iframe width="560" height="315" src="https://youtube.com/embed/BC0fxzvTJF0" frameborder="0" allowfullscreen></iframe>
+</center>
+<p> </p>
 <p>To check your Conda installation has worked, open a Terminal window and at the prompt type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda activate
 (base)$ python --version
@@ -307,6 +332,10 @@ Python 3.8.8
 </div>
 <div class="section" id="creating-a-new-python-environment">
 <h2>Creating a new Python environment<a class="headerlink" href="#creating-a-new-python-environment" title="Permalink to this headline">¶</a></h2>
+<center>
+<iframe width="560" height="315" src="https://youtube.com/embed/yhvAWu7Ete8" frameborder="0" allowfullscreen></iframe>
+</center>
+<p> </p>
 <p>Rather than just use the default base environment, it’s better practice from a reproducibility point of view to create a separate environment for each project you are working on. That way, you can have different packages - and different versions of each package (and even different versions of Python) - in different environments. Updating a package or the version of Python in one environment won’t affect the package in other environments - all this is managed via <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 <p>Below I use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command to create a new virtual environment that I’m calling <code class="docutils literal notranslate"><span class="pre">data_science</span></code>. If I want just a few specific packages, I’d add the package names after <code class="docutils literal notranslate"><span class="pre">data_science</span></code> (I can also add the package versions too here if I want, e.g., <code class="docutils literal notranslate"><span class="pre">numpy=1.19.2</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas=1.1.3</span></code>). I could even specify the version of Python I want my adding <code class="docutils literal notranslate"><span class="pre">Python=3.7.1</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)$ conda create --name data_science conda numpy pandas scipy matplotlib
@@ -368,6 +397,10 @@ dependencies:
 (data_science)$ python -m ipykernel install --user --name data_science --display-name &quot;Python (data_science)&quot;
 </pre></div>
 </div>
+<p>The video below goes through the above and involves creating a new Conda environment via the Terminal.</p>
+<center>
+<iframe width="560" height="315" src="https://youtube.com/embed/rHM_bgs--Yw" frameborder="0" allowfullscreen></iframe>
+</center>
 <p>We’re now ready to fire up a Jupyter Notebook. To do that, type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(data_science)$ jupyter notebook
 </pre></div>
