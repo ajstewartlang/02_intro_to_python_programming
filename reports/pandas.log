@@ -17,13 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-The above now looks much more like a standard data frame.
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
 ------------------
 
-[0;36m  File [0;32m"<ipython-input-29-1f397b30de4a>"[0;36m, line [0;32m1[0m
-[0;31m    The above now looks much more like a standard data frame.[0m
-[0m        ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-21-049fcff3aef9>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mstatsmodels[0m[0;34m.[0m[0mapi[0m [0;32mas[0m [0msm[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mstatsmodels[0m[0;34m.[0m[0mformula[0m[0;34m.[0m[0mapi[0m [0;32mimport[0m [0mols[0m[0;34m[0m[0;34m[0m[0m
 
-SyntaxError: invalid syntax (<ipython-input-29-1f397b30de4a>, line 1)
+[0;31mModuleNotFoundError[0m: No module named 'statsmodels'
+ModuleNotFoundError: No module named 'statsmodels'
 

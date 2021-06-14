@@ -105,7 +105,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Python_programming.html">
-     Introduction to Python Programming
+     Introduction to Python
     </a>
    </li>
    <li class="toctree-l2">
@@ -587,29 +587,30 @@ afeltham@clapton.hackney.sch.uk
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>├── script
-│   └── 01_open_research_and_reproducibility.Rmd
-├── Dockerfile
-├── images
-│   ├── how_to_do.png
-│   ├── ionnidis.png
-│   ├── 7_steps.png
-│   ├── power.png
-│   ├── bishop.png
-│   └── cw20.png
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>├── .gitignore
+├── LICENSE
 ├── .gitattributes
+├── 01_open_research_and_reproducibility.Rproj
 ├── slides
 │   ├── introduction_to_open_research.odp
-│   ├── adopting_open_practices.odp
-│   └── introduction_to_open_research.pdf
-├── LICENSE
-├── README.md
-├── .Rproj.user
+│   ├── introduction_to_open_research.pdf
+│   ├── adopting_open_practices.pdf
+│   └── adopting_open_practices.odp
 ├── .git
+├── images
+│   ├── ionnidis.png
+│   ├── how_to_do.png
+│   ├── power.png
+│   ├── cw20.png
+│   ├── 7_steps.png
+│   └── bishop.png
+├── README.md
+├── Dockerfile
+├── script
+│   └── 01_open_research_and_reproducibility.Rmd
 ├── knitted_workshop
 │   └── 01_open_research_and_reproducibility.html
-├── 01_open_research_and_reproducibility.Rproj
-└── .gitignore
+└── .Rproj.user
 </pre></div>
 </div>
 </div>
@@ -649,18 +650,18 @@ afeltham@clapton.hackney.sch.uk
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/script&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/Dockerfile&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/images&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.gitattributes&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/slides&#39;),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.gitignore&#39;),
  PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/LICENSE&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/README.md&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/knitted_workshop&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.gitattributes&#39;),
  PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/01_open_research_and_reproducibility.Rproj&#39;),
- PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.gitignore&#39;)]
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/slides&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.git&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/images&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/README.md&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/Dockerfile&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/script&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/knitted_workshop&#39;),
+ PosixPath(&#39;/home/andrew/online_teaching/online_r_units/01_open_research_and_reproducibility/.Rproj.user&#39;)]
 </pre></div>
 </div>
 </div>
@@ -697,7 +698,7 @@ afeltham@clapton.hackney.sch.uk
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">find_all</span><span class="p">(</span><span class="n">to_find</span><span class="p">,</span> <span class="n">my_path</span><span class="p">))</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="nn">~/anaconda3/envs/data_science/lib/python3.9/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
 <span class="g g-Whitespace">    </span><span class="mi">855</span>         <span class="s2">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">856</span><span class="s2">         if not self._allow_stdin:</span>
 <span class="ne">--&gt; </span><span class="mi">857</span><span class="s2">             raise StdinNotImplementedError(</span>

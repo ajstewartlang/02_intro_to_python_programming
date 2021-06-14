@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to Python Programming &#8212; Andrew&#39;s BIOL63162 Workshops</title>
+    <title>Introduction to Python &#8212; Andrew&#39;s BIOL63162 Workshops</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -107,7 +107,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Introduction to Python Programming
+     Introduction to Python
     </a>
    </li>
    <li class="toctree-l2">
@@ -339,8 +339,8 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-python-programming">
-<h1>Introduction to Python Programming<a class="headerlink" href="#introduction-to-python-programming" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="introduction-to-python">
+<h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">¶</a></h1>
 <p>In this second workshop we’ll take our first look at programming in Python. We’ll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we’re going to focus on how to use Python and some of its key libraries for data science work. The language has been around since 1991 and is named in tribute to Monty Python…</p>
 <center>
 <p><img alt="monty_python_gif" src="_images/tenor.gif" /></p>
@@ -397,14 +397,14 @@
 <div class="section" id="python-uses-zero-based-indexing">
 <h3>Python Uses Zero-Based Indexing<a class="headerlink" href="#python-uses-zero-based-indexing" title="Permalink to this headline">¶</a></h3>
 <p>In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the initial element is at position 0 in Python, but position 1 in R.</p>
-<p>So, to refer to the initial element <code class="docutils literal notranslate"><span class="pre">(&quot;apple&quot;)</span></code> we need to do the following:</p>
+<p>So, to refer to the initial element <code class="docutils literal notranslate"><span class="pre">('apple')</span></code> we need to do the following:</p>
 <p>In Python:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list = [&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list = [&#39;apple&#39;, &#39;banana&#39;, &#39;pear&#39;]
 my_list[0]
 </pre></div>
 </div>
 <p>In R:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list &lt;- list(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list &lt;- list(&#39;apple&#39;, &#39;banana&#39;, &#39;pear&#39;)
 my_list[1]
 </pre></div>
 </div>
@@ -439,7 +439,7 @@ jupyter notebook
 <p>Try running the following two lines of Python code in your Jupyter Notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;Andrew&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s1">&#39;Andrew&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_name</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -454,7 +454,7 @@ jupyter notebook
 <p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the content of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The <code class="docutils literal notranslate"><span class="pre">print</span></code> function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(first_variable_name,</span> <span class="pre">second_variable_name)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s2">&quot;My favourite number is:&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s1">&#39;My favourite number is:&#39;</span>
 <span class="n">my_favourite_number</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_favourite_number_text</span><span class="p">,</span> <span class="n">my_favourite_number</span><span class="p">)</span>
 </pre></div>
@@ -483,7 +483,7 @@ print(my_favourite_number, my_favourite_number_text)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s2">&quot;My favourite number is:&quot;</span>
+<span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s1">&#39;My favourite number is:&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_favourite_number_text</span><span class="p">,</span> <span class="n">my_favourite_number</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -514,7 +514,7 @@ print(my_favourite_number, my_favourite_number_text)
 <p>The next list is a list of strings. How would you go about indexing the fourth element?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Andrew&quot;</span><span class="p">,</span> <span class="s2">&quot;Suzanne&quot;</span><span class="p">,</span> <span class="s2">&quot;Eliza&quot;</span><span class="p">,</span> <span class="s2">&quot;Seb&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -528,7 +528,7 @@ print(my_favourite_number, my_favourite_number_text)
 <p>Elements in lists can be changed (i.e., lists are mutable):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Iggy Pop&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Iggy Pop&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_names</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -653,7 +653,7 @@ print(my_favourite_number, my_favourite_number_text)
 <p>An array is a data structure consisting of a collection of elements, each identified by at least one array index (or key). Arrays are core data structures in data science and machine learning. For example, you can store images as 2-dimensional arrays representing pixel brightness across the area of the image.</p>
 <p>Data frames and tibbles in R are types of 2-dimensional arrays - data stored in rectangular format with rows and columns. Arrays don’t have to just be in two dimensions but it can be tricky imagining more dimensions…</p>
 <p>NumPy arrays are better than inbuilt Python arrays in that they are more efficient as the arrays grow larger in size.</p>
-<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
+<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -714,7 +714,7 @@ shape(a)
     
     See Also
     --------
-    alen
+    len
     ndarray.shape : Equivalent array method.
     
     Examples
@@ -774,7 +774,7 @@ shape(a)
 </div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>Python has a number of built-in functions such as print(), abs(), bin() etc. You can see the full list <a class="reference external" href="https://docs.python.org/3/library/functions.html">here</a>. Generally, functions take an input, do something with the input, and then output the result. You can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function to get help on other functions.</p>
+<p>Python has a number of built-in functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">bin()</span></code> etc. You can see the full list <a class="reference external" href="https://docs.python.org/3/library/functions.html">here</a>. Generally, functions take an input, do something with the input, and then output the result. You can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function to get help on other functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
@@ -838,11 +838,11 @@ cohen_d(1020, 1000, 50)
 </div>
 <div class="section" id="control-flow-statements-for-loops">
 <h2>Control Flow Statements - For Loops<a class="headerlink" href="#control-flow-statements-for-loops" title="Permalink to this headline">¶</a></h2>
-<p>We can run the same command or chunk of code any number of times by placing it within a for loop. In the following, we print the phrase <code class="docutils literal notranslate"><span class="pre">“Hello</span> <span class="pre">world!”</span></code> five times. In Python, the code block within the loop that is to be repeated needs to indented.</p>
+<p>We can run the same command or chunk of code any number of times by placing it within a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In the following, we print the phrase <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code> five times. In Python, the code block within the loop that is to be repeated needs to indented.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -856,7 +856,7 @@ Hello world!
 </div>
 </div>
 </div>
-<p>We can also iterate over elements in an array using a for loop. In the following example, we iterate through the elements in our list and print that element.</p>
+<p>We can also iterate over elements in an array using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In the following example, we iterate through the elements in our list and print that element.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
@@ -1113,7 +1113,7 @@ Greater than or equal to: a &gt;= b</p>
 </div>
 <div class="section" id="control-flow-statements-while-loops">
 <h2>Control Flow Statements - While Loops<a class="headerlink" href="#control-flow-statements-while-loops" title="Permalink to this headline">¶</a></h2>
-<p>Code inside a while loop as long as the while loop evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, we set a counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to equal zero. The code in the while loop will return as long as the counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, does not equal 2. Each time we run the code in the while loop, we increment <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1. This means that this loop will run exactly twice, each time printing the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the list.</p>
+<p>Code inside a while loop as long as the while loop evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, we set a counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to equal zero. The code in the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop will return as long as the counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, does not equal 2. Each time we run the code in the while loop, we increment <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1. This means that this loop will run exactly twice, each time printing the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
@@ -1143,11 +1143,11 @@ Suzanne
 <span class="n">my_second_number</span> <span class="o">=</span> <span class="mi">6</span>
 
 <span class="k">if</span> <span class="n">my_first_number</span> <span class="o">&lt;</span> <span class="n">my_second_number</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is less than&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s1">&#39;is less than&#39;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">my_first_number</span> <span class="o">&gt;</span> <span class="n">my_second_number</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is greater than&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s1">&#39;is greater than&#39;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s2">&quot;is equal to&quot;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_first_number</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="n">my_second_number</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
