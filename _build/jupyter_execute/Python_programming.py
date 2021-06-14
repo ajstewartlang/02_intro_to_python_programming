@@ -1,4 +1,4 @@
-# Introduction to Python Programming
+# Introduction to Python
 
 In this second workshop we'll take our first look at programming in Python. We'll cover the key data types (including NumPy arrays), as well as functions, and control flow statements. You could do an entire course focused on learning Python as a general purpose programming languague. For our goal, we're going to focus on how to use Python and some of its key libraries for data science work. The language has been around since 1991 and is named in tribute to Monty Python...
 
@@ -64,16 +64,16 @@ In R:
 
 In Python, indexing starts at 0 but in R indexing starts at 1. In practice, this means that if we want to reference an element in a list (for example) we need to remember the initial element is at position 0 in Python, but position 1 in R. 
 
-So, to refer to the initial element `("apple")` we need to do the following:
+So, to refer to the initial element `('apple')` we need to do the following:
 
 In Python:
 
-    my_list = ["apple", "banana", "pear"]
+    my_list = ['apple', 'banana', 'pear']
     my_list[0]
 
 In R:
 
-    my_list <- list("apple", "banana", "pear")
+    my_list <- list('apple', 'banana', 'pear')
     my_list[1]
 
 In both these cases the output will be `apple`.
@@ -98,7 +98,7 @@ Some of the most common data types in Python are integer (`int`) and floating po
 
 Try running the following two lines of Python code in your Jupyter Notebook.
 
-my_name = "Andrew"
+my_name = 'Andrew'
 print(type(my_name))
 
 In the output, you should see that the variable `my_name` has been identified as type `str` as it is contains text.
@@ -106,7 +106,7 @@ In the output, you should see that the variable `my_name` has been identified as
 Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the content of a variable using the `print(variable_name)` function in Python. In the code below, we create two variables. The `print` function can take multiple arguments so we can print the values of the two variables with the line `print(first_variable_name, second_variable_name)`.
 
 
-my_favourite_number_text = "My favourite number is:"
+my_favourite_number_text = 'My favourite number is:'
 my_favourite_number = 25
 print(my_favourite_number_text, my_favourite_number)
 
@@ -127,7 +127,7 @@ You might have come up with a slightly different solution. It's important to rem
 Let’s now assign a different number to the `my_favourite_number` variable and change the `my_favourite_number_text` back to what it was originally.
 
 my_favourite_number = 16
-my_favourite_number_text = "My favourite number is:"
+my_favourite_number_text = 'My favourite number is:'
 print(my_favourite_number_text, my_favourite_number)
 
 ## Lists
@@ -139,7 +139,7 @@ my_numbers[1]
 
 The next list is a list of strings. How would you go about indexing the fourth element?
 
-my_names = ["Andrew", "Suzanne", "Eliza", "Seb"]
+my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
 
 ```{admonition} Click the button to reveal answer
 :class: dropdown 
@@ -148,7 +148,7 @@ my_names = ["Andrew", "Suzanne", "Eliza", "Seb"]
 
 Elements in lists can be changed (i.e., lists are mutable):
 
-my_names[0] = "Iggy Pop"
+my_names[0] = 'Iggy Pop'
 print(my_names)
 
 List can be sliced using `:` The following will slice from the third element to the end of the list.
@@ -198,7 +198,7 @@ Data frames and tibbles in R are types of 2-dimensional arrays - data stored in 
 
 NumPy arrays are better than inbuilt Python arrays in that they are more efficient as the arrays grow larger in size. 
 
-In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
+In the code below we’re importing the `NumPy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
 
 import numpy as np
 
@@ -233,7 +233,7 @@ Note that in the above code we're changing the first element in the list `my_old
 
 ## Functions
 
-Python has a number of built-in functions such as print(), abs(), bin() etc. You can see the full list [here](https://docs.python.org/3/library/functions.html). Generally, functions take an input, do something with the input, and then output the result. You can use the `help()` function to get help on other functions. 
+Python has a number of built-in functions such as `print()`, `abs()`, `bin()` etc. You can see the full list [here](https://docs.python.org/3/library/functions.html). Generally, functions take an input, do something with the input, and then output the result. You can use the `help()` function to get help on other functions. 
 
 
 help(print)
@@ -271,12 +271,12 @@ Your function will need to take three arguments (the two means plus the pooled S
 
 ## Control Flow Statements - For Loops
 
-We can run the same command or chunk of code any number of times by placing it within a for loop. In the following, we print the phrase `“Hello world!”` five times. In Python, the code block within the loop that is to be repeated needs to indented.
+We can run the same command or chunk of code any number of times by placing it within a `for` loop. In the following, we print the phrase `Hello world!` five times. In Python, the code block within the loop that is to be repeated needs to indented.
 
 for i in range(0, 5):
-    print("Hello world!")
+    print('Hello world!')
 
-We can also iterate over elements in an array using a for loop. In the following example, we iterate through the elements in our list and print that element.
+We can also iterate over elements in an array using a `for` loop. In the following example, we iterate through the elements in our list and print that element.
 
 my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
 
@@ -379,7 +379,7 @@ a + b
 
 ## Control Flow Statements - While Loops
 
-Code inside a while loop as long as the while loop evaluates to `True`. For example, we set a counter, `i`, to equal zero. The code in the while loop will return as long as the counter, `i`, does not equal 2. Each time we run the code in the while loop, we increment `i` by 1. This means that this loop will run exactly twice, each time printing the `i`th element in the list.
+Code inside a while loop as long as the while loop evaluates to `True`. For example, we set a counter, `i`, to equal zero. The code in the `while` loop will return as long as the counter, `i`, does not equal 2. Each time we run the code in the while loop, we increment `i` by 1. This means that this loop will run exactly twice, each time printing the `i`th element in the list.
 
 my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
 
@@ -398,12 +398,11 @@ my_first_number = 5
 my_second_number = 6
 
 if my_first_number < my_second_number:
-    print(my_first_number, "is less than", my_second_number)
+    print(my_first_number, 'is less than', my_second_number)
 elif my_first_number > my_second_number:
-    print(my_first_number, "is greater than", my_second_number)
+    print(my_first_number, 'is greater than', my_second_number)
 else:
-    print(my_first_number, "is equal to", my_second_number)
-
+    print(my_first_number, 'is equal to', my_second_number)
 
  
 

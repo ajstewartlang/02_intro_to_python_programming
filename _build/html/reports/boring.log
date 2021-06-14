@@ -31,7 +31,7 @@ print(find_all(to_find, my_path))
 [1;32m      3[0m [0;34m[0m[0m
 [1;32m      4[0m [0mprint[0m[0;34m([0m[0mfind_all[0m[0;34m([0m[0mto_find[0m[0;34m,[0m [0mmy_path[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m~/anaconda3/lib/python3.8/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[0;32m~/anaconda3/envs/data_science/lib/python3.9/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
 [1;32m    855[0m         """
 [1;32m    856[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0;32m--> 857[0;31m             raise StdinNotImplementedError(
