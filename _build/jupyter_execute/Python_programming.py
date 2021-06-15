@@ -185,7 +185,7 @@ How would you slice `my_tuple` so that it contains only the second and third ele
     my_tuple[1:3]
 :::
 
-If you wanted to, you could map the above output onto a new variable called `my_slided_tuple` and use the logical operator `==` (more on this later) to check that they are the same.
+If you wanted to, you could map the above output onto a new variable called `my_sliced_tuple` and use the logical operator `==` (more on this later) to check that they are the same.
 
 my_sliced_tuple = my_tuple[:3]
 my_sliced_tuple == my_tuple[:3]
@@ -203,7 +203,7 @@ In the code below we’re importing the `NumPy` package as `np` (this is the con
 import numpy as np
 
 np.random.seed(1234)
-my_array = np.random.randint(low = 0, high = 10, size = (3, 4))
+my_array = np.random.randint(low=0, high=10, size=(3, 4))
 my_array
 
 We can then check the shape of the array using `.shape` 
@@ -324,7 +324,7 @@ Imagine three experiments. Each is a between participants design with two groups
     all_experiments
 
     def cohen_d(mean1, mean2, sd):  
-            effect_size = (mean1 - mean2) / sd  
+            effect_size = (mean1-mean2)/sd  
             return effect_size  
  
     all_experiments[0]
