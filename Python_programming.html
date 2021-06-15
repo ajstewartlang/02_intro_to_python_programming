@@ -451,7 +451,7 @@ jupyter notebook
 </div>
 </div>
 <p>In the output, you should see that the variable <code class="docutils literal notranslate"><span class="pre">my_name</span></code> has been identified as type <code class="docutils literal notranslate"><span class="pre">str</span></code> as it is contains text.</p>
-<p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the content of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The <code class="docutils literal notranslate"><span class="pre">print</span></code> function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(first_variable_name,</span> <span class="pre">second_variable_name)</span></code>.</p>
+<p>Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the contents of a variable using the <code class="docutils literal notranslate"><span class="pre">print(variable_name)</span></code> function in Python. In the code below, we create two variables. The <code class="docutils literal notranslate"><span class="pre">print</span></code> function can take multiple arguments so we can print the values of the two variables with the line <code class="docutils literal notranslate"><span class="pre">print(first_variable_name,</span> <span class="pre">second_variable_name)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_favourite_number_text</span> <span class="o">=</span> <span class="s1">&#39;My favourite number is:&#39;</span>
@@ -466,7 +466,7 @@ jupyter notebook
 </div>
 </div>
 </div>
-<p>How might you modify the above code so that it displays the following:</p>
+<p>Modify the above code so that it displays the following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>25 is my favourite number.
 </pre></div>
 </div>
@@ -539,7 +539,7 @@ print(my_favourite_number, my_favourite_number_text)
 </div>
 </div>
 </div>
-<p>List can be sliced using <code class="docutils literal notranslate"><span class="pre">:</span></code> The following will slice from the third element to the end of the list.</p>
+<p>Lists can be sliced using <code class="docutils literal notranslate"><span class="pre">:</span></code> The following will slice from the third element to the end of the list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
@@ -633,7 +633,7 @@ print(my_favourite_number, my_favourite_number_text)
 </pre></div>
 </div>
 </div>
-<p>If you wanted to, you could map the above output onto a new variable called <code class="docutils literal notranslate"><span class="pre">my_sliced_tuple</span></code> and use the logical operator <code class="docutils literal notranslate"><span class="pre">==</span></code> (more on this later) to check that they are the same.</p>
+<p>If you wanted to, you could map the above output onto a new variable called <code class="docutils literal notranslate"><span class="pre">my_sliced_tuple</span></code> and use the operator <code class="docutils literal notranslate"><span class="pre">==</span></code> (more on this later) to check that they are the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_sliced_tuple</span> <span class="o">=</span> <span class="n">my_tuple</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
@@ -653,7 +653,7 @@ print(my_favourite_number, my_favourite_number_text)
 <p>An array is a data structure consisting of a collection of elements, each identified by at least one array index (or key). Arrays are core data structures in data science and machine learning. For example, you can store images as 2-dimensional arrays representing pixel brightness across the area of the image.</p>
 <p>Data frames and tibbles in R are types of 2-dimensional arrays - data stored in rectangular format with rows and columns. Arrays don’t have to just be in two dimensions but it can be tricky imagining more dimensions…</p>
 <p>NumPy arrays are better than inbuilt Python arrays in that they are more efficient as the arrays grow larger in size.</p>
-<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
+<p>In the code below we’re importing the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can’t generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine <code class="docutils literal notranslate"><span class="pre">random</span></code> and the operation <code class="docutils literal notranslate"><span class="pre">randint</span></code> to generate this array. We need to specify the low and high values of the range we’re sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -801,8 +801,8 @@ print(...)
 <div class="section" id="user-defined-functions">
 <h2>User-Defined Functions<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline">¶</a></h2>
 <p>If you find yourself writing the same chunk of code again and again, you might want to turn it into a function. For example, imagine I want to display someone’s BMI on the basis of knowing their height (in metres) and mass (in kg). The formula for BMI is: BMI = kg/m2. Let’s write a function that takes as its input someone’s weight and height, and then returns their BMI. We use <code class="docutils literal notranslate"><span class="pre">def</span></code> to define our function that we’re calling <code class="docutils literal notranslate"><span class="pre">bmi</span></code>. It takes two parameters, <code class="docutils literal notranslate"><span class="pre">weight</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>. Inside the body of the function it creates a new variable called <code class="docutils literal notranslate"><span class="pre">bmi_value</span></code> which is <code class="docutils literal notranslate"><span class="pre">weight</span></code> divided by <code class="docutils literal notranslate"><span class="pre">height</span></code> squared. The function then returns this value.</p>
-<p>We can then call the function to work out the bmi of someone with a weight of 87 kgs, and a height of 1.8 metres with with <code class="docutils literal notranslate"><span class="pre">bmi(87,</span> <span class="pre">1.8)</span></code>.</p>
-<p>Note that in the code below we are using indentation for the body of the function. Indentation in Python is important and is meaningful (i.e., it’s not an aesthetic decision). Indentation is used to indicate a block of code. The convention is to indent each line of a block by 4 spaces.</p>
+<p>We can call the function to work out the bmi of someone with a weight of 87 kgs, and a height of 1.8 metres with with <code class="docutils literal notranslate"><span class="pre">bmi(87,</span> <span class="pre">1.8)</span></code>.</p>
+<p>Note that in the code below we are using indentation for the body of the function. Indentation in Python is important and is meaningful (i.e., it’s not an aesthetic decision). Indentation is used to indicate a block of code. The convention is to indent each line of a block by 4 spaces (don’t use tab).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
@@ -856,7 +856,7 @@ Hello world!
 </div>
 </div>
 </div>
-<p>We can also iterate over elements in an array using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In the following example, we iterate through the elements in our list and print that element.</p>
+<p>We can also iterate over elements in an array using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In the following example, we iterate through the elements in our list and print each element.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
@@ -877,7 +877,7 @@ Seb
 </div>
 <div class="section" id="iterating-over-an-array">
 <h3>Iterating Over an Array<a class="headerlink" href="#iterating-over-an-array" title="Permalink to this headline">¶</a></h3>
-<p>In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called <code class="docutils literal notranslate"><span class="pre">vital_stats</span></code> with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.</p>
+<p>In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called <code class="docutils literal notranslate"><span class="pre">vital_stats</span></code> with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.  The third will be their names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
@@ -913,7 +913,7 @@ Seb
 </div>
 </div>
 </div>
-<p>What we really want to do is iterate over column.  Luckily there is a Transpose attribute built into NumPy arrays that produces the transposed array (i.e., columns and rows swapped).</p>
+<p>What we really want to do is iterate over columns.  Luckily there is a Transpose attribute built into NumPy arrays that produces the transposed array (i.e., columns and rows swapped).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">vital_stats</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
@@ -947,7 +947,7 @@ Lou has a BMI of 28
 </div>
 </div>
 </div>
-<p>Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. The Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respecively. The pooled SD for all groups is 10. Write the code that will produce Cohen’s d from a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array that contains the means and the pooled SD for each of the three experiments.</p>
+<p>Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. For Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respectively. The pooled SD for all groups is 10. Write the code that will produce Cohen’s d from a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array that contains the means and the pooled SD for each of the three experiments.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">One possible solution is below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>experiment1 = np.array([500, 485, 10])
@@ -983,7 +983,7 @@ Less than: a &lt; b<br />
 Less than or equal to: a &lt;= b<br />
 Greater than: a &gt; b<br />
 Greater than or equal to: a &gt;= b</p>
-<p>These expressions can be used in lots of contexts including in control flow statements where evaluation of an expression determines how the control flow statement is interpreted.</p>
+<p>These expressions can be used in lots of contexts including in control flow statements where evaluation of an expression determines how the control flow statement is interpreted. In Python the logical operator AND is represented by <code class="docutils literal notranslate"><span class="pre">and</span></code>, OR by <code class="docutils literal notranslate"><span class="pre">or</span></code>, and NOT by <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
@@ -1113,7 +1113,7 @@ Greater than or equal to: a &gt;= b</p>
 </div>
 <div class="section" id="control-flow-statements-while-loops">
 <h2>Control Flow Statements - While Loops<a class="headerlink" href="#control-flow-statements-while-loops" title="Permalink to this headline">¶</a></h2>
-<p>Code inside a while loop as long as the while loop evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, we set a counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to equal zero. The code in the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop will return as long as the counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, does not equal 2. Each time we run the code in the while loop, we increment <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1. This means that this loop will run exactly twice, each time printing the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the list.</p>
+<p>Code inside a while loop runs as long as the while loop evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, we set a counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to equal zero. The code in the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop will run as long as the counter, <code class="docutils literal notranslate"><span class="pre">i</span></code>, does not equal 2. Each time we run the code in the while loop, we increment <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1. This means that this loop will run exactly twice, each time printing the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Suzanne&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliza&#39;</span><span class="p">,</span> <span class="s1">&#39;Seb&#39;</span><span class="p">]</span>
