@@ -103,14 +103,14 @@ print(type(my_name))
 
 In the output, you should see that the variable `my_name` has been identified as type `str` as it is contains text.
 
-Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the content of a variable using the `print(variable_name)` function in Python. In the code below, we create two variables. The `print` function can take multiple arguments so we can print the values of the two variables with the line `print(first_variable_name, second_variable_name)`.
+Assigning values to variables is a key component in scripting/coding. You can use variables to store values that you need to be able to access later, and variables can be re-assigned as your script progresses (maybe you want to store temporary values in a variable). You can print the contents of a variable using the `print(variable_name)` function in Python. In the code below, we create two variables. The `print` function can take multiple arguments so we can print the values of the two variables with the line `print(first_variable_name, second_variable_name)`.
 
 
 my_favourite_number_text = 'My favourite number is:'
 my_favourite_number = 25
 print(my_favourite_number_text, my_favourite_number)
 
-How might you modify the above code so that it displays the following:
+Modify the above code so that it displays the following:
     
     25 is my favourite number.
 
@@ -151,7 +151,7 @@ Elements in lists can be changed (i.e., lists are mutable):
 my_names[0] = 'Iggy Pop'
 print(my_names)
 
-List can be sliced using `:` The following will slice from the third element to the end of the list.
+Lists can be sliced using `:` The following will slice from the third element to the end of the list.
 
 my_names[2:]
 
@@ -185,7 +185,7 @@ How would you slice `my_tuple` so that it contains only the second and third ele
     my_tuple[1:3]
 :::
 
-If you wanted to, you could map the above output onto a new variable called `my_sliced_tuple` and use the logical operator `==` (more on this later) to check that they are the same.
+If you wanted to, you could map the above output onto a new variable called `my_sliced_tuple` and use the operator `==` (more on this later) to check that they are the same.
 
 my_sliced_tuple = my_tuple[:3]
 my_sliced_tuple == my_tuple[:3]
@@ -198,7 +198,7 @@ Data frames and tibbles in R are types of 2-dimensional arrays - data stored in 
 
 NumPy arrays are better than inbuilt Python arrays in that they are more efficient as the arrays grow larger in size. 
 
-In the code below we’re importing the `NumPy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
+In the code below we’re importing the `numpy` package as `np` (this is the conventional alias for this package). We then set our randomisation seed to ensure reproducibility. Remember, computers can't generate true random numbers so use an algorithm. We can fix the start of this algorithmic generation procedure to ensure that if we re-run our code we get the same random numbers. We then create an array of random integers from 0 (inclusively) and 10 (exclusively) that has 3 rows and 4 columns. We use the NumPy routine `random` and the operation `randint` to generate this array. We need to specify the low and high values of the range we're sampling from, and the shape of the array (number of rows by number of columns) we are wanting to generate.
 
 import numpy as np
 
@@ -242,9 +242,9 @@ help(print)
 
 If you find yourself writing the same chunk of code again and again, you might want to turn it into a function. For example, imagine I want to display someone’s BMI on the basis of knowing their height (in metres) and mass (in kg). The formula for BMI is: BMI = kg/m2. Let’s write a function that takes as its input someone’s weight and height, and then returns their BMI. We use `def` to define our function that we're calling `bmi`. It takes two parameters, `weight` and `height`. Inside the body of the function it creates a new variable called `bmi_value` which is `weight` divided by `height` squared. The function then returns this value.
 
-We can then call the function to work out the bmi of someone with a weight of 87 kgs, and a height of 1.8 metres with with `bmi(87, 1.8)`.
+We can call the function to work out the bmi of someone with a weight of 87 kgs, and a height of 1.8 metres with with `bmi(87, 1.8)`.
 
-Note that in the code below we are using indentation for the body of the function. Indentation in Python is important and is meaningful (i.e., it's not an aesthetic decision). Indentation is used to indicate a block of code. The convention is to indent each line of a block by 4 spaces. 
+Note that in the code below we are using indentation for the body of the function. Indentation in Python is important and is meaningful (i.e., it's not an aesthetic decision). Indentation is used to indicate a block of code. The convention is to indent each line of a block by 4 spaces (don't use tab). 
 
 def bmi(weight, height):
     bmi_value = weight/(height*height)
@@ -276,7 +276,7 @@ We can run the same command or chunk of code any number of times by placing it w
 for i in range(0, 5):
     print('Hello world!')
 
-We can also iterate over elements in an array using a `for` loop. In the following example, we iterate through the elements in our list and print that element.
+We can also iterate over elements in an array using a `for` loop. In the following example, we iterate through the elements in our list and print each element.
 
 my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
 
@@ -285,7 +285,7 @@ for element in my_names:
 
 ### Iterating Over an Array
 
-In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called `vital_stats` with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.
+In the same way we can iterate over lists, we can iterate over arrays row-by-row.  Let’s create a 2-dimensional array called `vital_stats` with the weights and heights of three individuals. The first row of the array will be their weights, and the second row their heights.  The third will be their names.
 
 weights = np.array([70, 60, 90])
 heights = np.array([1.67, 1.77, 1.78])
@@ -299,7 +299,7 @@ We see that in a for loop we can iterate over the rows in our array.
 for index in vital_stats:
     print(index)
 
-What we really want to do is iterate over column.  Luckily there is a Transpose attribute built into NumPy arrays that produces the transposed array (i.e., columns and rows swapped).
+What we really want to do is iterate over columns.  Luckily there is a Transpose attribute built into NumPy arrays that produces the transposed array (i.e., columns and rows swapped).
 
 for index in vital_stats.T:
     print(index)
@@ -311,7 +311,7 @@ for person in vital_stats.T:
     height = float(person[1])
     print(person[2], 'has a BMI of', round(bmi(weight, height)))
 
-Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. The Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respecively. The pooled SD for all groups is 10. Write the code that will produce Cohen's d from a `numpy` array that contains the means and the pooled SD for each of the three experiments.
+Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. For Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respectively. The pooled SD for all groups is 10. Write the code that will produce Cohen's d from a `numpy` array that contains the means and the pooled SD for each of the three experiments.
 
 :::{admonition} One possible solution is below.
 :class: dropdown 
@@ -347,7 +347,7 @@ Less than or equal to: a <= b
 Greater than: a > b  
 Greater than or equal to: a >= b  
 
-These expressions can be used in lots of contexts including in control flow statements where evaluation of an expression determines how the control flow statement is interpreted.
+These expressions can be used in lots of contexts including in control flow statements where evaluation of an expression determines how the control flow statement is interpreted. In Python the logical operator AND is represented by `and`, OR by `or`, and NOT by `not`.
 
 a = 5
 b = 6
@@ -379,7 +379,7 @@ a + b
 
 ## Control Flow Statements - While Loops
 
-Code inside a while loop as long as the while loop evaluates to `True`. For example, we set a counter, `i`, to equal zero. The code in the `while` loop will return as long as the counter, `i`, does not equal 2. Each time we run the code in the while loop, we increment `i` by 1. This means that this loop will run exactly twice, each time printing the `i`th element in the list.
+Code inside a while loop runs as long as the while loop evaluates to `True`. For example, we set a counter, `i`, to equal zero. The code in the `while` loop will run as long as the counter, `i`, does not equal 2. Each time we run the code in the while loop, we increment `i` by 1. This means that this loop will run exactly twice, each time printing the `i`th element in the list.
 
 my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
 
