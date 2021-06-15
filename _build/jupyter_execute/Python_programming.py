@@ -22,6 +22,14 @@ There are a couple of really good introductory books on using Python for data sc
 
 </div>
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/i5NelhnFbrQ" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Similarities Between Python and R
 
 Both Python and R are high-level interpreted languages - this means that Python and R scripts can only be run if you have a Python or R interpreter installed on the machine you’re using.
@@ -83,6 +91,14 @@ In both these cases the output will be `apple`.
 <iframe width="250" height="250" src="https://giphy.com/embed/LmNwrBhejkK9EFP504" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/memecandy-LmNwrBhejkK9EFP504">via GIPHY</a></p>
 </div>
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/DxZ0eTWYmnE" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Data Types and Variable Assignment
 
 We will be writing our code using a Jupyter Notebook. It also allows us to write text in Markdown format (as I have written in this block), alongside the Python code and output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` in your terminal if you don't). Set up a new Notebook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
@@ -130,6 +146,14 @@ my_favourite_number = 16
 my_favourite_number_text = 'My favourite number is:'
 print(my_favourite_number_text, my_favourite_number)
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/bINIwJnLAn4" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Lists
 
 Lists can be assigned to variables. In Python lists are indicated by square brackets, `[` and `]`, and contain elements - often of the same type - for example, lists of integers, strings etc. Lists can also contain a mix of elements of different types (but you may want to avoid this). The next bit of code creates a list called `my_numbers` that contains 4 integer elements. Remember, in contrast to R, Python uses zero-position indexing. So the first element in the list is at position 0, the second at position 1 etc. We can index an element in the list using square brackets. Let's index the second element...
@@ -163,6 +187,14 @@ We can also specify the start and stop points of the slicing as follows.
 
 my_names[1:3]
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/i5FOo0LtT9M" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Tuples
 
 Tuples are like lists, except they are *immutable* - in other words, their contents cannot be changed later. While lists are created using *square* brackets, tuples are created using *round* brackets. But like lists, you use *square* brackets to reference elements in a tuple.
@@ -190,6 +222,14 @@ If you wanted to, you could map the above output onto a new variable called `my_
 my_sliced_tuple = my_tuple[:3]
 my_sliced_tuple == my_tuple[:3]
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/0AicRR0HLLw" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Arrays
 
 An array is a data structure consisting of a collection of elements, each identified by at least one array index (or key). Arrays are core data structures in data science and machine learning. For example, you can store images as 2-dimensional arrays representing pixel brightness across the area of the image.
@@ -216,6 +256,14 @@ In your Jupyter Notebook you can type `help()` and put in the brackets the name 
 
 help(np.shape)
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/BnbjqxFZRlk" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Variable Assignments are References (not Copies)
 
 Assignment in Python involves creating bindings between a target and an object in computer memory - not just simple copying - this can easily trip you up if you assume that assignment creates a new **copy** of of the original object.
@@ -230,6 +278,14 @@ my_old_names[0] = 'this is surprising'
 print(my_new_names)
 
 Note that in the above code we're changing the first element in the list `my_old_names` but keeping the variable `my_new_names` the same as it was (or so we think). But if we now print `my_new_names` we see that this list reflects the change we made to `my_old_names`. This will catch you out unless you realise that both variable names are pointing to the same contents in the computer's memory.
+
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/zvIEzvX5zEU" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
 
 ## Functions
 
@@ -269,6 +325,14 @@ Your function will need to take three arguments (the two means plus the pooled S
     cohen_d(1020, 1000, 50)  
 :::
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/vQrhJMd6Hb8" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Control Flow Statements - For Loops
 
 We can run the same command or chunk of code any number of times by placing it within a `for` loop. In the following, we print the phrase `Hello world!` five times. In Python, the code block within the loop that is to be repeated needs to indented.
@@ -282,6 +346,14 @@ my_names = ['Andrew', 'Suzanne', 'Eliza', 'Seb']
 
 for element in my_names:
     print(element)
+
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/66bBNw8L0Vk" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
 
 ### Iterating Over an Array
 
@@ -336,6 +408,14 @@ Imagine three experiments. Each is a between participants design with two groups
         print(cohen_d(mean1, mean2, sd))
 :::
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/2UphPf9kpew" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Operators
 
 The kinds of logical operators that you’ve come across in `R`, are also used in `Python`. They result in `True` or `False`. For example, for variables `a` and `b`:
@@ -377,6 +457,14 @@ You can also apply arithmetic operations to arrays on an element by element basi
 
 a + b
 
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/dmteK2wKjv4" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
+
 ## Control Flow Statements - While Loops
 
 Code inside a while loop runs as long as the while loop evaluates to `True`. For example, we set a counter, `i`, to equal zero. The code in the `while` loop will run as long as the counter, `i`, does not equal 2. Each time we run the code in the while loop, we increment `i` by 1. This means that this loop will run exactly twice, each time printing the `i`th element in the list.
@@ -389,6 +477,14 @@ while i != 2:
     print(my_names[i])
     i += 1
 
+
+<center>
+
+<iframe width="560" height="315" src="https://youtu.be/WBDUYuQ-r7I" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+&nbsp;
 
 ## Control Flow Statements - Conditionals
 
