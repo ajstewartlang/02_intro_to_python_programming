@@ -633,7 +633,7 @@ print(my_favourite_number, my_favourite_number_text)
 </pre></div>
 </div>
 </div>
-<p>If you wanted to, you could map the above output onto a new variable called <code class="docutils literal notranslate"><span class="pre">my_slided_tuple</span></code> and use the logical operator <code class="docutils literal notranslate"><span class="pre">==</span></code> (more on this later) to check that they are the same.</p>
+<p>If you wanted to, you could map the above output onto a new variable called <code class="docutils literal notranslate"><span class="pre">my_sliced_tuple</span></code> and use the logical operator <code class="docutils literal notranslate"><span class="pre">==</span></code> (more on this later) to check that they are the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_sliced_tuple</span> <span class="o">=</span> <span class="n">my_tuple</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
@@ -659,7 +659,7 @@ print(my_favourite_number, my_favourite_number_text)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">my_array</span>
 </pre></div>
 </div>
@@ -959,7 +959,7 @@ all_experiments = np.array((experiment1, experiment2, experiment3))
 all_experiments
 
 def cohen_d(mean1, mean2, sd):  
-        effect_size = (mean1 - mean2) / sd  
+        effect_size = (mean1-mean2)/sd  
         return effect_size  
 
 all_experiments[0]
