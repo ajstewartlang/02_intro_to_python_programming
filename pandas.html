@@ -489,7 +489,7 @@ memory usage: 704.0+ bytes
 <img alt="_images/pandas_13_1.png" src="_images/pandas_13_1.png" />
 </div>
 </div>
-<p>The Subject plot above really isn’t very informative, so let’s just plot the RT data. So far though, this isn’t split by our experimental groups. We’ll come to that next.</p>
+<p>The Subject histogram above really isn’t very informative, so let’s just plot the RT data. So far though, this isn’t split by our experimental groups. We’ll come to that next.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anova_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
@@ -653,10 +653,26 @@ Name: RT, dtype: float64
 </div>
 </div>
 </div>
+<p>It is a little wasteful to calculate the mean of our Subject column as well as the RT column so a better way of doing things is to calculate the mean just for our RT column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anova_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Condition&#39;</span><span class="p">])[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition
+high     864.666667
+low     1178.166667
+Name: RT, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can map our means onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">my_means</span></code> and then we can plot these means as a bar graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_means</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_means</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">my_means</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;RT (ms.)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reaction Time by Condition&#39;</span><span class="p">)</span>
@@ -665,7 +681,37 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_32_0.png" src="_images/pandas_32_0.png" />
+<img alt="_images/pandas_34_0.png" src="_images/pandas_34_0.png" />
+</div>
+</div>
+<p>We can tweak some of the plot parameters and add error bars for each of our two conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_std</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_std</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">my_std</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_means</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">yerr</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;RT (ms.)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Word Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;High</span><span class="se">\n</span><span class="s1">Frequency&#39;</span><span class="p">,</span> <span class="s1">&#39;Low</span><span class="se">\n</span><span class="s1">Frequency&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Reaction Time and SDs by Condition&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/pandas_38_0.png" src="_images/pandas_38_0.png" />
 </div>
 </div>
 </div>
@@ -1072,7 +1118,8 @@ Name: RT, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span> <span class="o">=</span> <span class="n">factorial_anova_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Prime&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">])</span>
-<span class="n">group_means</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<span class="n">group_means</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">group_errors</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 <span class="n">group_means</span>
 </pre></div>
 </div>
@@ -1090,13 +1137,15 @@ Name: RT, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">group_errors</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Prime x Target&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Negative</span><span class="se">\n</span><span class="s1">Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Negative</span><span class="se">\n</span><span class="s1">Positive&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive</span><span class="se">\n</span><span class="s1">Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive</span><span class="se">\n</span><span class="s1">Positive&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_57_0.png" src="_images/pandas_57_0.png" />
+<img alt="_images/pandas_63_0.png" src="_images/pandas_63_0.png" />
 </div>
 </div>
 <p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaction. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function called <code class="docutils literal notranslate"><span class="pre">interaction_plot</span></code> for plotting the kind of interaction we are interested in looking at.</p>
@@ -1253,7 +1302,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_65_0.png" src="_images/pandas_65_0.png" />
+<img alt="_images/pandas_71_0.png" src="_images/pandas_71_0.png" />
 </div>
 </div>
 <p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (<code class="docutils literal notranslate"><span class="pre">RT</span></code>), our grouping variable (this is our random effect) plus our within participant effects.</p>
@@ -1267,7 +1316,6 @@ Name: RT, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial_model</span> <span class="o">=</span> <span class="n">AnovaRM</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">factorial_anova_data</span><span class="p">,</span> <span class="n">depvar</span><span class="o">=</span><span class="s1">&#39;RT&#39;</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">subject</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">factorial_model</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1464,189 +1512,10 @@ and faster to negative images following a negative prime (relative to following 
 <p>We can then drop the original column <code class="docutils literal notranslate"><span class="pre">City_State</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crime_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;City_State&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crime_data</span> <span class="o">=</span> <span class="n">crime_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;City_State&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Year</th>
-      <th>index_nsa</th>
-      <th>Population</th>
-      <th>Violent Crimes</th>
-      <th>Homicides</th>
-      <th>Rapes</th>
-      <th>Assaults</th>
-      <th>Robberies</th>
-      <th>City</th>
-      <th>State</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1975.0</td>
-      <td>41.080000</td>
-      <td>490584.0</td>
-      <td>8033.0</td>
-      <td>185.0</td>
-      <td>443.0</td>
-      <td>3518.0</td>
-      <td>3887.0</td>
-      <td>Atlanta,</td>
-      <td>GA</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1975.0</td>
-      <td>30.750000</td>
-      <td>3150000.0</td>
-      <td>37160.0</td>
-      <td>818.0</td>
-      <td>1657.0</td>
-      <td>12514.0</td>
-      <td>22171.0</td>
-      <td>Chicago,</td>
-      <td>IL</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1975.0</td>
-      <td>36.350000</td>
-      <td>659931.0</td>
-      <td>10403.0</td>
-      <td>288.0</td>
-      <td>491.0</td>
-      <td>2524.0</td>
-      <td>7100.0</td>
-      <td>Cleveland,</td>
-      <td>OH</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1975.0</td>
-      <td>20.910000</td>
-      <td>337748.0</td>
-      <td>5900.0</td>
-      <td>111.0</td>
-      <td>316.0</td>
-      <td>2288.0</td>
-      <td>3185.0</td>
-      <td>Oakland,</td>
-      <td>CA</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1975.0</td>
-      <td>20.385000</td>
-      <td>503500.0</td>
-      <td>3971.0</td>
-      <td>52.0</td>
-      <td>324.0</td>
-      <td>1492.0</td>
-      <td>2103.0</td>
-      <td>Seattle,</td>
-      <td>WA</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>3472</th>
-      <td>2015.0</td>
-      <td>194.641250</td>
-      <td>401520.0</td>
-      <td>3628.0</td>
-      <td>55.0</td>
-      <td>365.0</td>
-      <td>2354.0</td>
-      <td>854.0</td>
-      <td>Tulsa,</td>
-      <td>OK</td>
-    </tr>
-    <tr>
-      <th>3473</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3474</th>
-      <td>2015.0</td>
-      <td>248.035833</td>
-      <td>672228.0</td>
-      <td>8084.0</td>
-      <td>162.0</td>
-      <td>494.0</td>
-      <td>4024.0</td>
-      <td>3404.0</td>
-      <td>Washington,</td>
-      <td>DC</td>
-    </tr>
-    <tr>
-      <th>3475</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3476</th>
-      <td>2015.0</td>
-      <td>176.280000</td>
-      <td>389824.0</td>
-      <td>3839.0</td>
-      <td>27.0</td>
-      <td>349.0</td>
-      <td>2730.0</td>
-      <td>733.0</td>
-      <td>Wichita,</td>
-      <td>KS</td>
-    </tr>
-  </tbody>
-</table>
-<p>3477 rows × 10 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1675,7 +1544,6 @@ and faster to negative images following a negative prime (relative to following 
       <th></th>
       <th>Year</th>
       <th>index_nsa</th>
-      <th>City_State</th>
       <th>Population</th>
       <th>Violent Crimes</th>
       <th>Homicides</th>
@@ -1691,7 +1559,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>0</th>
       <td>1975.0</td>
       <td>41.080</td>
-      <td>Atlanta, GA</td>
       <td>490584.0</td>
       <td>8033.0</td>
       <td>185.0</td>
@@ -1705,7 +1572,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>1</th>
       <td>1975.0</td>
       <td>30.750</td>
-      <td>Chicago, IL</td>
       <td>3150000.0</td>
       <td>37160.0</td>
       <td>818.0</td>
@@ -1719,7 +1585,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>2</th>
       <td>1975.0</td>
       <td>36.350</td>
-      <td>Cleveland, OH</td>
       <td>659931.0</td>
       <td>10403.0</td>
       <td>288.0</td>
@@ -1733,7 +1598,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>3</th>
       <td>1975.0</td>
       <td>20.910</td>
-      <td>Oakland, CA</td>
       <td>337748.0</td>
       <td>5900.0</td>
       <td>111.0</td>
@@ -1747,7 +1611,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>4</th>
       <td>1975.0</td>
       <td>20.385</td>
-      <td>Seattle, WA</td>
       <td>503500.0</td>
       <td>3971.0</td>
       <td>52.0</td>
@@ -1765,7 +1628,6 @@ and faster to negative images following a negative prime (relative to following 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Violent Crimes&#39;</span><span class="p">:</span><span class="s1">&#39;Violent_Crimes&#39;</span><span class="p">,</span> <span class="s1">&#39;index_nsa&#39;</span><span class="p">:</span><span class="s1">&#39;house_prices&#39;</span><span class="p">}</span>
-
 <span class="n">crime_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1798,7 +1660,6 @@ and faster to negative images following a negative prime (relative to following 
       <th></th>
       <th>Year</th>
       <th>house_prices</th>
-      <th>City_State</th>
       <th>Population</th>
       <th>Violent_Crimes</th>
       <th>Homicides</th>
@@ -1814,7 +1675,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>0</th>
       <td>1975.0</td>
       <td>41.080</td>
-      <td>Atlanta, GA</td>
       <td>490584.0</td>
       <td>8033.0</td>
       <td>185.0</td>
@@ -1828,7 +1688,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>1</th>
       <td>1975.0</td>
       <td>30.750</td>
-      <td>Chicago, IL</td>
       <td>3150000.0</td>
       <td>37160.0</td>
       <td>818.0</td>
@@ -1842,7 +1701,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>2</th>
       <td>1975.0</td>
       <td>36.350</td>
-      <td>Cleveland, OH</td>
       <td>659931.0</td>
       <td>10403.0</td>
       <td>288.0</td>
@@ -1856,7 +1714,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>3</th>
       <td>1975.0</td>
       <td>20.910</td>
-      <td>Oakland, CA</td>
       <td>337748.0</td>
       <td>5900.0</td>
       <td>111.0</td>
@@ -1870,7 +1727,6 @@ and faster to negative images following a negative prime (relative to following 
       <th>4</th>
       <td>1975.0</td>
       <td>20.385</td>
-      <td>Seattle, WA</td>
       <td>503500.0</td>
       <td>3971.0</td>
       <td>52.0</td>
@@ -1887,13 +1743,13 @@ and faster to negative images following a negative prime (relative to following 
 <p>Now let’s plot our data to see the relationship between Violent Crimes and the Population attributes in our dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crime_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Violent_Crimes&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crime_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Violent_Crimes&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_92_0.png" src="_images/pandas_92_0.png" />
+<img alt="_images/pandas_98_0.png" src="_images/pandas_98_0.png" />
 </div>
 </div>
 <p>So, it looks like there is a positive relationship between these two attributes. We can capture the strength of it by calculating Pearson’s r.</p>
@@ -1958,7 +1814,7 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_97_0.png" src="_images/pandas_97_0.png" />
+<img alt="_images/pandas_103_0.png" src="_images/pandas_103_0.png" />
 </div>
 </div>
 <p>Now let’s look at the correlation between Violent Crimes and Population size for cities with a population of less than 2,000,000.</p>
@@ -2024,7 +1880,7 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_103_0.png" src="_images/pandas_103_0.png" />
+<img alt="_images/pandas_109_0.png" src="_images/pandas_109_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2113,7 +1969,7 @@ c0             0.0070      0.001      5.264      0.000       0.004       0.010
 </div>
 </div>
 </div>
-<p>Taking the above together, we see that population significantly predicts violent crimes. For every increase in population by 1, violent crimes increase by 0.006963. We can use this information to predict how many violent crimes might be expected if a city has a population of 1,000,000. For a city with a population of about a million, there will be about 7907 Violent Crimes. We calculate this by multiplying the estimate of our predictor (0.006963) by 1,000,000 and then adding the intercept (944.3). This gives us 7907.3 violent crimes.</p>
+<p>Taking the above together, we see that population significantly predicts violent crimes. For every increase in population by 1, violent crimes increase by 0.006963. We can use this information to predict how many violent crimes might be expected if a city has a population of 1,000,000. For a city with a population of about a million, there will be about 7,907 Violent Crimes. We calculate this by multiplying the estimate of our predictor (0.006963) by 1,000,000 and then adding the intercept (944.3). This gives us 7907.3 violent crimes.</p>
 </div>
 </div>
 
