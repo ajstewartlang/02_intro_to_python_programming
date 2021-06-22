@@ -34,7 +34,7 @@ anova_data.info()
 
 anova_data.hist()
 
-The Subject plot above really isn't very informative, so let's just plot the RT data. So far though, this isn't split by our experimental groups. We'll come to that next.
+The Subject histogram above really isn't very informative, so let's just plot the RT data. So far though, this isn't split by our experimental groups. We'll come to that next.
 
 anova_data['RT'].hist()
 
@@ -78,12 +78,29 @@ Sometimes it can be useful to think of the `.` notation in Python as meaning 'an
 
 anova_data.groupby(['Condition']).mean()['RT']
 
+It is a little wasteful to calculate the mean of our Subject column as well as the RT column so a better way of doing things is to calculate the mean just for our RT column.
+
+anova_data.groupby(['Condition'])['RT'].mean()
+
 We can map our means onto a new variable I'm calling `my_means` and then we can plot these means as a bar graph.
 
-my_means = grouped_data.mean()['RT']
+my_means = grouped_data['RT'].mean()
 my_means.plot(kind='bar')
 plt.ylabel('RT (ms.)')
 plt.title('Reaction Time by Condition')
+plt.show()
+
+We can tweak some of the plot parameters and add error bars for each of our two conditions.
+
+my_std = grouped_data['RT'].std()
+
+error = [my_std[0], my_std[1]]
+
+my_means.plot.bar(yerr=error, align='center', alpha=0.5, ecolor='black', capsize=10)
+plt.ylabel('RT (ms.)')
+plt.xlabel('Word Frequency')
+plt.xticks([0, 1], ['High\nFrequency', 'Low\nFrequency'], rotation=45)
+plt.title('Mean Reaction Time and SDs by Condition')
 plt.show()
 
 ## One-Way ANOVA
@@ -145,10 +162,13 @@ factorial_anova_data = pd.read_csv("https://raw.githubusercontent.com/ajstewartl
 factorial_anova_data
 
 grouped_data = factorial_anova_data.groupby(['Prime', 'Target'])
-group_means = grouped_data.mean()['RT']
+group_means = grouped_data['RT'].mean()
+group_errors = grouped_data['RT'].std()
 group_means
 
-group_means.plot(kind="bar")
+group_means.plot(kind="bar", yerr=group_errors, alpha=0.5, capsize=10)
+plt.xlabel('Prime x Target')
+plt.xticks([0, 1, 2, 3], ['Negative\nNegative', 'Negative\nPositive', 'Positive\nNegative', 'Positive\nPositive'], rotation=45)
 plt.show()
 
 While the above plot looks *ok*, it's a little tricky seeing the nature of the interaction. Luckily the `statsmodels` library has a function called `interaction_plot` for plotting the kind of interaction we are interested in looking at.
@@ -181,7 +201,6 @@ To build the factorial ANOVA model, we use the `AnovaRM` function from the `stat
 from statsmodels.stats.anova import AnovaRM
 
 factorial_model = AnovaRM(data=factorial_anova_data, depvar='RT', within=['Prime', 'Target'], subject='Subject').fit()
-
 print(factorial_model)
 
 We can also use this function to build ANOVAs with between participant factors. We just need to specifiy those with the parameter `betweeen` much in the same way we have done above with `within`. We see from the above that both main effects, plus the interaction are significant at p < .001. In order to interpret the interaction, we need to conduct pairwise comparisions. There are 2 key comparisons that will tell us where we have a priming effect. The first is comparining RTs to Positive Targets for Positive vs. Negative Primes, and the second is comparing RTs to Negative Targets following Positive vs. Negative Primes. We can effectively run these comparisons as *t*-tests and adopt a critical alpha level of .025 to control for the familywise error associated with running the two key tests.
@@ -236,21 +255,20 @@ crime_data[['City','State']] = crime_data.City_State.str.split(expand=True,)
 
 We can then drop the original column `City_State`.
 
-crime_data.drop('City_State', axis=1)
+crime_data = crime_data.drop('City_State', axis=1)
 
 crime_data.head()
 
 We also need to get rid of the space in the `Violent Crimes` column and rename the column `index_nsa` as `house_prices`. We are first going to set a dictionary, called a `dict` which contains the old names and the new names of the columns that we want to rename.
 
 dict = {'Violent Crimes':'Violent_Crimes', 'index_nsa':'house_prices'}
-
 crime_data.rename(columns=dict, inplace=True)
 
 crime_data.head()
 
 Now let's plot our data to see the relationship between Violent Crimes and the Population attributes in our dataframe.
 
-crime_data.plot(kind='scatter', x='Population', y='Violent_Crimes', alpha=0.2)
+crime_data.plot(kind='scatter', x='Population', y='Violent_Crimes', alpha=.5)
 plt.show()
 
 So, it looks like there is a positive relationship between these two attributes. We can capture the strength of it by calculating Pearson's r. 
@@ -294,5 +312,5 @@ We can check to see whether our predictor is significant by conducting a *t*-tes
 
 print(results.t_test([0, 1]))
 
-Taking the above together, we see that population significantly predicts violent crimes. For every increase in population by 1, violent crimes increase by 0.006963. We can use this information to predict how many violent crimes might be expected if a city has a population of 1,000,000. For a city with a population of about a million, there will be about 7907 Violent Crimes. We calculate this by multiplying the estimate of our predictor (0.006963) by 1,000,000 and then adding the intercept (944.3). This gives us 7907.3 violent crimes.
+Taking the above together, we see that population significantly predicts violent crimes. For every increase in population by 1, violent crimes increase by 0.006963. We can use this information to predict how many violent crimes might be expected if a city has a population of 1,000,000. For a city with a population of about a million, there will be about 7,907 Violent Crimes. We calculate this by multiplying the estimate of our predictor (0.006963) by 1,000,000 and then adding the intercept (944.3). This gives us 7907.3 violent crimes.
 
