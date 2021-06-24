@@ -2,13 +2,13 @@
 
 In this workshop we will focus on using Python libraries for data wrangling, visualisation, and analysis.
 
+## pandas
+
 %%HTML
 <div style="text-align: center"> 
-<iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/PCA-SouJjQs" frameborder="0" allowfullscreen></iframe>
 
 </div>
-
-## pandas
 
 Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we've opened a new script in our `data_science` environment is to import the pandas library. We will import it using the conventional alias `pd`. When we need to use a function or method from pandas later, we can do that with `pd.*function/method_name*`. You can read more about the library [here](https://pandas.pydata.org/).
 
@@ -41,6 +41,12 @@ anova_data['RT'].hist()
 ## Visualising Our Data by Groups
 
 We need to use the `matplotlib` library for the rest of our visualisations. This library contains a huge range of tools for visualising data. You can read more about it [here](https://matplotlib.org/stable/). 
+
+%%HTML
+<div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/DaWUkL2RL40" frameborder="0" allowfullscreen></iframe>
+
+</div>
 
 import matplotlib.pyplot as plt
 
@@ -105,6 +111,12 @@ plt.show()
 
 ## One-Way ANOVA
 
+%%HTML
+<div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/UuLaQXTacMY" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
 To run a between participants one-way ANOVA to determine whether there is a difference between our two conditions we're going to use the `stats` module from the `scipy` library. We import it as follows... 
 
 from scipy import stats
@@ -153,6 +165,12 @@ The *F*-value is the mean square error of Condition divided by the mean square e
 
 ## Factorial ANOVA
 
+%%HTML
+<div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/ra0oNb8r8YU" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
 In many types of experiments we are interested in how two (or more) experimental factors interact with each other. For example, in a typical priming paradigm experiment we might be interested in whether people's response times to a positively or negatively valenced target stimulus are influenced by whether it was preceded by a positively or negatively valenced prime. 
 
 The data in the file below are from a 2 x 2 repeated measures reaction time experiment. We were interested in how quickly participants could respond to Targets that were Positive vs. Negative when they followed Positive vs. Negative Primes. We expected that Positive Targets would be responded to more quickly after Positive vs. Negative Primes, and that Negative Targets would be responded to more quickly after Negative vs. Positive Primes. We measured the response times of 24 participants responding in each of these four conditions. We want to determine if there is a difference between our conditions (and if so, where that difference lies).
@@ -196,6 +214,12 @@ plt.title('Reaction Times to Target Type as a Function of Prime Type')
 plt.ylim(0)
 plt.margins(.5, 1)
 
+%%HTML
+<div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/yruJCc794Zc" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
 To build the factorial ANOVA model, we use the `AnovaRM` function from the `statsmodels` library. We need to specify our outcome variable (`RT`), our grouping variable (this is our random effect) plus our within participant effects. 
 
 from statsmodels.stats.anova import AnovaRM
@@ -238,6 +262,12 @@ You need to build a new factorial ANOVA for the following experiment. The data i
 and faster to negative images following a negative prime (relative to following a positive prime). Visualise the data and report the key descriptives before then running the appropriate ANOVA.
 
 ## Regression
+
+%%HTML
+<div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/wcGvoojw6WI" frameborder="0" allowfullscreen></iframe>
+
+</div>
 
 As you may recall, ANOVA and regression are both cases of the General Linear Model in action. Let's turn now to regression. We're going to start by using the dataset called `crime_dataset.csv` - this dataset contains population data, housing price index data and crime data for cities in the US.
 
