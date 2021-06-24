@@ -237,8 +237,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importing-pandas">
-   Importing pandas
+  <a class="reference internal nav-link" href="#pandas">
+   pandas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -293,8 +293,8 @@
 </div>
 </div></div>
 </div>
-<div class="section" id="importing-pandas">
-<h2>Importing pandas<a class="headerlink" href="#importing-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pandas">
+<h2>pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
 <p>Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we’ve opened a new script in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment is to import the pandas library. We will import it using the conventional alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. When we need to use a function or method from pandas later, we can do that with <code class="docutils literal notranslate"><span class="pre">pd.*function/method_name*</span></code>. You can read more about the library <a class="reference external" href="https://pandas.pydata.org/">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,7 +593,7 @@ memory usage: 704.0+ bytes
 <p>If we wanted just to output the count for our <code class="docutils literal notranslate"><span class="pre">RT</span></code> column we could do the following.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -609,7 +609,7 @@ Name: RT, dtype: int64
 <p>From the above we can see we have 12 observations in each condition, and our variable RT is type integer. We can use other <code class="docutils literal notranslate"><span class="pre">pandas</span></code> functions such as <code class="docutils literal notranslate"><span class="pre">mean()</span></code> and <code class="docutils literal notranslate"><span class="pre">std()</span></code> in a similar way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -624,7 +624,7 @@ Name: RT, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span><span class="o">.</span><span class="n">std</span><span class="p">()[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1346,7 +1346,7 @@ Prime:Target 284.8948 1.0000 23.0000 0.0000
 <p>We then do the same for cases where the Prime is Negative and the Target is Positive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Prime&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">factorial_anova_data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>
 <span class="n">NP</span> <span class="o">=</span> <span class="n">factorial_anova_data</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1873,7 +1873,7 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crime_data_2015</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Violent_Crimes&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crime_data_2015</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Violent_Crimes&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;For Cities with Populations &lt; 2,000,000 in 2015&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

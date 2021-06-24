@@ -8,7 +8,7 @@ In this workshop we will focus on using Python libraries for data wrangling, vis
 
 </div>
 
-## Importing pandas
+## pandas
 
 Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we've opened a new script in our `data_science` environment is to import the pandas library. We will import it using the conventional alias `pd`. When we need to use a function or method from pandas later, we can do that with `pd.*function/method_name*`. You can read more about the library [here](https://pandas.pydata.org/).
 
@@ -66,13 +66,13 @@ grouped_data.count()
 
 If we wanted just to output the count for our `RT` column we could do the following.
 
-grouped_data.count()['RT']
+grouped_data['RT'].count()
 
 From the above we can see we have 12 observations in each condition, and our variable RT is type integer. We can use other `pandas` functions such as `mean()` and `std()` in a similar way.
 
-grouped_data.mean()['RT']
+grouped_data['RT'].mean()
 
-grouped_data.std()['RT']
+grouped_data['RT'].std()
 
 Sometimes it can be useful to think of the `.` notation in Python as meaning 'and then'. We could combine some of the commands above into one using `.` which would allow us to do away with creating the temporary variable `grouped_data`. For example, the following will take our original dataframe, then group it by `Condition`, then generate the means, displaying only the RT `column`.
 
@@ -212,7 +212,7 @@ PP = factorial_anova_data[index]['RT']
 
 We then do the same for cases where the Prime is Negative and the Target is Positive. 
 
-index = (factorial_anova_data['Prime']=='Negative') &(factorial_anova_data['Target']=='Positive')
+index = (factorial_anova_data['Prime']=='Negative') & (factorial_anova_data['Target']=='Positive')
 NP = factorial_anova_data[index]['RT']
 
 We can now run a *t*-test using the `stats.ttest_rel` function for paired samples *t*-tests.
@@ -293,7 +293,7 @@ Let's focus just on the year 2015 and build a linear model to see how the number
 
 crime_data_2015 = crime_data_filtered[crime_data_filtered['Year'] == 2015]
 
-crime_data_2015.plot(kind='scatter', x='Population', y='Violent_Crimes', alpha=1)
+crime_data_2015.plot(kind='scatter', x='Population', y='Violent_Crimes')
 plt.title('For Cities with Populations < 2,000,000 in 2015')
 plt.show()
 
