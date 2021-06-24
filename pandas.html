@@ -276,11 +276,13 @@
   <div class="section" id="data-analysis-in-python">
 <h1>Data Analysis in Python<a class="headerlink" href="#data-analysis-in-python" title="Permalink to this headline">¶</a></h1>
 <p>In this workshop we will focus on using Python libraries for data wrangling, visualisation, and analysis.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="section" id="pandas">
+<h2>pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
-<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/HjF98JryayQ&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/PCA-SouJjQs&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
@@ -288,13 +290,11 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div style="text-align: center"> 
-<iframe width="560" height="315" src="https://youtube.com/embed/HjF98JryayQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtube.com/embed/PCA-SouJjQs" frameborder="0" allowfullscreen></iframe>
 
 </div>
 </div></div>
 </div>
-<div class="section" id="pandas">
-<h2>pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
 <p>Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we’ve opened a new script in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment is to import the pandas library. We will import it using the conventional alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. When we need to use a function or method from pandas later, we can do that with <code class="docutils literal notranslate"><span class="pre">pd.*function/method_name*</span></code>. You can read more about the library <a class="reference external" href="https://pandas.pydata.org/">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -509,6 +509,23 @@ memory usage: 704.0+ bytes
 <p>We need to use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library for the rest of our visualisations. This library contains a huge range of tools for visualising data. You can read more about it <a class="reference external" href="https://matplotlib.org/stable/">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/DaWUkL2RL40&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/DaWUkL2RL40" frameborder="0" allowfullscreen></iframe>
+
+</div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
@@ -529,7 +546,7 @@ memory usage: 704.0+ bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_19_0.png" src="_images/pandas_19_0.png" />
+<img alt="_images/pandas_20_0.png" src="_images/pandas_20_0.png" />
 </div>
 </div>
 <p>Let’s now work out some descriptive statistics using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>  functions. We’ll use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function to group <code class="docutils literal notranslate"><span class="pre">anova_data</span></code> by <code class="docutils literal notranslate"><span class="pre">Condition</span></code>, and we’ll map this onto a new variable I’m calling <code class="docutils literal notranslate"><span class="pre">grouped_data</span></code>.</p>
@@ -681,7 +698,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_34_0.png" src="_images/pandas_34_0.png" />
+<img alt="_images/pandas_35_0.png" src="_images/pandas_35_0.png" />
 </div>
 </div>
 <p>We can tweak some of the plot parameters and add error bars for each of our two conditions.</p>
@@ -711,12 +728,29 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_38_0.png" src="_images/pandas_38_0.png" />
+<img alt="_images/pandas_39_0.png" src="_images/pandas_39_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="one-way-anova">
 <h2>One-Way ANOVA<a class="headerlink" href="#one-way-anova" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/UuLaQXTacMY&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/UuLaQXTacMY" frameborder="0" allowfullscreen></iframe>
+
+</div>
+</div></div>
+</div>
 <p>To run a between participants one-way ANOVA to determine whether there is a difference between our two conditions we’re going to use the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module from the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> library. We import it as follows…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -992,6 +1026,23 @@ Name: RT, dtype: int64
 </div>
 <div class="section" id="factorial-anova">
 <h2>Factorial ANOVA<a class="headerlink" href="#factorial-anova" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/ra0oNb8r8YU&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/ra0oNb8r8YU" frameborder="0" allowfullscreen></iframe>
+
+</div>
+</div></div>
+</div>
 <p>In many types of experiments we are interested in how two (or more) experimental factors interact with each other. For example, in a typical priming paradigm experiment we might be interested in whether people’s response times to a positively or negatively valenced target stimulus are influenced by whether it was preceded by a positively or negatively valenced prime.</p>
 <p>The data in the file below are from a 2 x 2 repeated measures reaction time experiment. We were interested in how quickly participants could respond to Targets that were Positive vs. Negative when they followed Positive vs. Negative Primes. We expected that Positive Targets would be responded to more quickly after Positive vs. Negative Primes, and that Negative Targets would be responded to more quickly after Negative vs. Positive Primes. We measured the response times of 24 participants responding in each of these four conditions. We want to determine if there is a difference between our conditions (and if so, where that difference lies).</p>
 <div class="cell docutils container">
@@ -1145,7 +1196,7 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_63_0.png" src="_images/pandas_63_0.png" />
+<img alt="_images/pandas_68_0.png" src="_images/pandas_68_0.png" />
 </div>
 </div>
 <p>While the above plot looks <em>ok</em>, it’s a little tricky seeing the nature of the interaction. Luckily the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library has a function called <code class="docutils literal notranslate"><span class="pre">interaction_plot</span></code> for plotting the kind of interaction we are interested in looking at.</p>
@@ -1302,8 +1353,25 @@ Name: RT, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_71_0.png" src="_images/pandas_71_0.png" />
+<img alt="_images/pandas_76_0.png" src="_images/pandas_76_0.png" />
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/yruJCc794Zc&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/yruJCc794Zc" frameborder="0" allowfullscreen></iframe>
+
+</div>
+</div></div>
 </div>
 <p>To build the factorial ANOVA model, we use the <code class="docutils literal notranslate"><span class="pre">AnovaRM</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library. We need to specify our outcome variable (<code class="docutils literal notranslate"><span class="pre">RT</span></code>), our grouping variable (this is our random effect) plus our within participant effects.</p>
 <div class="cell docutils container">
@@ -1384,6 +1452,23 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 <div class="section" id="regression">
 <h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://youtube.com/embed/wcGvoojw6WI&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="text-align: center"> 
+<iframe width="560" height="315" src="https://youtube.com/embed/wcGvoojw6WI" frameborder="0" allowfullscreen></iframe>
+
+</div>
+</div></div>
+</div>
 <p>As you may recall, ANOVA and regression are both cases of the General Linear Model in action. Let’s turn now to regression. We’re going to start by using the dataset called <code class="docutils literal notranslate"><span class="pre">crime_dataset.csv</span></code> - this dataset contains population data, housing price index data and crime data for cities in the US.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1749,7 +1834,7 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_98_0.png" src="_images/pandas_98_0.png" />
+<img alt="_images/pandas_106_0.png" src="_images/pandas_106_0.png" />
 </div>
 </div>
 <p>So, it looks like there is a positive relationship between these two attributes. We can capture the strength of it by calculating Pearson’s r.</p>
@@ -1814,7 +1899,7 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_103_0.png" src="_images/pandas_103_0.png" />
+<img alt="_images/pandas_111_0.png" src="_images/pandas_111_0.png" />
 </div>
 </div>
 <p>Now let’s look at the correlation between Violent Crimes and Population size for cities with a population of less than 2,000,000.</p>
@@ -1880,7 +1965,7 @@ and faster to negative images following a negative prime (relative to following 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_109_0.png" src="_images/pandas_109_0.png" />
+<img alt="_images/pandas_117_0.png" src="_images/pandas_117_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
