@@ -158,7 +158,7 @@ If you get an error with the above, type
 
 and then:
 
-    (data_science)$ jupyter notebook
+    (base)$ jupyter notebook
 
 ## Running a Python Script from the Command Line
 
