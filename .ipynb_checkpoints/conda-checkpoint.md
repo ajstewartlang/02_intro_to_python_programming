@@ -41,6 +41,8 @@ On Windows machines, you can access the command line interface (CLI) using the A
 
 Below are videos on how to install on both Windows 10 and MacOS.
 
+When installing, remember NOT to put a space in any directory name you create. It's good practice in coding to NEVER use spaces in file names or directory names. Instead, use an underscore or a hyphen.
+
 ## Installing on Windows 10
 
 <center>
