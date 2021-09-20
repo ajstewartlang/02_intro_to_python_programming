@@ -152,6 +152,14 @@ We’re now ready to fire up a Jupyter Notebook. To do that, type:
 
     (data_science)$ jupyter notebook
 
+If you get an error with the above, type 
+
+    (data_science)$ conda deactivate
+
+and then:
+
+    (data_science)$ jupyter notebook
+
 ## Running a Python Script from the Command Line
 
 <center>
