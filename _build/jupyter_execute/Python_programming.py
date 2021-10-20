@@ -22,10 +22,6 @@ There are a couple of really good introductory books on using Python for data sc
 
 </div>
 
-## Starting Python in a Jupyter Notebook
-
-Open a Termial Window if you are on Mac OS or Anaconda Prompt (Anaconda3) if you are on a Windows machine. Ensure you are in a conda environment (indicated by the word `base`) before the prompt. If that isn't present type `conda activate`. Then type `jupyter notebook` to fire up a Jupyter Notebook. 
-
 ## Similarities Between Python and R
 
 Both Python and R are high-level interpreted languages - this means that Python and R scripts can only be run if you have a Python or R interpreter installed on the machine you’re using.
