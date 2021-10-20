@@ -59,13 +59,13 @@ When installing, remember NOT to put a space in any directory name you create. I
 
 </center>
 
-To check your Conda installation has worked, open a Terminal window and at the prompt type:
+To check your Conda installation has worked, open a Terminal window if you are on Mac OS or Anaconda Prompt (Anaconda3) on Windows and once that has opened type:
 
     $ conda activate
     (base)$ python --version
     Python 3.8.8
 
-The first command activates the base (or default) Conda environment. The second command will print the version of Python you are running - which in my case is Python 3.8.8. In the terminal, you can start a Jupyter Notebook running in your base Conda environment by typing:
+The first command activates the base (or default) Conda environment. The second command will print the version of Python you are running - which in my case is Python 3.8.8. You can start a Jupyter Notebook running in your base Conda environment by typing:
 
     (base)$ jupyter notebook
 
