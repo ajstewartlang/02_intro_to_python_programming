@@ -42,9 +42,9 @@ In the video below I take you through Docker on Windows. Using the Powershell I 
 
 </center>
 
-## Docker on Mac OS
+## Docker on macOS
 
-In the video below I take you through Docker on Mac OS. Using the Terminal I cover running Docker containers, linking Docker containers with your local directories and files, and writing Dockerfiles to build new Docker images. 
+In the video below I take you through Docker on macOS. Using the Terminal I cover running Docker containers, linking Docker containers with your local directories and files, and writing Dockerfiles to build new Docker images. 
 
 ### Part One
 

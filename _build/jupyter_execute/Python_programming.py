@@ -91,7 +91,7 @@ In both these cases the output will be `apple`.
 
 </div>
 
-We will be writing our code using a Jupyter Notebook. It also allows us to write text in Markdown format (as I have written in this block), alongside the Python code and output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` in your terminal if you don't). Set up a new Notebook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
+We will be writing our code using a Jupyter Notebook. On macOS, you are going to be entering the commands below that start up a Jupyter Notebook using Terminal, and on Windows you will be using the Anaconda Prompt. Jupyter Notebooks allows us to write text in Markdown format (as I have written in this block), alongside the Python code and output. If you have completed the previous workshop, you should be able to launch a Jupyter Notebook on your own machine. Make sure you have a conda environment activated (type `conda activate` if you don't). Set up a new Notebook by typing `jupyter notebook` in a terminal window. This should launch Jupyter Notebooks running in your browser. 
 
     conda activate
     jupyter notebook
