@@ -22,7 +22,6 @@ In the video below I introduce you to the concept of containerisation using Dock
 
 There's also a good official introduction to Docker [here](https://docs.docker.com/get-started/).
 
-
 ## Docker on Windows
 
 In the video below I take you through Docker on Windows. Using the Powershell I cover running Docker containers, linking Docker containers with your local directories and files, and writing Dockerfiles to build new Docker images. 
