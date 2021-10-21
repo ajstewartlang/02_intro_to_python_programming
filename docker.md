@@ -20,9 +20,10 @@ In the video below I introduce you to the concept of containerisation using Dock
 
 </center>
 
+
 There's also a good official introduction to Docker [here](https://docs.docker.com/get-started/).
 
-Although slightly more computer science focused, the following two videos provide abother nice introduction to Docker and to Docker Compose (which allows multiple containers to run simultaneously).
+Although slightly more computer science focused, the following two videos provide another nice introduction to Docker and to Docker Compose (which allows multiple containers to run simultaneously).
 
 <center>
 
