@@ -12,7 +12,7 @@ You can view and download the slides in a variety of formats by clicking on the 
 
 ## Introduction to Docker
  
-In the video below I introduce you to the concept of containerisation using Docker.
+In the video below I introduce you to the concept of containerisation using Docker. Docker allows us to package our software (e.g., analysis code and data files) and dependencies in containers that can then be run on any operating system. The container will work identically on macOS, Windows, or Linux. Docker containers are used widely in software development, production, and data science. They have an important role to play in data science as they allow our analysis scripts and data files to be containerised with a particular version of (e.g.) R or Python, and with particular versions of their libraries and packages, that can then be run on any other machine or on our own machine at some point in the future - just by spinning up the container. This allows our analysis to be fully reproducible. 
  
 <center>
 
@@ -21,6 +21,22 @@ In the video below I introduce you to the concept of containerisation using Dock
 </center>
 
 There's also a good official introduction to Docker [here](https://docs.docker.com/get-started/).
+
+Although slightly more computer science focused, the following two videos provide abother nice introduction to Docker and to Docker Compose (which allows multiple containers to run simultaneously).
+
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/_dfLOzuIg2o" frameborder="0" allowfullscreen></iframe>
+
+</center>
+
+
+
+<center>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/exmBvjlZr7U" frameborder="0" allowfullscreen></iframe>
+
+</center>
 
 ## Docker on Windows
 
