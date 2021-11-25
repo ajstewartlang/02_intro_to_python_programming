@@ -1083,7 +1083,7 @@ Lou has a BMI of 28
 </div>
 </div>
 </div>
-<p>Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. For Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respectively. The pooled SD for all groups is 10. Write the code that will produce Cohen’s d from a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array that contains the means and the pooled SD for each of the three experiments.</p>
+<p>The following will be a group-based activity which you will do in class. Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. For Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respectively. The pooled SD for all groups is 10. Write the code that will produce Cohen’s d from a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array that contains the means and the pooled SD for each of the three experiments.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">One possible solution is below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>experiment1 = np.array([500, 485, 10])
@@ -1092,19 +1092,15 @@ experiment3 = np.array([500, 495, 10])
 
 all_experiments = np.array((experiment1, experiment2, experiment3))
 
-all_experiments
-
 def cohen_d(mean1, mean2, sd):  
         effect_size = (mean1-mean2)/sd  
         return effect_size  
-
-all_experiments[0]
 
 for experiment in all_experiments:
     mean1 = experiment[0]
     mean2 = experiment[1]
     sd = experiment[2]
-    print(cohen_d(mean1, mean2, sd))
+    print(&quot;For a group one mean of&quot;, mean1, &quot;and a group two mean of&quot;, mean2, &quot;and a pooled sd of &quot;, sd, &quot;Cohen&#39;s d is&quot;, cohen_d(mean1, mean2, sd))
 </pre></div>
 </div>
 </div>
