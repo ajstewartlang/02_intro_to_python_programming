@@ -358,29 +358,26 @@ for person in vital_stats.T:
     height = float(person[1])
     print(person[2], 'has a BMI of', round(bmi(weight, height)))
 
-Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. For Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respectively. The pooled SD for all groups is 10. Write the code that will produce Cohen's d from a `numpy` array that contains the means and the pooled SD for each of the three experiments.
+The following will be a group-based activity which you will do in class. Imagine three experiments. Each is a between participants design with two groups. For Experiments 1, 2, and 3 the mean of group 1 is always 500. For Experiments 1, 2, and 3 the means of group 2 are 485, 490, and 495 respectively. The pooled SD for all groups is 10. Write the code that will produce Cohen's d from a `numpy` array that contains the means and the pooled SD for each of the three experiments.
 
 :::{admonition} One possible solution is below.
 :class: dropdown 
+
     experiment1 = np.array([500, 485, 10])
     experiment2 = np.array([500, 490, 10])
     experiment3 = np.array([500, 495, 10])
 
     all_experiments = np.array((experiment1, experiment2, experiment3))
 
-    all_experiments
-
     def cohen_d(mean1, mean2, sd):  
             effect_size = (mean1-mean2)/sd  
             return effect_size  
  
-    all_experiments[0]
-
     for experiment in all_experiments:
         mean1 = experiment[0]
         mean2 = experiment[1]
         sd = experiment[2]
-        print(cohen_d(mean1, mean2, sd))
+        print("For a group one mean of", mean1, "and a group two mean of", mean2, "and a pooled sd of ", sd, "Cohen's d is", cohen_d(mean1, mean2, sd))
 :::
 
 ## Operators
