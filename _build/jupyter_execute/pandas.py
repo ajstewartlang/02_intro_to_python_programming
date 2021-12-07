@@ -52,7 +52,7 @@ import matplotlib.pyplot as plt
 
 In the code below we used the `plot` function from `pyplot` (which we have imported under the alias `plt`. We build our plot layer by layer (similar to how we do things in `R` with `ggplot2`). There is even a built-in `ggplot` style we can use. We define our plot initially in terms of what's on the x-axis, what's on the y-axis, and then what marker we want to use - which in this case is blue circles (`bo`).
 
-After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot like nice.
+After this, we then add an x-axis label, a y-axis label, and a title. We also set the margins to make the plot look nice.
 
 plt.style.use('ggplot')
 plt.plot(anova_data['Condition'], anova_data['RT'], 'bo')
