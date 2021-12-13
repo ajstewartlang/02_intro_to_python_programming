@@ -295,7 +295,7 @@
 </div>
 </div></div>
 </div>
-<p>Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we’ve opened a new script in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment is to import the pandas library. We will import it using the conventional alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. When we need to use a function or method from pandas later, we can do that with <code class="docutils literal notranslate"><span class="pre">pd.*function/method_name*</span></code>. You can read more about the library <a class="reference external" href="https://pandas.pydata.org/">here</a>.</p>
+<p>Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we’ve opened a new script in our <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment is to import the pandas library. We will import it using the conventional alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. When we need to use a function or method from pandas later, we can do that with <code class="docutils literal notranslate"><span class="pre">pd.&lt;method_name&gt;</span></code>. You can read more about the library <a class="reference external" href="https://pandas.pydata.org/">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1447,8 +1447,11 @@ stats.ttest_rel(PN, NN)
 </div>
 </div>
 <p>The following will be a group-based activity which you will do in class.</p>
-<p>You need to build a new factorial ANOVA for the following experiment. The data in the file <a class="reference external" href="https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_challenge.csv">https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_challenge.csv</a> are from a 2 x 2 repeated measures design. 148 participants responded to a target image that was either positive or negative in valence. The target was preceded by a prime that was either also positive or negative in valence. We want to determine whether people responded faster to positive images following a positive prime (relative to following a negative prime),
-and faster to negative images following a negative prime (relative to following a positive prime). Visualise the data and report the key descriptives before then running the appropriate ANOVA.</p>
+<p>The data in the file <a class="reference external" href="https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv">https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv</a> are from an experiment with 96 participants. We
+measured how quickly (in milliseconds) people could pronounce a word that was presented to them. Words
+were presented either normally (Condition A) or were visually degraded (Condition B). This was a between
+participants factor of visual quality with 2 levels. Visualise the data and report the key descriptives before then running the appropriate ANOVA.</p>
+<p>Have a go at turning your code into a function called <code class="docutils literal notranslate"><span class="pre">my_anova()</span></code> so that you can call it with the command <code class="docutils literal notranslate"><span class="pre">my_anova(https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv)</span></code> and it will produce the output of your ANOVA?</p>
 </div>
 <div class="section" id="regression">
 <h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
@@ -1863,18 +1866,18 @@ and faster to negative images following a negative prime (relative to following 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Population</th>
       <th>Violent_Crimes</th>
+      <th>Population</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Population</th>
+      <th>Violent_Crimes</th>
       <td>1.000000</td>
       <td>0.808718</td>
     </tr>
     <tr>
-      <th>Violent_Crimes</th>
+      <th>Population</th>
       <td>0.808718</td>
       <td>1.000000</td>
     </tr>
@@ -1928,18 +1931,18 @@ and faster to negative images following a negative prime (relative to following 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Population</th>
       <th>Violent_Crimes</th>
+      <th>Population</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Population</th>
+      <th>Violent_Crimes</th>
       <td>1.00000</td>
       <td>0.68638</td>
     </tr>
     <tr>
-      <th>Violent_Crimes</th>
+      <th>Population</th>
       <td>0.68638</td>
       <td>1.00000</td>
     </tr>
@@ -1993,18 +1996,18 @@ and faster to negative images following a negative prime (relative to following 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Population</th>
       <th>Violent_Crimes</th>
+      <th>Population</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Population</th>
+      <th>Violent_Crimes</th>
       <td>1.000000</td>
       <td>0.649353</td>
     </tr>
     <tr>
-      <th>Violent_Crimes</th>
+      <th>Population</th>
       <td>0.649353</td>
       <td>1.000000</td>
     </tr>
