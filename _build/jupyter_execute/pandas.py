@@ -10,7 +10,7 @@ In this workshop we will focus on using Python libraries for data wrangling, vis
 
 </div>
 
-Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we've opened a new script in our `data_science` environment is to import the pandas library. We will import it using the conventional alias `pd`. When we need to use a function or method from pandas later, we can do that with `pd.*function/method_name*`. You can read more about the library [here](https://pandas.pydata.org/).
+Fire up a Jupyter Notebook. In order to read in and then wrangle our data, the first thing we need to do once we've opened a new script in our `data_science` environment is to import the pandas library. We will import it using the conventional alias `pd`. When we need to use a function or method from pandas later, we can do that with `pd.<method_name>`. You can read more about the library [here](https://pandas.pydata.org/).
 
 import pandas as pd
 
@@ -258,8 +258,12 @@ We can see that this comparison is significant. Your challenge now is to write t
 
 The following will be a group-based activity which you will do in class.
 
-You need to build a new factorial ANOVA for the following experiment. The data in the file https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_challenge.csv are from a 2 x 2 repeated measures design. 148 participants responded to a target image that was either positive or negative in valence. The target was preceded by a prime that was either also positive or negative in valence. We want to determine whether people responded faster to positive images following a positive prime (relative to following a negative prime),
-and faster to negative images following a negative prime (relative to following a positive prime). Visualise the data and report the key descriptives before then running the appropriate ANOVA.
+The data in the file https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv are from an experiment with 96 participants. We
+measured how quickly (in milliseconds) people could pronounce a word that was presented to them. Words
+were presented either normally (Condition A) or were visually degraded (Condition B). This was a between
+participants factor of visual quality with 2 levels. Visualise the data and report the key descriptives before then running the appropriate ANOVA.
+
+Have a go at turning your code into a function called `my_anova()` so that you can call it with the command `my_anova(https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv)` and it will produce the output of your ANOVA?
 
 ## Regression
 
