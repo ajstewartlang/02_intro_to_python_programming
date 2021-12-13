@@ -263,7 +263,7 @@ measured how quickly (in milliseconds) people could pronounce a word that was pr
 were presented either normally (Condition A) or were visually degraded (Condition B). This was a between
 participants factor of visual quality with 2 levels. Visualise the data and report the key descriptives before then running the appropriate ANOVA.
 
-Have a go at turning your code into a function called `my_anova()` so that you can call it with the command `my_anova(https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv)` and it will produce the output of your ANOVA?
+Can you turn your code into a function called `my_anova()` so that you can call it with the command `my_anova(https://raw.githubusercontent.com/ajstewartlang/02_intro_to_python_programming/main/data/ANOVA_class_work.csv)` and will produce the output of your ANOVA? Hint: you need to pass just the location of your data file to your function, and can keep the code you've written above virtually unchanged.
 
 ## Regression
 
