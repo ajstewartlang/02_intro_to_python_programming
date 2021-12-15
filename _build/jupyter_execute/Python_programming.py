@@ -287,7 +287,7 @@ def bmi(weight, height):
 
 bmi(87, 1.8)
 
-It is worth noting that functions don't have to take any input parameters. For example, in the trivial function below - which just prints "Hello world!" we can call the function just with `hello_world()`
+It is worth noting that functions don't have to take any input parameters. For example, in the trivial function below - which prints "Hello world!" - we can call the function with `hello_world()`
 
 def hello_world():
     print('Hello world!')
