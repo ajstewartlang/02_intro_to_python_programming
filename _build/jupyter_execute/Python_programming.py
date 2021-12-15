@@ -287,6 +287,13 @@ def bmi(weight, height):
 
 bmi(87, 1.8)
 
+It is worth noting that functions don't have to take any input parameters. For example, in the trivial function below - which just prints "Hello world!" we can call the function just with `hello_world()`
+
+def hello_world():
+    print('Hello world!')
+
+hello_world()
+
 Your challenge to write a function that calculates Cohen's d, a common measure of effect size, for an experiment given two means of 1020 and 1000, and a pooled standard deviation (SD) of 50. The equation for Cohen's d is:
     
 $$
