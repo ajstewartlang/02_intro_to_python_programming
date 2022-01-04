@@ -94,9 +94,9 @@ We can check what environments we now have on our machine by typing:
     base                  *  /home/andrew/anaconda3
     data_science          /home/andrew/anaconda3/envs/data_science
 
-The * indicates which environment we are currently in. Note, if we wanted to, we can delete the `data_science` environment using the following. Note, we cannot delete an environment if we are in it. To exit an environment, type `conda deactivate`.
+The * indicates which environment we are currently in. Note, if we wanted to, we can delete the `data_science` environment using `conda remove -n data_science --all`. Note, we cannot delete an environment if we are in it. 
 
-    (base)$ conda remove -n data_science --all
+To activate our new `data_science` environment, type `conda activate data_science`. And to deactivate this environment and go back to the base environment, type `conda deactivate`.
 
 Typing `conda list` will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.
 
