@@ -347,10 +347,8 @@ base                  *  /home/andrew/anaconda3
 data_science          /home/andrew/anaconda3/envs/data_science
 </pre></div>
 </div>
-<p>The * indicates which environment we are currently in. Note, if we wanted to, we can delete the <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment using the following. Note, we cannot delete an environment if we are in it. To exit an environment, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)$ conda remove -n data_science --all
-</pre></div>
-</div>
+<p>The * indicates which environment we are currently in. Note, if we wanted to, we can delete the <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">-n</span> <span class="pre">data_science</span> <span class="pre">--all</span></code>. Note, we cannot delete an environment if we are in it.</p>
+<p>To activate our new <code class="docutils literal notranslate"><span class="pre">data_science</span></code> environment, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">data_science</span></code>. And to deactivate this environment and go back to the base environment, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>.</p>
 <p>Typing <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> will list the packages and version numbers in the currently active environment. Note, here we’re now in the data_science environment.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)$ conda activate data_science
 (data_science)$ conda list
