@@ -18,8 +18,10 @@ The workshops can be found via the index on the left under the 'Content' heading
    - Using Conda to manage your Python libraries and create reproducible Python environments.
    - Programming in Python using Jupyter Notebooks.
    - Data analysis using the NumPy and pandas libraries.
-   - Making your analyses reproducible using Docker and Dockerhub.   
    - Using git and GitHub for version control and collaborative working.
+   - Making your analyses reproducible using Docker and Dockerhub.   
+   
+There is also a bonus workshop with some examples of using Python in other ways to automate particular (often boring!) tasks.
 
 If you have any questions, please feel free to email at drandrewjstewart@gmail.com or send me a DM on [Twitter](https://twitter.com/ajstewart_lang).
 
