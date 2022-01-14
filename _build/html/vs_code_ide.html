@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrew’s BIOL63162 Workshops &#8212; Andrew&#39;s BIOL63162 Workshops</title>
+    <title>Coding with Python in an IDE &#8212; Andrew&#39;s BIOL63162 Workshops</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content" href="content.html" />
+    <link rel="prev" title="Automate the Boring Stuff" href="boring.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -85,18 +85,18 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Andrew’s BIOL63162 Workshops
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="content.html">
    Content
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="conda.html">
      Installing Python with Conda
@@ -127,8 +127,8 @@
      Automate the Boring Stuff
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vs_code_ide.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Coding with Python in an IDE
     </a>
    </li>
@@ -176,7 +176,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/vs_code_ide.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -196,7 +196,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ajstewartlang/02_intro_to_python_programming/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ajstewartlang/02_intro_to_python_programming/issues/new?title=Issue%20on%20page%20%2Fvs_code_ide.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -225,28 +225,14 @@
         
               <div>
                 
-  <div class="section" id="andrew-s-biol63162-workshops">
-<h1>Andrew’s BIOL63162 Workshops<a class="headerlink" href="#andrew-s-biol63162-workshops" title="Permalink to this headline">¶</a></h1>
-<p>This website contains the material I teach on the BIOL63162 Scientific Programming, Computational Tools, and Machine Learning unit.</p>
+  <div class="section" id="coding-with-python-in-an-ide">
+<h1>Coding with Python in an IDE<a class="headerlink" href="#coding-with-python-in-an-ide" title="Permalink to this headline">¶</a></h1>
+<p>While Jupyter Notebooks are great for interactive Python coding (and great for sharing with others) for larger Python projects you’ll probably find it easiest to write Python code in an IDE (Integrated Development Environment) where you’re able to debug your scripts (e.g., inspecting variables as your code runs), employ linting (which is the automated checking of your source code for programmatic and stylistic errors), working with version control etc.</p>
+<p>I’ve tried a few different IDEs, but the one I have settled on is <a class="reference external" href="https://code.visualstudio.com/">VS Code</a>.</p>
 <center>
-<iframe width="560" height="315" src="https://youtube.com/embed/o1a1vEZlPvg" frameborder="0" allowfullscreen></iframe>
+<p><a class="reference external" href="https://code.visualstudio.com/"><img alt="book_cover" src="_images/vscode.png" /></a></p>
 </center>
-<p> </p>
-<p>Each of the sessions is intended to run as a ~2 hour workshop. Each contains a mix of recorded videos, written material, and some challenges for you to work on.</p>
-<p>The workshops can be found via the index on the left under the ‘Content’ heading. We’ll be covering the following topics across 5 workshops:</p>
-<ul class="simple">
-<li><p>Using Conda to manage your Python libraries and create reproducible Python environments.</p></li>
-<li><p>Programming in Python using Jupyter Notebooks.</p></li>
-<li><p>Data analysis using the NumPy and pandas libraries.</p></li>
-<li><p>Using git and GitHub for version control and collaborative working.</p></li>
-<li><p>Making your analyses reproducible using Docker and Dockerhub.</p></li>
-</ul>
-<p>There is also a bonus workshop with some examples of using Python in other ways to automate particular (often boring!) tasks.</p>
-<p>If you have any questions, please feel free to email at <a class="reference external" href="mailto:drandrewjstewart&#37;&#52;&#48;gmail&#46;com">drandrewjstewart<span>&#64;</span>gmail<span>&#46;</span>com</a> or send me a DM on <a class="reference external" href="https://twitter.com/ajstewart_lang">Twitter</a>.</p>
-<p>This website was built using <a class="reference external" href="https://jupyterbook.org/intro.html">Jupyter Book</a> and was very much inspired by the <a class="reference external" href="https://ubc-dsci.github.io/jupyterdays/index.html">UBC Jupyter Days Book</a> course material.</p>
-<p><img alt="" src="_images/by.png" /></p>
-<div class="toctree-wrapper compound">
-</div>
+<p>VS Code works well with Python Conda environments. There is a great guide to setting up VS Code for Python <a class="reference external" href="https://code.visualstudio.com/">here</a> and information about setting up Python linting <a class="reference external" href="https://code.visualstudio.com/docs/python/linting">here</a> and working with version controlled projects using git <a class="reference external" href="https://code.visualstudio.com/docs/editor/versioncontrol">here</a>. From within VS Code you can stage your changes, commit them, and push/pull with your remote repository on (e.g.) GitHub.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -274,7 +260,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="content.html" title="next page">Content</a>
+    <a class='left-prev' id="prev-link" href="boring.html" title="previous page">Automate the Boring Stuff</a>
 
         </div>
         

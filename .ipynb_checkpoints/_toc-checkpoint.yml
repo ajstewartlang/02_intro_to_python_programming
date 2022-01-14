@@ -10,4 +10,4 @@
     - file: git
     - file: docker
     - file: boring
-    
+    - file: vs_code_ide
