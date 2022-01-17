@@ -186,3 +186,41 @@ for line in tree(Path.home() / 'online_teaching/online_r_units/01_open_research_
         print(line)
 
 We see from the above that our directory contains the subdiretories `script`, `Dockerfile`, `images`, `.gitattributes`, `slides` etc. And that within the `images` subdirectory, we have 6 `.png` image files.
+
+## Problem 4
+
+Imagine we want to do some web scraping. Specifically, we want to scrap the website for the journal Memory & Cognition and download all the titles of articles published across the 8 volumes in any one year. We know that the web address takes the form: https://link.springer.com/journal/13421/volumes-and-issues/{volume_number}-{issue_number} 
+
+We want to write a script that asks the user to input which volume they'd like the titles for. We then use the [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) library which contains tools to parse HTML files to extract the titles of the articles published in each issue. We then save the titles of each issue in a separate text file. Note, the titles of the articles on the Memory & Cognition website have the `<h3>` HTML heading tag.
+
+import requests
+from bs4 import BeautifulSoup
+import sys
+
+volume = input("What volume would you like the titles for? ")
+
+issue = range(1, 9, 1)
+my_urls_list = []
+
+for n in issue:
+    journal_issue = "https://link.springer.com/journal/13421/volumes-and-issues/{}-{}".format(volume, n)
+    my_urls_list.append(journal_issue)
+
+issue = 1
+
+for my_url in my_urls_list:
+    url = my_url
+    response = requests.get(url)
+    #file = "/home/andrew/python_scripts/data/mem_cog_issue_vol{}_{}".format(volume, issue)
+    file = "mem_cog_issue_vol{}_{}".format(volume, issue)
+
+    issue += 1
+    original_stdout = sys.stdout
+
+    with open(file, 'w') as f:
+        sys.stdout = f
+        soup = BeautifulSoup(response.text, 'html.parser')
+        headlines = soup.find('body').find_all('h3')
+        for x in headlines:
+            print(x.text.strip())
+        sys.stdout = original_stdout
