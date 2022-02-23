@@ -60,20 +60,12 @@ In this video I'll show you how to set up a new repo on GitHub, clone it, and ve
 
 ## Some Additional Resources
 
-If you're interested in learning about git from a more computer science perspective (incl. gaining an insight into what's going on under the head), you'll might be interested in watching these two videos:
+If you're interested in learning about git from a more computer science perspective (incl. gaining an insight into what's going on under the head), you'll might be interested in watching these two videos from the [Computerphile YouTube channel](https://www.youtube.com/user/Computerphile):
 
 ### Git Overview
 
-<center>
-
-<iframe width="560" height="315" src="https://youtu.be/92sycL8ij-U" frameborder="0" allowfullscreen></iframe>
-
-</center>
+https://youtu.be/92sycL8ij-U
 
 ### Inside the Hidden Git Folder
 
-<center>
-
-<iframe width="560" height="315" src="https://youtu.be/bSA91XTzeuA" frameborder="0" allowfullscreen></iframe>
-
-</center>
+https://youtu.be/bSA91XTzeuA
