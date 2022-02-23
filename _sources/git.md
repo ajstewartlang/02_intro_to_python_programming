@@ -64,8 +64,17 @@ If you're interested in learning about git from a more computer science perspect
 
 ### Git Overview
 
-https://youtu.be/92sycL8ij-U
+<center>
+
+[![link_to_slides](images/git1.png)](https://youtu.be/92sycL8ij-U)
+    
+</center> 
 
 ### Inside the Hidden Git Folder
 
-https://youtu.be/bSA91XTzeuA
+<center>
+
+[![link_to_slides](images/git2.png)](https://youtu.be/bSA91XTzeuA)
+    
+</center> 
+
